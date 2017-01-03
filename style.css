@@ -1,0 +1,1397 @@
+/*
+Theme Name: Senza Trucco
+Theme URI: http://underscores.me/
+Author: Tullio Loffredo
+Author URI: http://www.vinisenzatrucco.it
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: senza-trucco
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Senza Trucco is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Header
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+html {
+	font-size: 16px;
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust:     100%;
+}
+
+body {
+	margin: 0;
+	font-size: 1rem;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+a {
+	background-color: transparent;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 1em 40px;
+}
+
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+pre {
+	overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+button {
+	overflow: visible;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+button.toggle,
+html input[type="button"].toggle,
+input[type="reset"].toggle,
+input[type="submit"].toggle {
+	appearance: icon;
+	-moz-appearance: icon;
+	-webkit-appearance: icon;
+}	
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input {
+	line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: #fff; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
+	color: rgba(0, 0, 0, .8);
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: .6em 1em .4em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	border-color: #aaa #bbb #bbb;
+	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/** toggle button */
+button.toggle,
+input[type="button"].toggle,
+input[type="reset"].toggle,
+input[type="submit"].toggle {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	cursor: pointer;
+}
+
+button.toggle:focus,
+input[type="button"].toggle:focus,
+input[type="reset"].toggle:focus,
+input[type="submit"].toggle:focus,
+button.toggle:active,
+input[type="button"].toggle:active,
+input[type="reset"].toggle:active,
+input[type="submit"].toggle:active
+{
+	outline: none;
+}
+
+button.toggle i {
+	display: inline-block;
+	font-size: 16px;
+	font-size: 1rem;
+	color: #212121;
+	color: rgba(0,0,0,.87);
+}
+
+button.toggle .icon-bar,
+button.toggle .icon-bar::before,
+button.toggle .icon-bar::after {
+	display: block;
+	position: absolute;
+	content: '';
+	background: #212121;
+	background: rgba(0,0,0,.87);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+textarea {
+	width: 100%;
+}
+
+/* search form */
+form.search-form {
+	padding: 16px;
+	padding: 1rem;
+	-webkit-border-radius: 8px;
+	   -moz-border-radius: 8px;
+            border-radius: 8px;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+	   -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+            box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+
+input.search-field { 
+	display: inline-block;
+	float: left;
+	background: #eee;
+	font-size: 14px;
+	font-size: .9rem;
+	line-height: 1.5;
+	-webkit-border-radius: 3px 0 0 3px;
+	   -moz-border-radius: 3px 0 0 3px;
+	        border-radius: 3px 0 0 3px;
+}
+
+input.search-field:focus {
+	outline: 0;
+	background: #fff;
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+	   -moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+	        box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+
+input.search-submit {
+	display: inline-block;
+	float: right;	
+	overflow: visible;
+	position: relative;
+	border: 0;
+	padding: 3px;
+	cursor: pointer;
+	font-size: 14px;
+	font-size: .9rem;
+	line-height: 1.5;
+	color: #fff;
+	-webkit-border-radius: 0 3px 3px 0;
+	   -moz-border-radius: 0 3px 3px 0;
+	        border-radius: 0 3px 3px 0;
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
+	text-transform: uppercase;
+	text-shadow: none;
+}
+
+input.search-submit::before {
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	content: '';
+	background: #000;
+}
+
+input.search-submit:focus,
+input.search-submit:hover {
+	-webkit-filter: brightness(105%);
+            filter: brightness(105%);
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#masthead  {
+	position: relative;
+	margin: 8px 32px 16px 32px;
+	margin: 0.5rem 2rem 1rem 2rem;
+}
+
+.site-branding {
+	max-width: 40%;
+	float: left;
+	margin: 0 16px 16px 0;
+	margin: 0 1rem 1rem 0;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+	color: royalblue;
+	decoration: none;
+	text-decoration: none;
+}
+
+a:visited {
+	color: purple;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: midnightblue;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+
+/* 
+ * Full menu 
+ */
+/* generic menu items */ 
+.main-navigation ul {
+	clear: both;
+	display: none;
+	position: relative;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	z-index: 9999;
+}
+
+.main-navigation ul ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	width: 12.5rem;
+	visibility: hidden;
+    opacity: 0;
+	box-shadow: 2px 2px 6px rgba(0,0,0,.8);
+    -webkit-transition: all .5s ease .3s;
+	   -moz-transition: all .5s ease .3s;
+	    -ms-transition: all .5s ease .3s;
+         -o-transition: all .5s ease .3s;
+            transition: all .5s ease .3s;
+}
+
+.main-navigation li:hover > ul,
+.main-navigation li:focus > ul,
+.main-navigation li:active > ul  {
+	visibility: visible;
+	opacity: 1;
+}
+
+.main-navigation ul#primary-menu > li:hover > ul,
+.main-navigation ul#primary-menu > li:focus > ul,
+.main-navigation ul#primary-menu > li:active > ul {
+	top: 100%;
+	left: 0;
+}
+.main-navigation ul.sub-menu > li:hover > ul,
+.main-navigation ul.sub-menu > li:focus > ul,
+.main-navigation ul.sub-menu > li:active > ul {
+	top: 0;
+	left: 100%;
+}
+
+.main-navigation li {
+	float: left;
+	display: block;
+	position: relative;
+	background: #626262;
+	background: rgba(59,59,59,.8);
+	-webkit-transition: background 0.5s ease;
+  	-moz-transition:    background 0.5s ease;
+  	-o-transition:      background 0.5s ease;
+	transition: 		background 0.5s ease;
+}
+
+.main-navigation ul ul li {
+	float: none;
+	background: #3b3b3b;
+}
+
+.main-navigation a {
+	display: inline-block;
+	padding: 16px;
+	padding: 1rem;
+	font-size: 14px;
+	font-size: .9rem;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.main-navigation ul ul a {
+	padding: 8px 16px;
+	padding: 0.5rem 1rem;
+}
+
+.main-navigation li.menu-item-has-children > a::after {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 2px;
+	margin-bottom: 0.125rem;
+	padding-bottom: 0;
+	margin-left: 8px;
+	margin-left: 0.5rem;
+	border-top: 7px solid #fff;
+	border-top: .45rem solid #fff;
+	border-right: 7px solid transparent;
+	border-right: .45rem solid transparent;
+	border-left: 7px solid transparent;
+	border-left: .45rem solid transparent;
+	content: '';
+	-webkit-transition: transform 0.5s ease 0.3s;
+       -moz-transition: transform 0.5s ease 0.3s;
+	    -ms-transition: transform 0.5s ease 0.3s;
+         -o-transition: transform 0.5s ease 0.3s;
+            transition: transform 0.5s ease 0.3s;
+}
+
+.main-navigation ul#primary-menu > li.menu-item-has-children:hover > a::after,
+.main-navigation ul#primary-menu > li.menu-item-has-children:focus > a::after {
+	-webkit-transform: rotate(-180deg);
+	   -moz-transform: rotate(-180deg);
+	    -ms-transform: rotate(-180deg);
+	     -o-transform: rotate(-180deg);
+	        transform: rotate(-180deg);
+}
+.main-navigation ul.sub-menu > li.menu-item-has-children:hover > a::after,
+.main-navigation ul.sub-menu > li.menu-item-has-children:focus > a::after {
+	-webkit-transform: rotate(-90deg);
+	   -moz-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+	     -o-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+}
+
+.main-navigation .toggle {
+	width: 53px;
+	width: 3.313rem;
+	height: 53px;
+	height: 3.313rem;
+	padding: 8px;
+	padding: 0.5rem;
+}
+
+.main-navigation .toggle i {
+	font-size: 28px;
+	font-size: 1.8rem;
+}
+
+/* search menu item */
+.main-navigation li.menu-item-search {
+	float: right;
+	background: none;
+}
+
+.main-navigation li.menu-item-search:hover, 
+.main-navigation li.menu-item-search:focus {
+	background: none;
+}
+
+.main-navigation .search-toggle {
+	float: right;
+	display: none;
+	background: #626262;
+	background: rgba(59,59,59,.8);
+	-webkit-border-radius:	0;
+	   -moz-border-radius:	0;
+	        border-radius:	0;
+	-webkit-transition: background .5s ease;
+  	   -moz-transition: background .5s ease;
+	    -ms-transition: background .5s ease;
+  	     -o-transition: background .5s ease;
+	        transition: background .5s ease;
+}
+
+.main-navigation .search-toggle i {
+	color: #fff;
+}
+
+.main-navigation #primary-search {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #626262;
+	background: rgba(59,59,59,.8);
+	-webkit-transition: all .5s ease .3s;
+  	   -moz-transition: all .5s ease .3s;
+	    -ms-transition: all .5s ease .3s;
+  	     -o-transition: all .5s ease .3s;
+	        transition: all .5s ease .3s;
+}
+
+.main-navigation #primary-search.toggled {
+	visibility: visible;
+	opacity: 1;
+	top: 100%;
+}	
+
+.main-navigation .search-form {
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+	        border-radius: 0;
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+            box-shadow: none;
+}
+
+/* Small menu. */
+.menu-toggle {
+	float: right;
+}
+
+.menu-toggle .icon-bar {
+	top: 24px;
+	top: 1.5rem;
+	right: 8px;
+	right: 0.5rem;
+	left: 8px;
+	left: 0.5rem;
+	height: 5px;
+	height: 0.313rem;
+	-webkit-transition:	background 0.3s ease 0.3s;
+	-moz-transition:	background 0.3s ease 0.3s;
+	-o-transition: 		background 0.3s ease 0.3s;
+	transition: 		background 0.3s ease 0.3s;
+}
+
+.menu-toggle .icon-bar::before,
+.menu-toggle .icon-bar::after {
+	left: 0;
+	width: 100%;
+	height: 5px;
+	height: 0.313rem;
+}
+
+.menu-toggle .icon-bar::before {
+	top: -12px;
+	top: -0.75rem;
+	-webkit-transition:	transform 0.3s ease, top 0.3s ease 0.3s;
+	-moz-transition:	transform 0.3s ease, top 0.3s ease 0.3s;
+	-o-transition: 		transform 0.3s ease, top 0.3s ease 0.3s;
+	transition: 		transform 0.3s ease, top 0.3s ease 0.3s;
+}
+
+.menu-toggle .icon-bar::after {
+	bottom: -12px;
+	bottom: -0.75rem;	
+	-webkit-transition:	transform 0.3s ease, bottom 0.3s ease 0.3s;
+	-moz-transition:	transform 0.3s ease, bottom 0.3s ease 0.3s;
+	-o-transition: 		transform 0.3s ease, bottom 0.3s ease 0.3s;
+	transition: 		transform 0.3s ease, bottom 0.3s ease 0.3s;
+}
+
+.main-navigation.toggled .menu-toggle .icon-bar {
+	background: none;
+	-webkit-transition:	background 0.3s ease;
+	-moz-transition:	background 0.3s ease;
+	-o-transition: 		background 0.3s ease;
+	transition: 		background 0.3s ease;
+}
+
+.main-navigation.toggled .menu-toggle .icon-bar::before {
+	top: 0;
+	transform: rotate(45deg);
+	-webkit-transition:	top 0.3s ease, transform 0.3s ease 0.3s;
+	-moz-transition:	top 0.3s ease, transform 0.3s ease 0.3s;
+	-o-transition: 		top 0.3s ease, transform 0.3s ease 0.3s;
+	transition: 		top 0.3s ease, transform 0.3s ease 0.3s;
+}
+
+.main-navigation.toggled .menu-toggle .icon-bar::after {
+	bottom: 0;
+	transform: rotate(-45deg);
+	-webkit-transition:	bottom 0.3s ease, transform 0.3s ease 0.3s;
+	-moz-transition:	bottom 0.3s ease, transform 0.3s ease 0.3s;
+	-o-transition: 		bottom 0.3s ease, transform 0.3s ease 0.3s;
+	transition: 		bottom 0.3s ease, transform 0.3s ease 0.3s;
+}	
+
+.main-navigation.toggled ul  {
+	display: block;
+}
+
+.main-navigation.toggled.enabled ul  {
+	-webkit-animation: slide .6s ease;
+	   -moz-animation: slide .6s ease;
+	    -ms-animation: slide .6s ease;
+	     -o-animation: slide .6s ease;
+	        animation: slide .6s ease;
+}
+
+.main-navigation.toggled.disabled ul  {
+	-webkit-animation: slide .6s ease reverse;
+	   -moz-animation: slide .6s ease reverse;
+	    -ms-animation: slide .6s ease reverse;
+	     -o-animation: slide .6s ease reverse;
+	        animation: slide .6s ease reverse;
+}
+
+.main-navigation.toggled li {
+	float: none;
+}
+
+
+
+/*.main-navigation.toggled ul {
+	display: block;
+	visibility: visible;
+	opacity: 1;
+	filter: alpha(opacity=100);
+	height: auto;
+}
+
+.main-navigation.toggled li {
+	float: none;
+}
+
+.main-navigation.toggled a {	
+	padding: 8px 16px;
+	padding: 0.5rem 1rem;
+}
+
+.main-navigation.toggled ul ul {
+	display: block;
+	float: none;
+	position: relative;
+	top: -100%;
+	left: 0;
+	height: 0;
+	visibility: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.3s ease 0.5s;
+    -moz-transition: 	all 0.3s ease 0.5s;
+    -o-transition: 		all 0.3s ease 0.5s;
+    transition: 		all 0.3s ease 0.5s;
+} 
+
+.main-navigation.toggled ul > li:hover > ul,
+.main-navigation.toggled ul > li:focus > ul {
+	visibility: visible;
+	top: 0;
+	left: 0;
+	height: auto;
+}
+
+.main-navigation.toggled li.menu-item-has-children > a::after {
+	-webkit-transition: transform 0.3s ease 0.5s;
+    -moz-transition: 	transform 0.3s ease 0.5s;
+    -o-transition: 		transform 0.3s ease 0.5s;
+    transition: 		transform 0.3s ease 0.5s;
+}
+
+.main-navigation.toggled ul > li.menu-item-has-children:hover > a::after,
+.main-navigation.toggled ul > li.menu-item-has-children:focus > a::after {
+	-webkit-transform:	rotate(-180deg);
+	-moz-transform:		rotate(-180deg);
+	-ms-transform: 		rotate(-180deg);
+	-o-transform: 		rotate(-180deg);
+	transform: 			rotate(-180deg);
+}
+
+.main-navigation li.menu-item-search {
+	float: none;
+	background: #626262;
+	background: rgba(59,59,59,.8);
+}
+
+.main-navigation.toggled .search-toggle {
+	display: none;
+}
+
+.main-navigation.toggled .search-form {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	padding: 16px;
+	padding: 1rem;
+	background: none;
+	visibility: visible;
+	opacity: 1;
+	filter:alpha(opacity=100);
+}*/
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* Responsiveness */
+@media all and (min-width: 1025px) {
+	button.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul,
+	.main-navigation .search-toggle {
+		display: block;
+	}
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Make sure select elements fit in widgets. */
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/* ====================================================================================================================
+ * KEYFRAMES
+ * ====================================================================================================================*/
+@-webkit-keyframes slide {
+	from 	{ opacity: 0; -webkit-transform: translateX(-100%); }
+	to		{ opacity: 1; -webkit-transform: translateX(0); }
+}
+@-moz-keyframes slide {
+	from 	{ opacity: 0; -moz-transform: translateX(-100%); }
+	to		{ opacity: 1; -moz-transform: translateX(0); }
+}
+@-ms-keyframes slide {
+	from 	{ opacity: 0; -ms-transform: translateX(-100%); }
+	to		{ opacity: 1; -ms-transform: translateX(0); }
+}
+@-o-keyframes slide {
+	from 	{ opacity: 0; -o-transform: translateX(-100%); }
+	to		{ opacity: 1; -o-transform: translateX(0); }
+}
+@keyframes slide {
+	from 	{ opacity: 0; transform: translateX(-100%); }
+	to		{ opacity: 1; transform: translateX(0); }
+}
+
+/* ====================================================================================================================
+ * RESPONSIVE
+ * ====================================================================================================================*/
+@media all and (max-width: 480px) {
+  html {
+    font-size: 6px;
+  }
+}
+@media all and (min-width: 481) and (max-width: 768px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media all and (min-width: 769) and (max-width: 1024px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media all and (min-width: 1025) and (max-width: 1240px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media all and (min-width: 1241) and (max-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1921px) {
+  html {
+    font-size: 20px%;
+  }
+}
