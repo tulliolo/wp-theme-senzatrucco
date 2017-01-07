@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, menuButton, searchButton, menu, search, links, subMenus, i, len,
+	var container, menuButton, searchButton, menu, search, searchForm, links, subMenus, i, len,
 		maxSize = 1024,
 		pfx = ["webkit", "moz", "ms", "o", ""];
 
@@ -34,7 +34,8 @@
 	
 	// search form
 	searchButton = container.getElementsByClassName( 'search-toggle' )[0];
-	search = document.getElementById( "primary-search" );
+	search = document.getElementById( 'primary-search' );
+	searchForm = search.getElementsByClassName( 'search-form' )[0];
 	
 	/**
 	 * Register event listeners
@@ -47,6 +48,8 @@
 	menuButton.addEventListener( 'click', menuButtonClickListener, false );
 	// Register searchButton event listeners
 	searchButton.addEventListener( 'click', searchButtonClickListener, false );
+	// Register searchForm event listeners
+	searchForm.addEventListener( 'submit', searchButtonClickListener, false );
 	
 	/**
 	 * Handle events
@@ -55,7 +58,13 @@
 	function windowResizeListener( e ) {
 		if ( ( window.innerWidth > maxSize ) && ( -1 !== container.className.indexOf( 'toggled' ) ) ) {
 			container.className = container.className.replace( ' toggled', '' );
-		}
+			menuButton.setAttribute( 'aria-expanded', 'false' );
+			menu.setAttribute( 'aria-expanded', 'false' );
+		} else if ( ( window.innerWidth <= maxSize ) && ( -1 !== search.className.indexOf( 'toggled' ) ) ) {
+			search.className = search.className.replace( ' toggled', '' );
+			search.setAttribute( 'aria-expanded', 'false' );
+			searchButton.setAttribute( 'aria-expanded', 'false' );
+		}	
 	}	
 	// Handle menu events
 	function menuAnimationListener( e ) {
@@ -81,13 +90,15 @@
 	
 	// Handle searchButton events
 	function searchButtonClickListener( e ) {
-		if ( 'false' === searchButton.getAttribute( 'aria-expanded' ) ) {
-			searchButton.setAttribute( 'aria-expanded', 'true' );
-			search.className += ' toggled';
-		} else {
-			searchButton.setAttribute( 'aria-expanded', 'false' );
+		if ( -1 !== search.className.indexOf( 'toggled' ) ) {
 			search.className = search.className.replace(' toggled', '');
-		}	
+			search.setAttribute( 'aria-expanded', 'false' );
+			searchButton.setAttribute( 'aria-expanded', 'false' );
+		} else {
+			search.className += ' toggled';
+			search.setAttribute( 'aria-expanded', 'true' );
+			searchButton.setAttribute( 'aria-expanded', 'true' );
+		}
 	}	
 
 	// Get all the link elements within the menu.

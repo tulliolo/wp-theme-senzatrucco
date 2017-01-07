@@ -146,7 +146,7 @@ function senza_trucco_nav_menu_items($items, $args) {
 				<button class="toggle search-toggle" aria-controls="primary-search" aria-expanded="false">
 					<i class="genericon genericon-search"></i>
 				</button>
-				<div id="primary-search" class="container">'
+				<div id="primary-search" class="container" aria-expanded="false">'
 					. get_search_form( false ) .
 			'	</div><!-- #primary-search -->
 			</li>';

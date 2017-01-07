@@ -178,7 +178,8 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		div.entry-title,
 		.main-navigation li:hover, .main-navigation li:focus,
 		.main-navigation .current_page_item, .main-navigation .current-menu-item, .main-navigation .current_page_ancestor, .main-navigation .current-menu-ancestor,
-		.main-navigation .menu-toggle span.icon-bar, .main-navigation .menu-toggle span.icon-bar::before, .main-navigation .menu-toggle span.icon-bar::after,
+		.main-navigation .menu-toggle .icon-bar, .main-navigation .menu-toggle .icon-bar::before, .main-navigation .menu-toggle .icon-bar::after,
+		.main-navigation.toggled.disabled .menu-toggle .icon-bar, .main-navigation.toggled.disabled .menu-toggle .icon-bar::before, .main-navigation.toggled.disabled .menu-toggle .icon-bar::after,
 		.main-navigation .search-toggle:hover, .main-navigation .search-toggle[aria-expanded="true"],
 		.main-navigation.toggled li.menu-item-search:hover, .main-navigation.toggled li.menu-item-search:focus {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
@@ -190,14 +191,19 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		/** background accent **/
-		button.toggle span.icon-bar, button.toggle span.icon-bar::before, button.toggle span.icon-bar::after,
-		input.search-submit,
+		button.toggle .icon-bar, button.toggle .icon-bar::before, button.toggle .icon-bar::after,
+		button.search-submit,
 		.flex-control-paging li a.flex-active,
 		.flex-direction-nav a {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		
 		/** color accent **/
+		
+		/** border-color accent **/
+		button.search-submit::before {
+			border-color: transparent <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?> transparent;
+		}	
 	</style>
 	<?php
 }

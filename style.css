@@ -482,6 +482,15 @@ input[type="submit"].toggle {
 	cursor: pointer;
 }
 
+button.toggle:hover,
+input[type="button"].toggle:hover,
+input[type="reset"].toggle:hover,
+input[type="submit"].toggle:hover
+{
+	-webkit-filter: brightness(110%);
+            filter: brightness(110%);
+}
+
 button.toggle:focus,
 input[type="button"].toggle:focus,
 input[type="reset"].toggle:focus,
@@ -562,20 +571,10 @@ textarea {
 }
 
 /* search form */
-form.search-form {
-	padding: 16px;
-	padding: 1rem;
-	-webkit-border-radius: 8px;
-	   -moz-border-radius: 8px;
-            border-radius: 8px;
-	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-	   -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-            box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-}
 
-input.search-field { 
+input.search-field {
 	display: inline-block;
-	float: left;
+	margin: 0;
 	background: #eee;
 	font-size: 14px;
 	font-size: .9rem;
@@ -593,16 +592,43 @@ input.search-field:focus {
 	        box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
 }
 
-input.search-submit {
-	display: inline-block;
-	float: right;	
+input.search-field::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+input.search-field:-moz-placeholder { /* Firefox 18- */
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+input.search-field::-moz-placeholder {  /* Firefox 19+ */
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+input.search-field:-ms-input-placeholder {  
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+input.search-field::placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+
+button.search-submit {
+	display: inline-block;	
 	overflow: visible;
 	position: relative;
-	border: 0;
-	padding: 3px;
+	left: -5px;
+	border: none;
+	padding: 4px 8px;
 	cursor: pointer;
 	font-size: 14px;
 	font-size: .9rem;
+	font-weight: bold;
 	line-height: 1.5;
 	color: #fff;
 	-webkit-border-radius: 0 3px 3px 0;
@@ -615,19 +641,28 @@ input.search-submit {
 	text-shadow: none;
 }
 
-input.search-submit::before {
-	display: block;
-	position: absolute;
-	width: 50px;
-	height: 50px;
+button.search-submit::before {
 	content: '';
-	background: #000;
-}
+	position: absolute;
+	border-width: 8px 8px 8px 0;
+	border-style: solid solid solid none;
+	top: 7px;
+	left: -6px;
+}	
 
-input.search-submit:focus,
-input.search-submit:hover {
-	-webkit-filter: brightness(105%);
-            filter: brightness(105%);
+button.search-submit:hover
+{
+	-webkit-filter: brightness(110%);
+            filter: brightness(110%);
+}
+button.search-submit:hover,
+button.search-submit:focus,
+button.search-submit:active
+ {
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
+	text-shadow: none;
 }
 
 /*--------------------------------------------------------------
@@ -742,7 +777,7 @@ a:active {
   	-moz-transition:    background 0.5s ease;
   	-o-transition:      background 0.5s ease;
 	transition: 		background 0.5s ease;
-}
+}		
 
 .main-navigation ul ul li {
 	float: none;
@@ -848,11 +883,16 @@ a:active {
 }
 
 .main-navigation #primary-search {
+	display: block;
 	visibility: hidden;
 	opacity: 0;
 	position: absolute;
 	top: 0;
 	right: 0;
+	width: 320px;
+	width: 20rem;
+	padding: 16px 0;
+	padding: 1rem 0;
 	background: #626262;
 	background: rgba(59,59,59,.8);
 	-webkit-transition: all .5s ease .3s;
@@ -869,12 +909,12 @@ a:active {
 }	
 
 .main-navigation .search-form {
-	-webkit-border-radius: 0;
-	   -moz-border-radius: 0;
-	        border-radius: 0;
-	-webkit-box-shadow: none;
-	   -moz-box-shadow: none;
-            box-shadow: none;
+	text-align: center;
+}
+
+.main-navigation .search-field {
+	padding: 4px;
+	border: none;
 }
 
 /* Small menu. */
@@ -891,10 +931,11 @@ a:active {
 	left: 0.5rem;
 	height: 5px;
 	height: 0.313rem;
-	-webkit-transition:	background 0.3s ease 0.3s;
-	-moz-transition:	background 0.3s ease 0.3s;
-	-o-transition: 		background 0.3s ease 0.3s;
-	transition: 		background 0.3s ease 0.3s;
+	/*-webkit-transition: background .3s ease .3s;
+	   -moz-transition: background .3s ease .3s;
+	    -ms-transition: background .3s ease .3s;
+	     -o-transition: background .3s ease .3s;
+	        transition: background .3s ease .3s;*/
 }
 
 .menu-toggle .icon-bar::before,
@@ -908,46 +949,121 @@ a:active {
 .menu-toggle .icon-bar::before {
 	top: -12px;
 	top: -0.75rem;
-	-webkit-transition:	transform 0.3s ease, top 0.3s ease 0.3s;
-	-moz-transition:	transform 0.3s ease, top 0.3s ease 0.3s;
-	-o-transition: 		transform 0.3s ease, top 0.3s ease 0.3s;
-	transition: 		transform 0.3s ease, top 0.3s ease 0.3s;
+	/*-webkit-transition:	transform .3s ease, top .3s ease .3s;
+	   -moz-transition: transform .3s ease, top .3s ease .3s;
+	    -ms-transition: transform .3s ease, top .3s ease .3s;
+	     -o-transition:	transform .3s ease, top .3s ease .3s;
+	        transition: transform .3s ease, top .3s ease .3s;*/
 }
 
 .menu-toggle .icon-bar::after {
 	bottom: -12px;
-	bottom: -0.75rem;	
-	-webkit-transition:	transform 0.3s ease, bottom 0.3s ease 0.3s;
-	-moz-transition:	transform 0.3s ease, bottom 0.3s ease 0.3s;
-	-o-transition: 		transform 0.3s ease, bottom 0.3s ease 0.3s;
-	transition: 		transform 0.3s ease, bottom 0.3s ease 0.3s;
+	bottom: -0.75rem;
+	/*-webkit-transition:	transform .3s ease, bottom .3s ease .3s;
+	   -moz-transition: transform .3s ease, bottom .3s ease .3s;
+	    -ms-transition: transform .3s ease, bottom .3s ease .3s;
+	     -o-transition: transform .3s ease, bottom .3s ease .3s;
+	        transition: transform .3s ease, bottom .3s ease .3s;*/
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar {
 	background: none;
-	-webkit-transition:	background 0.3s ease;
-	-moz-transition:	background 0.3s ease;
-	-o-transition: 		background 0.3s ease;
-	transition: 		background 0.3s ease;
+	/*-webkit-transition:	background .3s ease;
+	   -moz-transition: background .3s ease;
+	    -ms-transition: background .3s ease;
+	     -o-transition: background .3s ease;
+	        transition:	background .3s ease;*/
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar::before {
 	top: 0;
-	transform: rotate(45deg);
-	-webkit-transition:	top 0.3s ease, transform 0.3s ease 0.3s;
-	-moz-transition:	top 0.3s ease, transform 0.3s ease 0.3s;
-	-o-transition: 		top 0.3s ease, transform 0.3s ease 0.3s;
-	transition: 		top 0.3s ease, transform 0.3s ease 0.3s;
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	     -o-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	/*-webkit-transition:	top .3s ease, transform .3s ease .3s;
+	   -moz-transition:	top .3s ease, transform .3s ease .3s;
+	    -ms-transition:	top .3s ease, transform .3s ease .3s;
+	     -o-transition: top .3s ease, transform .3s ease .3s;
+	        transition: top .3s ease, transform .3s ease .3s;*/
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar::after {
 	bottom: 0;
-	transform: rotate(-45deg);
-	-webkit-transition:	bottom 0.3s ease, transform 0.3s ease 0.3s;
-	-moz-transition:	bottom 0.3s ease, transform 0.3s ease 0.3s;
-	-o-transition: 		bottom 0.3s ease, transform 0.3s ease 0.3s;
-	transition: 		bottom 0.3s ease, transform 0.3s ease 0.3s;
-}	
+	-webkit-transform: rotate(-45deg);
+	   -moz-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	     -o-transform: rotate(-45deg);
+	        transform: rotate(-45deg);
+	/*-webkit-transition:	bottom .3s ease, transform .3s ease .3s;
+	   -moz-transition: bottom .3s ease, transform .3s ease .3s;
+	    -ms-transition:	bottom .3s ease, transform .3s ease .3s;
+	     -o-transition: bottom .3s ease, transform .3s ease .3s;
+	        transition: bottom .3s ease, transform .3s ease .3s;*/
+}
+
+.main-navigation.toggled.enabled .menu-toggle .icon-bar {
+	-webkit-transition:	background .3s ease;
+	   -moz-transition: background .3s ease;
+	    -ms-transition: background .3s ease;
+	     -o-transition: background .3s ease;
+	        transition:	background .3s ease;
+}
+
+.main-navigation.toggled.enabled .menu-toggle .icon-bar::before {
+	-webkit-transition:	top .3s ease, transform .3s ease .3s;
+	   -moz-transition:	top .3s ease, transform .3s ease .3s;
+	    -ms-transition:	top .3s ease, transform .3s ease .3s;
+	     -o-transition: top .3s ease, transform .3s ease .3s;
+	        transition: top .3s ease, transform .3s ease .3s;
+}
+
+.main-navigation.toggled.enabled .menu-toggle .icon-bar::after {
+	-webkit-transition:	bottom .3s ease, transform .3s ease .3s;
+	   -moz-transition:	bottom .3s ease, transform .3s ease .3s;
+	    -ms-transition:	bottom .3s ease, transform .3s ease .3s;
+	     -o-transition: bottom .3s ease, transform .3s ease .3s;
+	        transition: bottom .3s ease, transform .3s ease .3s;
+}
+
+.main-navigation.toggled.disabled .menu-toggle .icon-bar {
+	-webkit-transition:	background .3s ease .3s;
+	   -moz-transition: background .3s ease .3s;
+	    -ms-transition: background .3s ease .3s;
+	     -o-transition: background .3s ease .3s;
+	        transition:	background .3s ease .3s;
+}
+
+.main-navigation.toggled.disabled .menu-toggle .icon-bar::before {
+	top: -12px;
+	top: -0.75rem;
+	-webkit-transform: none;
+	   -moz-transform: none;
+	    -ms-transform: none;
+	     -o-transform: none;
+	        transform: none;
+	-webkit-transition:	transform .3s ease, top .3s ease .3s;
+	   -moz-transition: transform .3s ease, top .3s ease .3s;
+	    -ms-transition: transform .3s ease, top .3s ease .3s;
+	     -o-transition: transform .3s ease, top .3s ease .3s;
+	        transition: transform .3s ease, top .3s ease .3s;
+}
+
+.main-navigation.toggled.disabled .menu-toggle .icon-bar::after {
+	bottom: -12px;
+	bottom: -0.75rem;
+	-webkit-transform: none;
+	   -moz-transform: none;
+	    -ms-transform: none;
+	     -o-transform: none;
+	        transform: none;
+	-webkit-transition:	transform .3s ease, bottom .3s ease .3s;
+	   -moz-transition: transform .3s ease, bottom .3s ease .3s;
+	    -ms-transition: transform .3s ease, bottom .3s ease .3s;
+	     -o-transition: transform .3s ease, bottom .3s ease .3s;
+	        transition: transform .3s ease, bottom .3s ease .3s;
+}
 
 .main-navigation.toggled ul  {
 	display: block;
