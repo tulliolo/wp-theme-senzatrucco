@@ -931,11 +931,6 @@ a:active {
 	left: 0.5rem;
 	height: 5px;
 	height: 0.313rem;
-	/*-webkit-transition: background .3s ease .3s;
-	   -moz-transition: background .3s ease .3s;
-	    -ms-transition: background .3s ease .3s;
-	     -o-transition: background .3s ease .3s;
-	        transition: background .3s ease .3s;*/
 }
 
 .menu-toggle .icon-bar::before,
@@ -949,30 +944,15 @@ a:active {
 .menu-toggle .icon-bar::before {
 	top: -12px;
 	top: -0.75rem;
-	/*-webkit-transition:	transform .3s ease, top .3s ease .3s;
-	   -moz-transition: transform .3s ease, top .3s ease .3s;
-	    -ms-transition: transform .3s ease, top .3s ease .3s;
-	     -o-transition:	transform .3s ease, top .3s ease .3s;
-	        transition: transform .3s ease, top .3s ease .3s;*/
 }
 
 .menu-toggle .icon-bar::after {
 	bottom: -12px;
 	bottom: -0.75rem;
-	/*-webkit-transition:	transform .3s ease, bottom .3s ease .3s;
-	   -moz-transition: transform .3s ease, bottom .3s ease .3s;
-	    -ms-transition: transform .3s ease, bottom .3s ease .3s;
-	     -o-transition: transform .3s ease, bottom .3s ease .3s;
-	        transition: transform .3s ease, bottom .3s ease .3s;*/
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar {
 	background: none;
-	/*-webkit-transition:	background .3s ease;
-	   -moz-transition: background .3s ease;
-	    -ms-transition: background .3s ease;
-	     -o-transition: background .3s ease;
-	        transition:	background .3s ease;*/
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar::before {
@@ -982,11 +962,6 @@ a:active {
 	    -ms-transform: rotate(45deg);
 	     -o-transform: rotate(45deg);
 	        transform: rotate(45deg);
-	/*-webkit-transition:	top .3s ease, transform .3s ease .3s;
-	   -moz-transition:	top .3s ease, transform .3s ease .3s;
-	    -ms-transition:	top .3s ease, transform .3s ease .3s;
-	     -o-transition: top .3s ease, transform .3s ease .3s;
-	        transition: top .3s ease, transform .3s ease .3s;*/
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar::after {
@@ -996,11 +971,6 @@ a:active {
 	    -ms-transform: rotate(-45deg);
 	     -o-transform: rotate(-45deg);
 	        transform: rotate(-45deg);
-	/*-webkit-transition:	bottom .3s ease, transform .3s ease .3s;
-	   -moz-transition: bottom .3s ease, transform .3s ease .3s;
-	    -ms-transition:	bottom .3s ease, transform .3s ease .3s;
-	     -o-transition: bottom .3s ease, transform .3s ease .3s;
-	        transition: bottom .3s ease, transform .3s ease .3s;*/
 }
 
 .main-navigation.toggled.enabled .menu-toggle .icon-bar {
@@ -1088,8 +1058,6 @@ a:active {
 .main-navigation.toggled li {
 	float: none;
 }
-
-
 
 /*.main-navigation.toggled ul {
 	display: block;
