@@ -143,13 +143,11 @@ function senza_trucco_nav_menu_items($items, $args) {
 	if( $args->theme_location == 'primary' )
 		$items .= 
 			'<li id="menu-item-search" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-search">
-				<button class="toggle search-toggle" aria-controls="primary-search" aria-expanded="false">
+				<button class="toggle search-toggle" aria-controls="primary-search">
 					<i class="genericon genericon-search"></i>
-				</button>
-				<div id="primary-search" class="container" aria-expanded="false">'
-					. get_search_form( false ) .
-			'	</div><!-- #primary-search -->
-			</li>';
+				</button>'
+				. get_search_form( false ) .
+			'</li>';
 	return $items;
 }
 add_filter('wp_nav_menu_items', 'senza_trucco_nav_menu_items', 10, 2);
