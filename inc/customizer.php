@@ -29,14 +29,6 @@ add_action( 'customize_preview_init', 'senza_trucco_customize_preview_js' );
  * Options for Senza Trucco Theme Customizer.
  */
 function senza_trucco_customizer( $wp_customize ) {
-	/* Main option Settings Panel */
-    $wp_customize->add_panel('senza_trucco_panel', array(
-        'capability' => 'edit_theme_options',
-        'theme_supports' => '',
-        'title' => __('Senza Trucco options', 'senza-trucco'),
-        'description' => __('Panel to update Senza Trucco theme options', 'senza-trucco'),
-        'priority' => 10 // Mixed with top-level-section hierarchy.
-    ));
 	
 	/**********************************
 	 * Featured content configuration *
@@ -44,7 +36,7 @@ function senza_trucco_customizer( $wp_customize ) {
 	$wp_customize->add_section( 'senza_trucco_slider' , array(
 		'title'		=> __( 'Slider options', 'senza-trucco' ),
 		'priority'	=> 30,
-		'panel'		=> 'senza_trucco_panel'
+		'capability'     => 'edit_theme_options',
 	) );
 	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_enabled]', array(
 		'default' 			=> 0,
@@ -102,34 +94,40 @@ function senza_trucco_customizer( $wp_customize ) {
 	/******************************
 	 * Color scheme configuration *
 	 ******************************/
-	$wp_customize->add_section( 'senza_trucco_color' , array(
-		'title'		=> __( 'Color options', 'senza-trucco' ),
-		'priority'	=> 30,
-		'panel'		=> 'senza_trucco_panel'
-	) );
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_color_primary]', array(
+	$wp_customize->add_setting( 'senza_trucco_color_primary', array(
 		'default' 			=> '#980747',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control( $wp_customize, 'senza-trucco[senza_trucco_color_primary]', array(
-				'label'		=> __('Change theme primary color', 'senza-trucco'),
-				'section' 	=> 'senza_trucco_color',
-				'settings'	=> 'senza-trucco[senza_trucco_color_primary]',
-				'priority'	=> 5
+		new WP_Customize_Color_Control( $wp_customize, 'senza_trucco_color_primary', array(
+				'label'		=> __('Primary color', 'senza-trucco'),
+				'section' 	=> 'colors',
+				'settings'	=> 'senza_trucco_color_primary',
+				'priority'	=> 1
 			)
 	) );
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_color_accent]', array(
+	$wp_customize->add_setting( 'senza_trucco_color_accent', array(
 		'default' 			=> '#1FA67A',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control( $wp_customize, 'senza-trucco[senza_trucco_color_accent]', array(
-				'label'		=> __('Change theme accent color', 'senza-trucco'),
-				'section' 	=> 'senza_trucco_color',
-				'settings'	=> 'senza-trucco[senza_trucco_color_accent]',
-				'priority'	=> 10
+		new WP_Customize_Color_Control( $wp_customize, 'senza_trucco_color_accent', array(
+				'label'		=> __('Accent color', 'senza-trucco'),
+				'section' 	=> 'colors',
+				'settings'	=> 'senza_trucco_color_accent',
+				'priority'	=> 2
 			)
+	) );
+	
+	$wp_customize->add_control( 'show_on_front', array(
+		'label' => __( 'Front page displays' ),
+		'section' => 'static_front_page',
+		'type' => 'radio',
+		'choices' => array(
+			'posts' => __( 'Your latest posts' ),
+			'page'  => __( 'A static page' ),
+			'empty' => __( 'Empty page' ),
+		),
 	) );
 }
 add_action( 'customize_register', 'senza_trucco_customizer' );

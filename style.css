@@ -24,6 +24,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
+	## Responsive layout
 # Typography
 # Elements
 # Forms
@@ -31,10 +32,16 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Navigation
 	## Links
 	## Menus
+	## Responsive Layout
 # Accessibility
 # Alignments
 # Clearings
 # Widgets
+# Sections
+	## Header
+	## Content
+	## Footer
+	## Responsive layout
 # Content
 	## Posts and pages
 	## Comments
@@ -42,6 +49,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
 	## Captions
 	## Galleries
+	## Social
+	## Animations
+	
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -55,6 +65,7 @@ html {
 }
 
 body {
+	max-width: 3840px;
 	margin: 0;
 	font-size: 1rem;
 }
@@ -266,6 +277,20 @@ table {
 td,
 th {
 	padding: 0;
+}
+
+/*--------------------------------------------------------------
+## Responsive Layout
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -666,22 +691,6 @@ button.search-submit:active
 }
 
 /*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-#masthead  {
-	position: relative;
-	margin: 8px 32px 16px 32px;
-	margin: .5rem 2rem 1rem 2rem;
-}
-
-.site-branding {
-	max-width: 40%;
-	float: left;
-	margin: 0 16px 16px 0;
-	margin: 0 1rem 1rem 0;
-}
-
-/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -716,10 +725,9 @@ a:active {
 ## Menus
 --------------------------------------------------------------*/
 
-/* 
- * Full menu 
- */
-/* generic menu items */ 
+/****************** 
+ * main menu full *
+ ******************/ 
 .main-navigation ul {
 	clear: both;
 	display: none;
@@ -838,21 +846,6 @@ a:active {
 	        transform: rotate(-90deg);
 }
 
-.main-navigation .toggle {
-	width: 53px;
-	width: 3.313rem;
-	height: 53px;
-	height: 3.313rem;
-	padding: 8px;
-	padding: .5rem;
-}
-
-.main-navigation .toggle i {
-	font-size: 28px;
-	font-size: 1.8rem;
-}
-
-/* search menu item */
 .main-navigation li.menu-item-search {
 	float: right;
 	background: none;
@@ -866,6 +859,12 @@ a:active {
 .main-navigation .search-toggle {
 	float: right;
 	display: none;
+	width: 53px;
+	width: 3.313rem;
+	height: 53px;
+	height: 3.313rem;
+	padding: 8px;
+	padding: .5rem;
 	background: #626262;
 	background: rgba(59,59,59,.8);
 	-webkit-border-radius:	0;
@@ -878,8 +877,15 @@ a:active {
 	        transition: background .6s ease;
 }
 
-.main-navigation .search-toggle i {
+.main-navigation .search-toggle::before { 
+	content: '\f400';
+	display: inline-block;
 	color: #fff;
+	font-family: 'Genericons';
+	font-size: 28px;
+	font-size: 1.8rem;
+	vertical-align: top;
+	-webkit-font-smoothing: antialiased;
 }
 
 .main-navigation .search-form {
@@ -914,38 +920,46 @@ a:active {
 	border: none;
 }
 
-/* Small menu. */
+/******************* 
+ * main menu small *
+ *******************/
+ 
 .menu-toggle {
 	float: right;
-}
+	width: 40px;
+	width: 2.5rem;
+	height: 40px;
+	height: 2.5rem;
+	padding: 0;
+}	
 
 .menu-toggle .icon-bar {
-	top: 24px;
-	top: 1.5rem;
-	right: 8px;
-	right: .5rem;
-	left: 8px;
-	left: .5rem;
-	height: 5px;
-	height: .313rem;
+	top: 17px;
+	top: 1.063rem;
+	right: 4px;
+	right: .25rem;
+	left: 4px;
+	left: .25rem;
+	height: 4px;
+	height: .25rem;
 }
 
 .menu-toggle .icon-bar::before,
 .menu-toggle .icon-bar::after {
 	left: 0;
 	width: 100%;
-	height: 5px;
-	height: .313rem;
+	height: 4px;
+	height: .25rem;
 }
 
 .menu-toggle .icon-bar::before {
-	top: -12px;
-	top: -.75rem;
+	top: -8px;
+	top: -.5rem;
 }
 
 .menu-toggle .icon-bar::after {
-	bottom: -12px;
-	bottom: -.75rem;
+	bottom: -8px;
+	bottom: -.5rem;
 }
 
 .main-navigation.toggled .menu-toggle .icon-bar {
@@ -1003,8 +1017,8 @@ a:active {
 }
 
 .main-navigation.toggled.toggled-out .menu-toggle .icon-bar::before {
-	top: -12px;
-	top: -.75rem;
+	top: -8px;
+	top: -.5rem;
 	-webkit-transform: none;
 	   -moz-transform: none;
 	    -ms-transform: none;
@@ -1018,8 +1032,8 @@ a:active {
 }
 
 .main-navigation.toggled.toggled-out .menu-toggle .icon-bar::after {
-	bottom: -12px;
-	bottom: -.75rem;
+	bottom: -8px;
+	bottom: -.5rem;
 	-webkit-transform: none;
 	   -moz-transform: none;
 	    -ms-transform: none;
@@ -1114,13 +1128,13 @@ a:active {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	padding: 16px;
-	padding: 1rem;
+	padding: 8px;
+	padding: .5rem;
 	background: none;
 	visibility: visible;
 	opacity: 1;
 }
-
+ 
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
@@ -1143,7 +1157,9 @@ a:active {
 	width: 50%;
 }
 
-/** Responsiveness **/
+/*--------------------------------------------------------------
+## Responsive Layout
+--------------------------------------------------------------*/
 @media all and (min-width: 1025px) {
 	.main-navigation .menu-toggle {
 		display: none;
@@ -1242,6 +1258,11 @@ a:active {
 	clear: both;
 }
 
+.hidden {
+	display: none;
+	visibility: hidden;
+}	
+
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
@@ -1255,8 +1276,69 @@ a:active {
 }
 
 /*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+#masthead  {
+	position: relative;
+	margin: 8px 32px 0 32px;
+	margin: .5rem 2rem 0 2rem;
+}
+
+.site-branding {
+	max-width: 40%;
+	float: left;
+	margin: 0 16px 16px 0;
+	margin: 0 1rem 1rem 0;
+}
+
+/*--------------------------------------------------------------
+## Content
+--------------------------------------------------------------*/
+.site-content {
+	margin: 24px 32px 0 32px;
+	margin: 1.5rem 2rem 0 2rem;	
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+	margin: 24px 0 0 0;
+	margin: 1.5rem 0 0 0;
+	padding: 16px;
+	padding: 1rem;
+	background: #626262;
+	background: rgba(59,59,59,.8);
+	text-align: center;
+}
+
+.site-footer,
+.site-footer a {
+	color: #fff;
+}
+
+/*--------------------------------------------------------------
+## Responsive Layout
+--------------------------------------------------------------*/
+@media screen and (max-width: 1024px) {
+	#masthead  {
+		margin: 8px 16px 0 16px;
+		margin: .5rem 1rem 0 1rem;
+	}
+	.site-content {
+		margin: 24px 16px 0 16px;
+		margin: 1.5rem 1rem 0 1rem;
+	}
+}
+
+/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+	
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -1405,9 +1487,225 @@ object {
 	display: block;
 }
 
-/* ====================================================================================================================
- * KEYFRAMES
- * ====================================================================================================================*/
+/*--------------------------------------------------------------
+## Social
+--------------------------------------------------------------*/
+.social-media ul {
+	margin: 0 0 8px;
+	margin: 0 0 .5rem;
+	list-style: none;
+}
+
+.social-media li {
+	display: inline-block;
+	position: relative;
+}
+
+.social-media a {
+	width: 32px;
+	width: 2rem;
+	height: 32px;
+	height: 2rem;
+	text-align: center;
+	margin-left: 4px;
+	margin-left: .25rem;
+	color: #fff;
+	display: inline-block;
+	border: solid 1px #fff;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
+}
+
+.social-media a:hover {
+	-webkit-animation: spin .3s ease 1;
+       -moz-animation: spin .3s ease 1;
+	    -ms-animation: spin .3s ease 1;
+	     -o-animation: spin .3s ease 1;
+            animation: spin .3s ease 1;
+}	
+
+.social-media a::before {
+	display: inline-block;
+	content: '\f408';
+	font-family: 'Genericons';
+	font-weight: normal;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 32px;
+	line-height: 2rem;
+	vertical-align: middle;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+
+.social-media a[href*="wordpress.org"]::before,
+.social-media a[href*="wordpress.com"]::before {
+	content: '\f205';
+}
+.social-media a[href*="facebook.com"]::before {
+	content: '\f204';
+}
+.social-media a[href*="twitter.com"]::before {
+	content: '\f202';
+}
+.social-media a[href*="dribbble.com"]::before {
+	content: '\f201';
+}
+.social-media a[href*="plus.google.com"]::before {
+	content: '\f206';
+}
+.social-media a[href*="pinterest.com"]::before {
+	content: '\f209';
+}
+.social-media a[href*="github.com"]::before {
+	content: '\f200';
+}
+.social-media a[href*="tumblr.com"]::before {
+	content: '\f214';
+}
+.social-media a[href*="youtube.com"]::before {
+	content: '\f213';
+}
+.social-media a[href*="flickr.com"]::before {
+	content: '\f211';
+}
+.social-media a[href*="vimeo.com"]::before {
+	content: '\f212';
+}
+.social-media a[href*="instagram.com"]::before {
+	content: '\f215';
+}
+.social-media a[href*="codepen.io"]::before {
+	content: '\f216';
+}
+.social-media a[href*="linkedin.com"]::before {
+	content: '\f207';
+}
+
+#social-media ul {
+	text-align: right;
+}	
+
+#social-media a[href*="wordpress.org"],
+#social-media a[href*="wordpress.com"] {
+	border-color: #21759b;
+}
+#social-media a[href*="wordpress.org"],
+#social-media a[href*="wordpress.com"],
+#social-media a[href*="wordpress.org"]::before,
+#social-media a[href*="wordpress.com"]::before {
+	color: #21759b;
+}
+
+#social-media a[href*="facebook.com"] {
+	border-color: #3b5998;
+}
+#social-media a[href*="facebook.com"],
+#social-media a[href*="facebook.com"]::before {
+	color: #3b5998;
+}
+
+#social-media a[href*="twitter.com"] {
+	border-color: #33ccff;
+}
+#social-media a[href*="twitter.com"],
+#social-media a[href*="twitter.com"]::before {
+	color: #33ccff;
+}
+
+#social-media a[href*="dribbble.com"] {
+	border-color: #ea4c89;
+}
+#social-media a[href*="dribbble.com"],
+#social-media a[href*="dribbble.com"]::before {
+	color: #ea4c89;
+}
+
+#social-media a[href*="plus.google.com"] {
+	border-color: #dd4b39;
+}
+#social-media a[href*="plus.google.com"],
+#social-media a[href*="plus.google.com"]::before {
+	color: #dd4b39;
+}
+
+#social-media a[href*="pinterest.com"] {
+	border-color: #c8232c;
+}
+#social-media a[href*="pinterest.com"],
+#social-media a[href*="pinterest.com"]::before {
+	color: #c8232c;
+}
+
+#social-media a[href*="github.com"] {
+	border-color: #171515;
+}
+#social-media a[href*="github.com"],
+#social-media a[href*="github.com"]::before {
+	color: #171515;
+}
+
+#social-media a[href*="tumblr.com"] {
+	border-color: #34526f;
+}
+#social-media a[href*="tumblr.com"],
+#social-media a[href*="tumblr.com"]::before {
+	color: #34526f;
+}
+
+#social-media a[href*="youtube.com"] {
+	border-color: #c4302b;
+}
+#social-media a[href*="youtube.com"],
+#social-media a[href*="youtube.com"]::before {
+	color: #c4302b;
+}
+
+#social-media a[href*="flickr.com"] {
+	border-color: #ff0084;
+}
+#social-media a[href*="flickr.com"],
+#social-media a[href*="flickr.com"]::before {
+	color: #ff0084;
+}
+
+#social-media a[href*="vimeo.com"] {
+	border-color: #1AB7EA;
+}
+#social-media a[href*="vimeo.com"],
+#social-media a[href*="vimeo.com"]::before {
+	color: #1AB7EA;
+}
+
+#social-media a[href*="instagram.com"] {
+	border-color: #3f729b;
+}
+#social-media a[href*="instagram.com"],
+#social-media a[href*="instagram.com"]::before {
+	color: #3f729b;
+}
+
+#social-media a[href*="codepen.io"] {
+	border-color: #000;
+}
+#social-media a[href*="codepen.io"],
+#social-media a[href*="codepen.io"]::before {
+	color: #000;
+}
+
+#social-media a[href*="linkedin.com"] {
+	border-color: #0e76a8;
+}
+#social-media a[href*="linkedin.com"],
+#social-media a[href*="linkedin.com"]::before {
+	color: #0e76a8;
+}
+
+/*--------------------------------------------------------------
+## Animations
+--------------------------------------------------------------*/
+/** slide-top-left **/
 @-webkit-keyframes slide-top-left {
 	0% 		{ max-height: 0; opacity: 0; visibility: hidden; -webkit-transform: translateX(-100%); }
 	50%		{ max-height: 320px; opacity: 0; visibility: hidden; -webkit-transform: translateX(-100%); }
@@ -1434,36 +1732,19 @@ object {
 	100%	{ opacity: 1; visibility: visible; transform: translateX(0); }
 }
 
-/* ====================================================================================================================
- * RESPONSIVE
- * ====================================================================================================================*/
-@media all and (max-width: 480px) {
-  html {
-    font-size: 6px;
-  }
+/** spin **/
+@-webkit-keyframes spin {
+	100%	{ -webkit-transform: rotate(360deg); }
 }
-@media all and (min-width: 481) and (max-width: 768px) {
-  html {
-    font-size: 8px;
-  }
+@-moz-keyframes spin {
+	100%	{    -moz-transform: rotate(360deg); }
 }
-@media all and (min-width: 769) and (max-width: 1024px) {
-  html {
-    font-size: 10px;
-  }
+@-ms-keyframes spin {
+	100%	{     -ms-transform: rotate(360deg); }
 }
-@media all and (min-width: 1025) and (max-width: 1240px) {
-  html {
-    font-size: 12px;
-  }
+@-o-keyframes spin {
+	100%	{      -o-transform: rotate(360deg); }
 }
-@media all and (min-width: 1241) and (max-width: 1920px) {
-  html {
-    font-size: 16px;
-  }
-}
-@media (min-width: 1921px) {
-  html {
-    font-size: 20px%;
-  }
+@keyframes spin {
+	100%	{         transform: rotate(360deg); }
 }

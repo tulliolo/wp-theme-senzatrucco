@@ -56,8 +56,10 @@ function senza_trucco_setup() {
 	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 768, 384, array( 'center', 'center' ) );  
 	
 	// This theme uses wp_nav_menu() in one location.
+	// This theme also adds a social media menu.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'senza-trucco' ),
+		'social'  => esc_html__( 'Social', 'senza-trucco' ),
 	) );
 
 	/*
@@ -118,9 +120,13 @@ function senza_trucco_scripts() {
 	wp_enqueue_style( 'senza-trucco-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'genericons-style', get_stylesheet_directory_uri() .'/css/genericons.css' );
 
+	wp_enqueue_script( 'jquery' );
+	
 	wp_enqueue_script( 'senza-trucco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'senza-trucco-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'senza-trucco-social', get_template_directory_uri() . '/js/socialmedia.js', array(), '20151215', true );
+	
+	wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.min.js', array( 'jquery' ) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -129,7 +135,6 @@ function senza_trucco_scripts() {
 	// include flexslider style & scripts
 	if( is_front_page() && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) {
 		wp_enqueue_style( 'flexslider-style', get_stylesheet_directory_uri() .'/css/flexslider.css' );
-		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'flexslider', get_stylesheet_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'flexslider-init', get_stylesheet_directory_uri() . '/js/flexslider-init.js', array( 'jquery', 'flexslider' ) );
 	}
@@ -140,14 +145,14 @@ add_action( 'wp_enqueue_scripts', 'senza_trucco_scripts' );
  * Add custom menu items
  */
 function senza_trucco_nav_menu_items($items, $args) {
-	if( $args->theme_location == 'primary' )
+	if( $args->theme_location === 'primary' )  {
 		$items .= 
 			'<li id="menu-item-search" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-search">
-				<button class="toggle search-toggle" aria-controls="primary-search">
-					<i class="genericon genericon-search"></i>
-				</button>'
+				<button class="toggle search-toggle" aria-controls="primary-search"></button>'
 				. get_search_form( false ) .
 			'</li>';
+
+	}
 	return $items;
 }
 add_filter('wp_nav_menu_items', 'senza_trucco_nav_menu_items', 10, 2);

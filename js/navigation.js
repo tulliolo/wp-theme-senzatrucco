@@ -6,9 +6,9 @@
  */
 ( function() {
 	var container, 
-		menuButton, menu, subMenus, // menu elements
-		searchButton, search, // search elements
-		links, 
+		menuButton, menu, subMenus,	// main menu elements
+		searchButton, search,		// search menu elements
+		links,
 		i, len, 
 		maxSize = 1024,	
 		pfx = ["webkit", "moz", "ms", "o", ""];

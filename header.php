@@ -39,6 +39,23 @@
 				<?php endif; ?> 
 		</div><!-- .site-branding -->
 		
+		<?php if ( has_nav_menu( 'social' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'social',
+					'container'       => 'div',
+					'container_id'    => 'social-media',
+					'container_class' => 'social-media',
+					'menu_id'         => 'social-menu',
+					'menu_class'      => 'menu social-menu',
+					'depth'           => 1,
+					'link_before'     => '<span class="screen-reader-text">',
+					'link_after'      => '</span>',
+					'fallback_cb'     => '',
+				)
+			);
+		} ?>
+		
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="toggle menu-toggle" aria-controls="primary-menu">
 				<span class="icon-bar"></span>

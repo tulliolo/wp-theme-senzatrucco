@@ -271,7 +271,7 @@ html[xmlns] .flexslider .slides {
 .flexslider {
 	width: auto;
 	border: none;
-	margin: 1.5em 2em;
+	margin: 1.5em 0;
 	background: none;
 	font-size: 16px;
 }
@@ -300,8 +300,8 @@ html[xmlns] .flexslider .slides {
 }
 .flex-caption .entry-title {
 	display: inline-block;
-	padding: 0.5em 1em;
-	font-size: 1.2em;
+	padding: .5em 1em;
+	font-size: 1.1em;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: #fff;
@@ -319,6 +319,7 @@ html[xmlns] .flexslider .slides {
 .flex-caption .excerpt {
 	display: block;
 	padding: 0.5em 1em;
+	font-size: .9em;
 	text-align: justify;
 	background: rgb(59, 59, 59);
     background: rgba(59, 59, 59, 0.8);
@@ -364,34 +365,53 @@ html[xmlns] .flexslider .slides {
 	right: -2em;
 }
 .flexslider:hover .flex-direction-nav .flex-prev {
-	opacity: 0.7;
+	opacity: .7;
 	left: 2.5em;
 }
 .flexslider:hover .flex-direction-nav .flex-next {
-	opacity: 0.7;
+	opacity: .7;
 	right: 2.5em;
 }
 
 /* ====================================================================================================================
- * RESPONSIVE
+ * RESPONSIVENESS
  * ====================================================================================================================*/
-@media all and (max-width: 480px) {
-  .flexslider {
-    display: none;
-  }
+@media screen and (max-width: 480px) {
+	.flexslider {
+		display: none;
+	}
 }
-@media all and (min-width: 481px) and (max-width: 768px) {
-  .flex-caption {
-    display: none;
-  }
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+	.flexslider {
+		margin: 0;
+	}
+	.flex-caption {
+		display: none;
+	}
+	.flex-control-nav {
+		bottom: .5em;
+	}
+	.flex-direction-nav .flex-prev {
+		left: -1em;
+	}
+	.flex-direction-nav .flex-next {
+		right: -1em;
+	}
+	.flexslider:hover .flex-direction-nav .flex-prev {
+		left: .5em;
+	}
+	.flexslider:hover .flex-direction-nav .flex-next {
+		right: .5em;
+	}
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .flexslider {
-    font-size: 10px;
-  }
+
+@media screen and (max-width: 768px) {
+	.flexslider {
+		font-size: 14px;
+	}
 }
-@media screen and (min-width: 1025px) and (max-width: 1240px) {
-  .flexslider {
-    font-size: 13px;
-  }
+@media screen and (min-width: 1921px) {
+	.flexslider {
+		font-size: 18px;
+	}
 }

@@ -14,6 +14,22 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<?php if ( has_nav_menu( 'social' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'social',
+					'container'       => 'div',
+					'container_id'    => 'social-media-alt',
+					'container_class' => 'social-media',
+					'menu_id'         => 'social-menu-alt',
+					'menu_class'      => 'menu social-menu',
+					'depth'           => 1,
+					'link_before'     => '<span class="screen-reader-text">',
+					'link_after'      => '</span>',
+					'fallback_cb'     => '',
+				)
+			);
+		} ?>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'senza-trucco' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'senza-trucco' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
