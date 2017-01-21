@@ -289,8 +289,14 @@ html[xmlns] .flexslider .slides {
 	color: #fff;
 	overflow: hidden;
 }
+.alt-caption {
+	display: none;
+	visibility: hidden;
+	width: 100%;
+}	
 .flex-caption:first-of-type {
 	top: -1.5em;
+	bottom: auto;
 	left: -1.5em;	
 }
 .flex-caption:last-of-type {
@@ -306,17 +312,19 @@ html[xmlns] .flexslider .slides {
 	text-transform: uppercase;
 	color: #fff;
 }
+
 .flex-caption:first-of-type .entry-title {
-	border-radius: 2em 1em 0 0;
-	-moz-border-radius: 2em 1em 0 0;
-	-webkit-border-radius: 2em 1em 0 0;		
+	-webkit-border-radius: 2em 1em 0 0;
+	   -moz-border-radius: 2em 1em 0 0;
+	        border-radius: 2em 1em 0 0;		
 }
 .flex-caption:last-of-type .entry-title {
-	border-radius: 0 0 2em 1em;
-	-moz-border-radius: 0 0 2em 1em;
 	-webkit-border-radius: 0 0 2em 1em;
+	   -moz-border-radius: 0 0 2em 1em;
+	        border-radius: 0 0 2em 1em;
 }
-.flex-caption .excerpt {
+.flex-caption .entry-excerpt,
+.alt-caption .entry-excerpt {
 	display: block;
 	padding: 0.5em 1em;
 	font-size: .9em;
@@ -325,20 +333,20 @@ html[xmlns] .flexslider .slides {
     background: rgba(59, 59, 59, 0.8);
 	color: #fff;
 }
-.flex-caption:first-of-type .excerpt {
-	border-radius: 0 1em 1em 1em;
-	-moz-border-radius: 0 1em 1em 1em;
-	-webkit-border-radius: 0 1em 1em 1em;		
+.flex-caption:first-of-type .entry-excerpt {
+	-webkit-border-radius: 0 1em 1em 1em;	
+	   -moz-border-radius: 0 1em 1em 1em;
+	        border-radius: 0 1em 1em 1em;	
 }
-.flex-caption:last-of-type .excerpt {
-	border-radius: 1em 1em 0 1em;
-	-moz-border-radius: 1em 1em 0 1em;
+.flex-caption:last-of-type .entry-excerpt {
 	-webkit-border-radius: 1em 1em 0 1em;
+	   -moz-border-radius: 1em 1em 0 1em;
+	        border-radius: 1em 1em 0 1em;
 }
 .flex-control-nav {
 	position: absolute;
 	display: inline-block;
-	bottom: none;
+	bottom: -2.2em;
 	z-index: 1000;
 }
 .flex-direction-nav a {
@@ -376,21 +384,44 @@ html[xmlns] .flexslider .slides {
 /* ====================================================================================================================
  * RESPONSIVENESS
  * ====================================================================================================================*/
-@media screen and (max-width: 480px) {
-	.flexslider {
-		display: none;
-	}
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-	.flexslider {
-		margin: 0;
+@media screen and (max-width: 511px) {
+	.alt-caption {
+		display: block;
+		visibility: visible;
 	}
 	.flex-caption {
 		display: none;
+		visibility: hidden;
 	}
 	.flex-control-nav {
-		bottom: .5em;
+		display: none;
+		visibility: hidden;
 	}
+}
+	
+@media screen and (min-width: 512px) and (max-width: 1024px) {
+	.flex-caption:first-of-type {
+		max-width: 100%;
+		width: 100%;
+		top: auto;
+		bottom: 0;
+		left: 0;
+	}
+	.flex-caption:first-of-type .entry-excerpt {
+		border-radius: 0;
+	}
+	.flex-caption:last-of-type,
+	.flex-caption:first-of-type .entry-title	{
+		display: none;
+		visibility: hidden;
+	}
+	
+}
+
+@media screen and (max-width: 1024px) {
+	.flexslider {
+		margin: 0;
+	}	
 	.flex-direction-nav .flex-prev {
 		left: -1em;
 	}
@@ -398,12 +429,12 @@ html[xmlns] .flexslider .slides {
 		right: -1em;
 	}
 	.flexslider:hover .flex-direction-nav .flex-prev {
-		left: .5em;
+		left: 1em;
 	}
 	.flexslider:hover .flex-direction-nav .flex-next {
-		right: .5em;
+		right: 1em;
 	}
-}
+}	
 
 @media screen and (max-width: 768px) {
 	.flexslider {

@@ -124,7 +124,6 @@ function senza_trucco_scripts() {
 	
 	wp_enqueue_script( 'senza-trucco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'senza-trucco-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-	wp_enqueue_script( 'senza-trucco-social', get_template_directory_uri() . '/js/socialmedia.js', array(), '20151215', true );
 	
 	wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/js/doubletaptogo.min.js', array( 'jquery' ) );
 
@@ -260,4 +259,18 @@ function senza_trucco_max_srcset_image_width($max_width) {
     return 3840;
 }
 add_filter('max_srcset_image_width', 'senza_trucco_max_srcset_image_width');
+endif;
+
+if ( ! function_exists( 'senza_trucco_excerpt_more' ) ) :
+/**
+ * Filter the excerpt "read more" string.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function senza_trucco_excerpt_more( $more ) {
+	global $post;
+    return '... <a class="tag-more" href="' . get_permalink($post->ID) . '">&laquo;' . __( 'Read more', 'senza-trucco' ) . '&raquo;</a>';
+}
+add_filter( 'excerpt_more', 'senza_trucco_excerpt_more' );
 endif;

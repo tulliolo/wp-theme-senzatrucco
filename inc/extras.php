@@ -39,78 +39,79 @@ function senza_trucco_pingback_header() {
 add_action( 'wp_head', 'senza_trucco_pingback_header' );
 
 /**
- * Function to display the slider in front page.
+ * Function to display the slider content in front page.
  */
 function senza_trucco_the_slider() {
 	if ( is_front_page() && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) :
-		echo '<div id="featured" class="flexslider">';	
-			
-			$slidecat = senza_trucco_get_option( 'senza_trucco_slider_category' );	
-			if ( $slidecat ) :
-				// get featpage data
-				$featpage = senza_trucco_get_option( 'senza_trucco_slider_featpage' );
-				$featpagelink = '';
-				$featpagetitle = '';
-				$featpageexcerpt = '';
-				if ( $featpage != '' ) :
-					global $post;
-					$mypost = get_post( $featpage );
-					$post = $mypost;
-					setup_postdata( $post );
-					$featpagelink = get_permalink();
-					$featpagetitle = get_the_title();
-					$featpageexcerpt = get_the_excerpt();
-					wp_reset_postdata();	
-				endif;
+		echo '<div id="featured" class="content-area">';
+			echo '<div class="flexslider">';
 				
-				// get slider data
-				$slideord = 'title';
-				if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
-					$slideord = 'rand';
-				endif;
-				$query = new WP_Query( array( 'cat' => $slidecat, 'nopaging' => true, 'orderby' => $slideord ) );
-				
-				// the loop to feed the slider
-				if ($query->have_posts()) :
-					echo '<ul class="slides">';
-					while ($query->have_posts()) :
-						$query->the_post();
-						if ( has_post_thumbnail() ) :
-							echo '<li>';
-								echo '<div class="flex-wrapper">';
-									// add featured caption
-									echo '<div class="flex-caption">';
-										echo '<a href="'. $featpagelink .'">';
+				$slidecat = senza_trucco_get_option( 'senza_trucco_slider_category' );	
+				if ( $slidecat ) :
+					// get featpage data
+					$featpage = senza_trucco_get_option( 'senza_trucco_slider_featpage' );
+					$featpagelink = '';
+					$featpagetitle = '';
+					$featpageexcerpt = '';
+					if ( $featpage != '' ) :
+						global $post;
+						$mypost = get_post( $featpage );
+						$post = $mypost;
+						setup_postdata( $post );
+						$featpagelink = get_permalink();
+						$featpagetitle = get_the_title();
+						$featpageexcerpt = get_the_excerpt();
+						wp_reset_postdata();	
+					endif;
+					
+					// get slider data
+					$slideord = 'title';
+					if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+						$slideord = 'rand';
+					endif;
+					$query = new WP_Query( array( 'cat' => $slidecat, 'nopaging' => true, 'orderby' => $slideord ) );
+					
+					// the loop to feed the slider
+					if ($query->have_posts()) :
+						echo '<ul class="slides">';
+						while ($query->have_posts()) :
+							$query->the_post();
+							if ( has_post_thumbnail() ) :
+								echo '<li>';
+									echo '<div class="flex-wrapper">';
+										// add featured caption
+										echo '<div class="flex-caption entry">';
 											if ( $featpagetitle != '' ) echo '<div class="entry-title">'. $featpagetitle . '</div>';
-											if ( $featpageexcerpt != '' ) echo '<div class="excerpt">' . $featpageexcerpt .'</div>';
+											if ( $featpageexcerpt != '' ) echo '<div class="entry-excerpt">' . $featpageexcerpt .'</div>';
+										echo '</div>';
+										// add slide thumbnail
+										echo '<a href="'. $featpagelink .'">';
+											the_post_thumbnail( 'senza_trucco_slider_thumb' );
 										echo '</a>';
-									echo '</div>';
-									// add slide thumbnail
-									echo '<a href="'. $featpagelink .'">';
-										the_post_thumbnail( 'senza_trucco_slider_thumb' );
-									echo '</a>';
-									// add slide caption
-									echo '<div class="flex-caption">';
-										echo '<a href="'. get_permalink() .'">';
-											if ( get_the_excerpt() != '' ) echo '<div class="excerpt">' . get_the_excerpt() .'</div>';
+										// add slide caption
+										echo '<div class="flex-caption entry">';
+											if ( get_the_excerpt() != '' ) echo '<div class="entry-excerpt">' . get_the_excerpt() .'</div>';
 											if ( get_the_title() != '' ) echo '<div class="entry-title">'. get_the_title() . '</div>';
-										echo '</a>';
+										echo '</div>';
 									echo '</div>';
-								echo '</div>';
-							echo '</li>';
-						endif;
-						wp_reset_postdata();
-					endwhile;
-					echo '</ul>';
-				endif;
-				wp_reset_query();
-			else :
-				echo __( 'Slider is not properly configured!', 'senza-trucco' );
-			endif;				
-		
+								echo '</li>';
+							endif;
+							wp_reset_postdata();
+						endwhile;
+						echo '</ul>';
+					endif;
+					wp_reset_query();
+				else :
+					echo __( 'Slider is not properly configured!', 'senza-trucco' );
+				endif;				
+			
+			echo '</div>';
+			echo '<div class="alt-caption entry">';
+				if ( $featpageexcerpt != '' ) echo '<div class="entry-excerpt">' . $featpageexcerpt .'</div>';
+			echo '</div>';
 		echo '</div>';
 	endif;
-}	
+}
 
 /*****************************
  * Add Helper Functions here *

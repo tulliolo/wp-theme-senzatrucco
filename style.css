@@ -51,6 +51,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 	## Social
 	## Animations
+	## Responsive layout
 	
 --------------------------------------------------------------*/
 
@@ -280,7 +281,7 @@ th {
 }
 
 /*--------------------------------------------------------------
-## Responsive Layout
+## Responsive layout
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   html {
@@ -710,6 +711,8 @@ a:hover,
 a:focus,
 a:active {
 	color: midnightblue;
+	-webkit-filter: brightness(120%); /* Safari 6.0 - 9.0 */
+			filter: brightness(120%);
 }
 
 a:focus {
@@ -798,9 +801,17 @@ a:active {
 	padding: 1rem;
 	font-size: 14px;
 	font-size: .9rem;
-	color: #fff;
 	text-transform: uppercase;
 }
+
+.main-navigation a,
+.main-navigation a:hover,
+.main-navigation a:focus,
+.main-navigation a:active,
+.main-navigation a:visited {
+	color: #fff;
+	filter: none;
+}	
 
 .main-navigation ul ul a {
 	padding: 8px 16px;
@@ -1158,7 +1169,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-## Responsive Layout
+## Responsive layout
 --------------------------------------------------------------*/
 @media all and (min-width: 1025px) {
 	.main-navigation .menu-toggle {
@@ -1322,7 +1333,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-## Responsive Layout
+## Responsive layout
 --------------------------------------------------------------*/
 @media screen and (max-width: 1024px) {
 	#masthead  {
@@ -1491,8 +1502,8 @@ object {
 ## Social
 --------------------------------------------------------------*/
 .social-media ul {
-	margin: 0 0 8px;
-	margin: 0 0 .5rem;
+	margin: 0 0 8px 0;
+	margin: 0 0 .5rem 0;
 	list-style: none;
 }
 
@@ -1747,4 +1758,20 @@ object {
 }
 @keyframes spin {
 	100%	{         transform: rotate(360deg); }
+}
+
+/*--------------------------------------------------------------
+## Responsive layout
+--------------------------------------------------------------*/
+@media all and (max-width: 1024px) {
+	#social-media {
+		display: none;
+		visibility: hidden;
+	}
+}
+@media all and (min-width: 1025px) {
+	#social-media-alt {
+		display: none;
+		visibility: hidden;
+	}
 }

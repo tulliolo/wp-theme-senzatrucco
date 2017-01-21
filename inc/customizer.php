@@ -118,17 +118,6 @@ function senza_trucco_customizer( $wp_customize ) {
 				'priority'	=> 2
 			)
 	) );
-	
-	$wp_customize->add_control( 'show_on_front', array(
-		'label' => __( 'Front page displays' ),
-		'section' => 'static_front_page',
-		'type' => 'radio',
-		'choices' => array(
-			'posts' => __( 'Your latest posts' ),
-			'page'  => __( 'A static page' ),
-			'empty' => __( 'Empty page' ),
-		),
-	) );
 }
 add_action( 'customize_register', 'senza_trucco_customizer' );
 
@@ -173,7 +162,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 	?>
 	<style type="text/css">
 		/** background primary **/
-		div.entry-title,
+		.flex-caption .entry-title,
 		.main-navigation li:hover, .main-navigation li:focus,
 		.main-navigation .current_page_item, .main-navigation .current-menu-item, .main-navigation .current_page_ancestor, .main-navigation .current-menu-ancestor,
 		.main-navigation .menu-toggle .icon-bar, .main-navigation .menu-toggle .icon-bar::before, .main-navigation .menu-toggle .icon-bar::after,
@@ -197,6 +186,9 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		/** color accent **/
+		a, a:visited, a:hover, a:focus, a:active {
+			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
+		}
 		
 		/** border-color accent **/
 		button.search-submit::before {
