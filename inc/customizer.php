@@ -173,7 +173,8 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		/** color primary **/
-		h1, h2, h3, h4, h5, h6 {
+		h1, h2, h3, h4, h5, h6,
+		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
 		
@@ -186,7 +187,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		/** color accent **/
-		a, a:visited, a:hover, a:focus, a:active {
+		a {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		

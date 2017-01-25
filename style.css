@@ -28,7 +28,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Typography
 # Elements
 # Forms
-# Header
 # Navigation
 	## Links
 	## Menus
@@ -67,10 +66,10 @@ html {
 
 body {
 	max-width: 3840px;
-	margin: 0;
+	margin: auto;
 	font-size: 1rem;
 }
-
+	
 article,
 aside,
 details,
@@ -698,19 +697,19 @@ button.search-submit:active
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	/*color: royalblue;*/
 	decoration: none;
 	text-decoration: none;
 }
 
 a:visited {
-	color: purple;
+	/*color: purple;*/
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	/*color: midnightblue;*/
 	-webkit-filter: brightness(120%); /* Safari 6.0 - 9.0 */
 			filter: brightness(120%);
 }
@@ -801,6 +800,7 @@ a:active {
 	padding: 1rem;
 	font-size: 14px;
 	font-size: .9rem;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 
@@ -1267,11 +1267,6 @@ a:active {
 .site-content:after,
 .site-footer:after {
 	clear: both;
-}
-
-.hidden {
-	display: none;
-	visibility: hidden;
 }	
 
 /*--------------------------------------------------------------
@@ -1292,34 +1287,64 @@ a:active {
 
 /*--------------------------------------------------------------
 ## Header
---------------------------------------------------------------*/
-#masthead  {
-	position: relative;
-	margin: 8px 32px 0 32px;
-	margin: .5rem 2rem 0 2rem;
+--------------------------------------------------------------*/		
+.site-header  {
+	padding: 8px 40px 16px;
+	padding: .5rem 2.5rem 1rem;
+}
+.site-branding {
+	float: left;
+	max-width: 40%;
+	padding: 0 16px 16px 0;
+	padding: 0 1rem 1rem 0;
 }
 
-.site-branding {
-	max-width: 40%;
-	float: left;
-	margin: 0 16px 16px 0;
-	margin: 0 1rem 1rem 0;
+.content-area.featured {
+	clear: both;
+	width: 100%;
+	padding: 40px 0 24px;
+	padding: 2.5rem 0 1.5rem;
 }
 
 /*--------------------------------------------------------------
 ## Content
 --------------------------------------------------------------*/
 .site-content {
-	margin: 24px 32px 0 32px;
-	margin: 1.5rem 2rem 0 2rem;	
+	width: 100%;
+	max-width: 2000px;
+	margin: auto;
+	padding: 16px 40px;
+	padding: 1rem 2.5rem;
 }
+
+.content-area {
+	float: left;
+	width: 75%;
+	padding: 0 16px 0 0;
+	padding: 0 1rem 0 0;
+}
+
+.site-content *:last-child.content-area { /* content-area not followed by widget-area */
+	float: none;
+	width: 100%;
+	padding: 0;
+}
+
+.site-content .widget-area {
+	float: right;
+	overflow: hidden;
+	width: 25%;
+	padding: 0 0 0 16px;
+	padding: 0 0 0 1rem;
+}
+
 
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
 .site-footer {
-	margin: 24px 0 0 0;
-	margin: 1.5rem 0 0 0;
+	clear: both;
+	width: 100%;
 	padding: 16px;
 	padding: 1rem;
 	background: #626262;
@@ -1336,13 +1361,26 @@ a:active {
 ## Responsive layout
 --------------------------------------------------------------*/
 @media screen and (max-width: 1024px) {
-	#masthead  {
-		margin: 8px 16px 0 16px;
-		margin: .5rem 1rem 0 1rem;
+	.site-header  {
+		padding: 8px 16px 16px;
+		padding: .5rem 1rem 1rem;
+	}
+	.content-area.featured {
+		padding: 16px 0 0;
+		padding: 1rem 0 0;
+		background: rgba(59, 59, 59, 0.8);
 	}
 	.site-content {
-		margin: 24px 16px 0 16px;
-		margin: 1.5rem 1rem 0 1rem;
+		padding: 16px;
+		padding: 1rem;
+	}
+}
+@media screen and (max-width: 1280px) {
+	.content-area ,
+	.site-content .widget-area {
+		float: none;
+		width: 100%;
+		padding: 0;
 	}
 }
 
@@ -1372,14 +1410,41 @@ a:active {
 }
 
 .page-content,
-.entry-content,
-.entry-summary {
+.entry-content {
+	text-align: justify;
 	margin: 1.5em 0 0;
 }
+
+.entry-meta span {
+	font-size: 90%;
+	padding: 0 .25em;
+	border-right: 1px solid;
+	border-color: #757575;
+	border-color: rgba(0,0,0,.54);
+}	
+.entry-meta span:first-of-type {
+	padding: 0 .25em 0 0;
+}
+.entry-meta span:last-of-type {
+	padding: 0 0 0 .25em;
+	border-right: 0;
+}
+.entry-meta i {
+	padding: 0 .25em 0 0;
+}	
 
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.content-area.featured article {
+	margin: 0;
+}	
+
+.content-area.featured > article > .entry-title,
+.content-area.featured > article > .entry-content {
+	display: none;
 }
 
 /*--------------------------------------------------------------
@@ -1391,6 +1456,34 @@ a:active {
 
 .bypostauthor {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+## Responsive layout
+--------------------------------------------------------------*/
+@media all and (max-width: 1024px) {
+	.content-area.featured > article {
+		padding: 8px 16px;
+		padding: .5rem 1rem;
+	}	
+	.content-area.featured > article > .entry-title,
+	.content-area.featured > article > .entry-content {
+		display: block;
+		color: #fff;
+	}
+	
+	.content-area.featured > article > .entry-title {
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.content-area.featured > article > .entry-title a {
+		color: #fff;
+	}	
+	
+	.content-area.featured > article > .entry-content {
+		padding-top: 8px;
+		padding-top: .5rem;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1529,17 +1622,24 @@ object {
 }
 
 .social-media a:hover {
-	-webkit-animation: spin .3s ease 1;
+	/*-webkit-animation: spin .3s ease 1;
        -moz-animation: spin .3s ease 1;
 	    -ms-animation: spin .3s ease 1;
 	     -o-animation: spin .3s ease 1;
-            animation: spin .3s ease 1;
+            animation: spin .3s ease 1;*/
+	-webkit-animation: fa-spin .3s ease 1;
+       -moz-animation: fa-spin .3s ease 1;
+	    -ms-animation: fa-spin .3s ease 1;
+	     -o-animation: fa-spin .3s ease 1;
+            animation: fa-spin .3s ease 1;
 }	
 
 .social-media a::before {
 	display: inline-block;
-	content: '\f408';
-	font-family: 'Genericons';
+	/*content: '\f408';*/
+	content: '\f005';
+	/*font-family: 'Genericons';*/
+	font-family: 'FontAwesome';
 	font-weight: normal;
 	font-size: 16px;
 	font-size: 1rem;
@@ -1552,46 +1652,60 @@ object {
 
 .social-media a[href*="wordpress.org"]::before,
 .social-media a[href*="wordpress.com"]::before {
-	content: '\f205';
+	/*content: '\f205';*/
+	content: '\f19a';
 }
 .social-media a[href*="facebook.com"]::before {
-	content: '\f204';
+	/*content: '\f204';*/
+	content: '\f09a';
 }
 .social-media a[href*="twitter.com"]::before {
-	content: '\f202';
+	/*content: '\f202';*/
+	content: '\f099';
 }
 .social-media a[href*="dribbble.com"]::before {
-	content: '\f201';
+	/*content: '\f201';*/
+	content: '\f17d';
 }
 .social-media a[href*="plus.google.com"]::before {
-	content: '\f206';
+	/*content: '\f206';*/
+	content: '\f0d5';
 }
 .social-media a[href*="pinterest.com"]::before {
-	content: '\f209';
+	/*content: '\f209';*/
+	content: '\f0d2';
 }
 .social-media a[href*="github.com"]::before {
-	content: '\f200';
+	/*content: '\f200';*/
+	content: '\f09b';
 }
 .social-media a[href*="tumblr.com"]::before {
-	content: '\f214';
+	/*content: '\f214';*/
+	content: '\f173';
 }
 .social-media a[href*="youtube.com"]::before {
-	content: '\f213';
+	/*content: '\f213';*/
+	content: '\f167';
 }
 .social-media a[href*="flickr.com"]::before {
-	content: '\f211';
+	/*content: '\f211';*/
+	content: '\f16e';
 }
 .social-media a[href*="vimeo.com"]::before {
-	content: '\f212';
+	/*content: '\f212';*/
+	content: '\f194';
 }
 .social-media a[href*="instagram.com"]::before {
-	content: '\f215';
+	/*content: '\f215';*/
+	content: '\f16d';
 }
 .social-media a[href*="codepen.io"]::before {
-	content: '\f216';
+	/*content: '\f216';*/
+	content: '\f1cb';
 }
 .social-media a[href*="linkedin.com"]::before {
-	content: '\f207';
+	/*content: '\f207';*/
+	content: '\f0e1';
 }
 
 #social-media ul {

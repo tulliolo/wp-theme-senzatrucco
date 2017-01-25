@@ -50,10 +50,14 @@ function senza_trucco_setup() {
 	// Adds image sizes for any post & page
 	// Aspect ratio is 3:2
 	senza_trucco_add_image_size( 'senza_trucco_thumb', 768, 512, array( 'center', 'center' ) );
-
+	
 	// Adds image sizes for slider
 	// Aspect ratio is 2:1
-	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 768, 384, array( 'center', 'center' ) );  
+	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 768, 384, array( 'center', 'center' ) );
+	
+	// Adds image sizes for any post & page
+	// Aspect ratio is 1:1
+	senza_trucco_add_image_size( 'senza_trucco_preview_thumb', 768, 768, array( 'center', 'center' ) );
 	
 	// This theme uses wp_nav_menu() in one location.
 	// This theme also adds a social media menu.
@@ -119,7 +123,10 @@ add_action( 'widgets_init', 'senza_trucco_widgets_init' );
 function senza_trucco_scripts() {
 	wp_enqueue_style( 'senza-trucco-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'genericons-style', get_stylesheet_directory_uri() .'/css/genericons.css' );
+	/*wp_enqueue_style( 'font-awesome-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );*/
 
+	wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/42fcc5f165.js' );
+	
 	wp_enqueue_script( 'jquery' );
 	
 	wp_enqueue_script( 'senza-trucco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -132,7 +139,7 @@ function senza_trucco_scripts() {
 	}
 	
 	// include flexslider style & scripts
-	if( is_front_page() && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) {
+	if( ( is_front_page() || is_home() ) && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) {
 		wp_enqueue_style( 'flexslider-style', get_stylesheet_directory_uri() .'/css/flexslider.css' );
 		wp_enqueue_script( 'flexslider', get_stylesheet_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'flexslider-init', get_stylesheet_directory_uri() . '/js/flexslider-init.js', array( 'jquery', 'flexslider' ) );
@@ -261,16 +268,16 @@ function senza_trucco_max_srcset_image_width($max_width) {
 add_filter('max_srcset_image_width', 'senza_trucco_max_srcset_image_width');
 endif;
 
-if ( ! function_exists( 'senza_trucco_excerpt_more' ) ) :
+/*if ( ! function_exists( 'senza_trucco_excerpt_more' ) ) :
 /**
  * Filter the excerpt "read more" string.
  *
  * @param string $more "Read more" excerpt string.
  * @return string (Maybe) modified "read more" excerpt string.
  */
-function senza_trucco_excerpt_more( $more ) {
+/*function senza_trucco_excerpt_more( $more ) {
 	global $post;
-    return '... <a class="tag-more" href="' . get_permalink($post->ID) . '">&laquo;' . __( 'Read more', 'senza-trucco' ) . '&raquo;</a>';
+    return '...<p><a class="tag-more" href="' . get_permalink($post->ID) . '">' . __( 'Read more', 'senza-trucco' ) . '</a></p>';
 }
 add_filter( 'excerpt_more', 'senza_trucco_excerpt_more' );
-endif;
+endif;*/

@@ -6,45 +6,33 @@
  *
  * @package Senza Trucco
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) : ?>
+		the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' );
+		
+		if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php senza_trucco_posted_on(); ?>
+			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+				<span class="comments-link"><i class="fa fa-comment-o"></i><?php comments_popup_link( __( 'Leave a comment', 'senza-trucco' ), __( '1 Comment', 'senza-trucco' ), __( '% Comments', 'senza-trucco' ) ); ?></span>
+			<?php endif; // end if comments ?>
+			<?php
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( __( ', ', 'senza-trucco' ) );
+			if ( $categories_list && senza_trucco_categorized_blog() ) :
+				?>
+				<span class="cat-links"><i class="fa fa-folder-open-o"></i>
+					<?php printf( __( ' %1$s', 'senza-trucco' ), $categories_list ); ?>
+				</span>
+			<?php endif; // end if categories ?>
+		<?php endif; // end if get_post_type ?>
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-			if ( has_post_thumbnail() ) { // Check if the post has a featured image assigned to it.
-				the_post_thumbnail( 'senza_trucco_large_thumb' );
-			}
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'senza-trucco' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'senza-trucco' ),
-				'after'  => '</div>',
-			) );
-		?>
+		<?php the_excerpt(); ?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php senza_trucco_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

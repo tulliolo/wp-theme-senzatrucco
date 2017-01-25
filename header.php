@@ -62,7 +62,15 @@
 			</button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
+		
+		<div id="featured" class="content-area featured">
+			<?php
+			if ( ( is_front_page() || is_home() ) && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) :
+				get_template_part( 'template-parts/content-featured', get_post_format() );
+			endif;
+			?>
+		</div><!-- #featured -->
 	</header><!-- #masthead -->
-
+	
 	<div id="content" class="site-content">
-		<?php senza_trucco_the_slider(); ?>
+	

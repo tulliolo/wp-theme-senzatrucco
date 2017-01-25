@@ -270,49 +270,45 @@ html[xmlns] .flexslider .slides {
  * ====================================================================================================================*/	 
 .flexslider {
 	width: auto;
+	margin: 0;
 	border: none;
-	margin: 1.5em 0;
 	background: none;
-	font-size: 16px;
-}
-.flex-wrapper {
-	max-width: 3840px;
-	position: relative;
-	width: 100%;
-	margin: auto;
 }
 .flex-caption {
-	position: absolute;
 	display: block;
+	position: absolute;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
 	z-index: 1000;
-	max-width: 500px;
-	color: #fff;
+	max-width: 512px;
 	overflow: hidden;
-}
-.alt-caption {
-	display: none;
-	visibility: hidden;
-	width: 100%;
 }	
 .flex-caption:first-of-type {
 	top: -1.5em;
+	right: auto;
 	bottom: auto;
 	left: -1.5em;	
 }
 .flex-caption:last-of-type {
-	bottom: -1.5em;
+	top: auto;
 	right: -1.5em;
+	bottom: -1.5em;
+	left: auto;
 	text-align: right;
-}
+}		
 .flex-caption .entry-title {
 	display: inline-block;
 	padding: .5em 1em;
+	margin: auto;
 	font-size: 1.1em;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+.flex-caption .entry-title a {
 	color: #fff;
 }
-
 .flex-caption:first-of-type .entry-title {
 	-webkit-border-radius: 2em 1em 0 0;
 	   -moz-border-radius: 2em 1em 0 0;
@@ -323,22 +319,21 @@ html[xmlns] .flexslider .slides {
 	   -moz-border-radius: 0 0 2em 1em;
 	        border-radius: 0 0 2em 1em;
 }
-.flex-caption .entry-excerpt,
-.alt-caption .entry-excerpt {
+.flex-caption .entry-content {
 	display: block;
 	padding: 0.5em 1em;
+	margin: auto;
 	font-size: .9em;
-	text-align: justify;
 	background: rgb(59, 59, 59);
     background: rgba(59, 59, 59, 0.8);
 	color: #fff;
 }
-.flex-caption:first-of-type .entry-excerpt {
+.flex-caption:first-of-type .entry-content {
 	-webkit-border-radius: 0 1em 1em 1em;	
 	   -moz-border-radius: 0 1em 1em 1em;
 	        border-radius: 0 1em 1em 1em;	
 }
-.flex-caption:last-of-type .entry-excerpt {
+.flex-caption:last-of-type .entry-content {
 	-webkit-border-radius: 1em 1em 0 1em;
 	   -moz-border-radius: 1em 1em 0 1em;
 	        border-radius: 1em 1em 0 1em;
@@ -346,7 +341,7 @@ html[xmlns] .flexslider .slides {
 .flex-control-nav {
 	position: absolute;
 	display: inline-block;
-	bottom: -2.2em;
+	bottom: -1.9em;
 	z-index: 1000;
 }
 .flex-direction-nav a {
@@ -366,11 +361,11 @@ html[xmlns] .flexslider .slides {
 }
 .flex-direction-nav .flex-prev {
     text-align: center;
-	left: -2em;
+	left: -2.5em;
 }
 .flex-direction-nav .flex-next {
     text-align: center;
-	right: -2em;
+	right: -2.5em;
 }
 .flexslider:hover .flex-direction-nav .flex-prev {
 	opacity: .7;
@@ -384,44 +379,11 @@ html[xmlns] .flexslider .slides {
 /* ====================================================================================================================
  * RESPONSIVENESS
  * ====================================================================================================================*/
-@media screen and (max-width: 511px) {
-	.alt-caption {
-		display: block;
-		visibility: visible;
-	}
+@media screen and (max-width: 1024px) {
 	.flex-caption {
 		display: none;
 		visibility: hidden;
 	}
-	.flex-control-nav {
-		display: none;
-		visibility: hidden;
-	}
-}
-	
-@media screen and (min-width: 512px) and (max-width: 1024px) {
-	.flex-caption:first-of-type {
-		max-width: 100%;
-		width: 100%;
-		top: auto;
-		bottom: 0;
-		left: 0;
-	}
-	.flex-caption:first-of-type .entry-excerpt {
-		border-radius: 0;
-	}
-	.flex-caption:last-of-type,
-	.flex-caption:first-of-type .entry-title	{
-		display: none;
-		visibility: hidden;
-	}
-	
-}
-
-@media screen and (max-width: 1024px) {
-	.flexslider {
-		margin: 0;
-	}	
 	.flex-direction-nav .flex-prev {
 		left: -1em;
 	}
@@ -433,16 +395,5 @@ html[xmlns] .flexslider .slides {
 	}
 	.flexslider:hover .flex-direction-nav .flex-next {
 		right: 1em;
-	}
-}	
-
-@media screen and (max-width: 768px) {
-	.flexslider {
-		font-size: 14px;
-	}
-}
-@media screen and (min-width: 1921px) {
-	.flexslider {
-		font-size: 18px;
 	}
 }
