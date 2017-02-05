@@ -80,6 +80,7 @@ function senza_trucco_add_image_size( $name, $width, $height, $crop ) {
 	add_image_size( $name . '_xsmall', 320, absint( 320 / $aspect_ratio ), $crop );
 	add_image_size( $name . '_small', 480, absint( 480 / $aspect_ratio ), $crop );
 	add_image_size( $name . '_medium', 640, absint( 640 / $aspect_ratio ), $crop );
+	add_image_size( $name . '_mlarge', 768, absint( 768 / $aspect_ratio ), $crop );
 	add_image_size( $name . '_large', 800, absint( 800 / $aspect_ratio ), $crop );
 	add_image_size( $name . '_xlarge', 1024, absint( 1024 / $aspect_ratio ), $crop );
 	add_image_size( $name . '_hdready', 1280, absint( 1280 / $aspect_ratio ), $crop );

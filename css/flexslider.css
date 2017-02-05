@@ -282,7 +282,7 @@ html[xmlns] .flexslider .slides {
 	bottom: auto;
 	left: auto;
 	z-index: 1000;
-	max-width: 512px;
+	max-width: 640px;
 	overflow: hidden;
 }	
 .flex-caption:first-of-type {
@@ -306,9 +306,6 @@ html[xmlns] .flexslider .slides {
 	font-weight: bold;
 	text-transform: uppercase;
 }
-.flex-caption .entry-title a {
-	color: #fff;
-}
 .flex-caption:first-of-type .entry-title {
 	-webkit-border-radius: 2em 1em 0 0;
 	   -moz-border-radius: 2em 1em 0 0;
@@ -319,13 +316,22 @@ html[xmlns] .flexslider .slides {
 	   -moz-border-radius: 0 0 2em 1em;
 	        border-radius: 0 0 2em 1em;
 }
+
+.flex-caption .entry-title a {
+	color: #fff;
+}
+.flex-caption .entry-title a:hover,
+.flex-caption .entry-title a:focus {
+	color: #ddd;
+}
+
 .flex-caption .entry-content {
 	display: block;
 	padding: 0.5em 1em;
 	margin: auto;
 	font-size: .9em;
-	background: rgb(59, 59, 59);
-    background: rgba(59, 59, 59, 0.8);
+	background: #626262;
+    background: rgba(59, 59, 59, .8);
 	color: #fff;
 }
 .flex-caption:first-of-type .entry-content {
@@ -341,7 +347,7 @@ html[xmlns] .flexslider .slides {
 .flex-control-nav {
 	position: absolute;
 	display: inline-block;
-	bottom: -1.9em;
+	bottom: -2.5em;
 	z-index: 1000;
 }
 .flex-direction-nav a {

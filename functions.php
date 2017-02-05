@@ -49,15 +49,11 @@ function senza_trucco_setup() {
 	 */
 	// Adds image sizes for any post & page
 	// Aspect ratio is 3:2
-	senza_trucco_add_image_size( 'senza_trucco_thumb', 768, 512, array( 'center', 'center' ) );
+	senza_trucco_add_image_size( 'senza_trucco_thumb', 480, 320, array( 'center', 'center' ) );
 	
 	// Adds image sizes for slider
 	// Aspect ratio is 2:1
-	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 768, 384, array( 'center', 'center' ) );
-	
-	// Adds image sizes for any post & page
-	// Aspect ratio is 1:1
-	senza_trucco_add_image_size( 'senza_trucco_preview_thumb', 768, 768, array( 'center', 'center' ) );
+	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 480, 240, array( 'center', 'center' ) );
 	
 	// This theme uses wp_nav_menu() in one location.
 	// This theme also adds a social media menu.
@@ -122,11 +118,8 @@ add_action( 'widgets_init', 'senza_trucco_widgets_init' );
  */
 function senza_trucco_scripts() {
 	wp_enqueue_style( 'senza-trucco-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'genericons-style', get_stylesheet_directory_uri() .'/css/genericons.css' );
-	/*wp_enqueue_style( 'font-awesome-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );*/
+	wp_enqueue_style( 'font-awesome-style', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
-	wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/42fcc5f165.js' );
-	
 	wp_enqueue_script( 'jquery' );
 	
 	wp_enqueue_script( 'senza-trucco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -154,7 +147,7 @@ function senza_trucco_nav_menu_items($items, $args) {
 	if( $args->theme_location === 'primary' )  {
 		$items .= 
 			'<li id="menu-item-search" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-search">
-				<button class="toggle search-toggle" aria-controls="primary-search"></button>'
+				<button class="toggle search-toggle" aria-controls="primary-search"><i class="fa fa-search"></i></button>'
 				. get_search_form( false ) .
 			'</li>';
 
@@ -249,9 +242,10 @@ function senza_trucco_get_attachment_image_attributes($attr, $attachment, $size)
     //Slider Images
     if ( $size === 'senza_trucco_slider_thumb' ) {
         $attr['sizes'] = '(max-width: 3840px) 100vw, 3840px';
-	// @todo: adjust default
-    } else {
-		$attr['sizes'] = '(max-width: 768px) 100vw, 768px';
+	} else if ( is_active_sidebar( 'sidebar-1' ) ) {
+		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 38vw, 480px';
+	} else {
+		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px';
 	}
     return $attr;
 }

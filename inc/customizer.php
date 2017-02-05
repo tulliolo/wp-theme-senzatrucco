@@ -179,6 +179,10 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		/** background accent **/
+		button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"],
 		button.toggle .icon-bar, button.toggle .icon-bar::before, button.toggle .icon-bar::after,
 		button.search-submit,
 		.flex-control-paging li a.flex-active,
@@ -187,7 +191,10 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		/** color accent **/
-		a {
+		a, 
+		.entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active,
+		.read-more a:hover, .read-more a:focus, .read-more a:active,
+		i {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		
