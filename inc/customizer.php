@@ -162,6 +162,8 @@ function senza_trucco_customizer_css( $wp_customize ) {
 	?>
 	<style type="text/css">
 		/** background primary **/
+		.primary-button:hover, .primary-button:active,
+		.primary-button.solid-button, .primary-button.solid-button:focus,
 		.flex-caption .entry-title,
 		.main-navigation li:hover, .main-navigation li:focus,
 		.main-navigation .current_page_item, .main-navigation .current-menu-item, .main-navigation .current_page_ancestor, .main-navigation .current-menu-ancestor,
@@ -172,29 +174,32 @@ function senza_trucco_customizer_css( $wp_customize ) {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
 		
+		@media screen and (max-width: 1024px) {
+			.featured-area {
+				background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
+			}
+		}
+		
 		/** color primary **/
-		h1, h2, h3, h4, h5, h6,
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		.site-title, .site-title a,
+		.page-title, .page-title a,
+		.entry-title, .entry-title a,
+		.primary-button:not(.solid-button):not(:hover), .primary-button:not(.solid-button):not(:hover) i {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
 		
 		/** background accent **/
-		button,
-		input[type="button"],
-		input[type="reset"],
-		input[type="submit"],
-		button.toggle .icon-bar, button.toggle .icon-bar::before, button.toggle .icon-bar::after,
-		button.search-submit,
+		.accent-button:hover, .accent-button:active,
+		.accent-button.solid-button, .accent-button.solid-button:focus,
 		.flex-control-paging li a.flex-active,
 		.flex-direction-nav a {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		
 		/** color accent **/
-		a, 
+		.accent-button:not(.solid-button):not(:hover), .accent-button:not(.solid-button):not(:hover) i,
 		.entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active,
-		.read-more a:hover, .read-more a:focus, .read-more a:active,
-		i {
+		a, i {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		

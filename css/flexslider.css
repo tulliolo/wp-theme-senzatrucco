@@ -282,7 +282,7 @@ html[xmlns] .flexslider .slides {
 	bottom: auto;
 	left: auto;
 	z-index: 1000;
-	max-width: 640px;
+	max-width: 512px;
 	overflow: hidden;
 }	
 .flex-caption:first-of-type {

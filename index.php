@@ -40,7 +40,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			senza_trucco_posts_navigation();
 
 		else :
 

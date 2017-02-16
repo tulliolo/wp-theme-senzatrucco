@@ -58,8 +58,9 @@ function senza_trucco_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	// This theme also adds a social media menu.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'senza-trucco' ),
-		'social'  => esc_html__( 'Social', 'senza-trucco' ),
+		'primary'	=> esc_html__( 'Primary', 'senza-trucco' ),
+		'secondary'	=> esc_html__( 'Secondary', 'senza-trucco' ),
+		'social'  	=> esc_html__( 'Social', 'senza-trucco' ),
 	) );
 
 	/*
@@ -147,7 +148,7 @@ function senza_trucco_nav_menu_items($items, $args) {
 	if( $args->theme_location === 'primary' )  {
 		$items .= 
 			'<li id="menu-item-search" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-search">
-				<button class="toggle search-toggle" aria-controls="primary-search"><i class="fa fa-search"></i></button>'
+				<button class="search-toggle" aria-controls="primary-search"><i class="fa fa-search"></i></button>'
 				. get_search_form( false ) .
 			'</li>';
 

@@ -15,16 +15,17 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php senza_trucco_posted_on(); ?>
+			<?php senza_trucco_entry_meta(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
-		<?php the_excerpt(); ?>
+		<?php 
+		the_excerpt();
+		senza_trucco_read_more();
+		?>
 	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php senza_trucco_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+
+<hr class="section-divider" />

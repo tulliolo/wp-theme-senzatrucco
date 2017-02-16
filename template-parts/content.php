@@ -18,14 +18,14 @@
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-summary">
 		<?php 
 		if ( has_post_thumbnail() ) : 
 			the_post_thumbnail( 'senza_trucco_thumb' );
 		endif;
 		the_excerpt();
 		senza_trucco_read_more(); ?>
-	</div><!-- .entry-content -->
+	</div><!-- .entry-summary -->
 </article><!-- #post-## -->
 
 <hr class="section-divider" />

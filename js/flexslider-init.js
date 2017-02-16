@@ -4,6 +4,7 @@
         $('.flexslider').flexslider({
 	        animation: 'fade',
 		    controlsContainer: '.flex-container',
+			controlNav: false,
 			prevText: '',
 			nextText: '',
 	    });

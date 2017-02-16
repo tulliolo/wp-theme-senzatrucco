@@ -6,6 +6,32 @@
  *
  * @package Senza Trucco
  */
+ 
+if ( ! function_exists( 'senza_trucco_posts_navigation' ) ) :
+/**
+ * Prints HTML for paginated posts navigation 
+ */
+function senza_trucco_posts_navigation() {
+	// Don't print empty markup if there's only one page.
+	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+		return;
+	}
+	?>
+	<nav class="navigation posts-navigation" role="navigation">
+		<h2 class="screen-reader-text"><?php __( 'Posts navigation' ) ?></h2>
+		<div class="nav-links">
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-previous"><?php next_posts_link( sprintf( '<i class="fa fa-chevron-left"></i>%1$s', __( 'Older posts' ) ) ) ?></div>
+			<?php endif; ?>
+			
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-next"><?php previous_posts_link( sprintf( '%1$s<i class="fa fa-chevron-right"></i>', __( 'Newer posts' ) ) ) ?></div>
+			<?php endif; ?>
+		</div>
+	</nav>
+	<?php
+}	 
+endif;
 
 if ( ! function_exists( 'senza_trucco_posted_on' ) ) :
 /**
@@ -26,12 +52,12 @@ function senza_trucco_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		'<i class="fa fa-calendar"></i> %1$s',
+		'<i class="fa fa-calendar"></i>%1$s',
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 	
 	$byline = sprintf(
-		'<i class="fa fa-user"></i> %1$s',
+		'<i class="fa fa-user"></i>%1$s',
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -104,7 +130,7 @@ if ( ! function_exists( 'senza_trucco_read_more' ) ) :
  * Prints HTML with meta information for the comments.
  */
 function senza_trucco_read_more() {
-	printf ( '<p class="read-more"><a href="%1$s">' . esc_html__( 'Read more', 'senza-trucco' ) . '</a><i class="fa fa-chevron-right"></i></p>', get_the_permalink() );
+	printf ( '<p class="read-more"><a class="primary-button" href="%1$s">' . esc_html__( 'Read more', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i></a></p>', get_the_permalink() );
 }
 endif;
 
