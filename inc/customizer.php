@@ -184,6 +184,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.site-title, .site-title a,
 		.page-title, .page-title a,
 		.entry-title, .entry-title a,
+		.comments-title,
 		.primary-button:not(.solid-button):not(:hover), .primary-button:not(.solid-button):not(:hover) i {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
@@ -199,6 +200,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		/** color accent **/
 		.accent-button:not(.solid-button):not(:hover), .accent-button:not(.solid-button):not(:hover) i,
 		.entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active,
+		.entry-footer a:hover, .entry-footer a:focus, .entry-footer a:active,
 		a, i {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}

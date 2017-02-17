@@ -725,14 +725,14 @@ a {
 
 a:hover,
 a:focus {
-  color: #757575;
-  color: rgba(0,0,0,.54);
+  color: #212121;
+  color: rgba(0,0,0,.87);
   text-decoration: none;
   
 }
 a:active {
-  color: #212121;
-  color: rgba(0,0,0,.87);
+  color: #757575;
+  color: rgba(0,0,0,.54);
   text-decoration: none;
 }
 
@@ -1444,7 +1444,8 @@ a:focus {
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
-	margin: 0 0 1.5em;
+	margin: 0 0 24px;
+	margin: 0 0 1.5rem;
 	overflow: hidden;
 	font-size: 14px;
 	font-size: .875rem;
@@ -1607,7 +1608,7 @@ a:focus {
 
 .site-branding {
 	float: left;
-	max-width: 30%;
+	max-width: 35%;
 	margin: 0 16px 16px 0;
 	margin: 0 1rem 1rem 0;
 }
@@ -1620,8 +1621,8 @@ a:focus {
 ## Content
 --------------------------------------------------------------*/
 .site-content {
-	padding: 8px 40px;
-	padding: .5rem 2.5rem;
+	padding: 8px 40px 0;
+	padding: .5rem 2.5rem 0;
 }
 
 .content-area,
@@ -1657,9 +1658,6 @@ a:focus {
 	width: 25%;
 	padding-left: 16px;
 	padding-left: 1rem;
-	border-left: 1px solid;
-	border-color: #e0e0e0;
-	border-color: rgba(0,0,0,.12);
 }
 
 
@@ -1740,8 +1738,6 @@ a:focus {
 }
 
 .site-footer .section-divider  {
-	margin-bottom: 16px;
-	margin-bottom: 1rem;
 	background: #fff;
 	background: rgba(255,255,255,.12);
 }
@@ -1766,6 +1762,12 @@ a:focus {
 		padding: 8px 16px 0;
 		padding: .5rem 1rem 0;
 	}
+	.site-title {
+		font-size: 100%;
+	}
+	.site-description {
+		display: none;
+	}	
 	
 	.site-content {
 		padding: 8px 16px;
@@ -1778,8 +1780,6 @@ a:focus {
 		width: 100%;
 		padding: 8px 0;
 		padding: .5rem 0;
-		
-		border: 1px dotted blue;
 	}
 	
 	.featured-area {
@@ -1803,6 +1803,18 @@ a:focus {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+/* @todo: remove 
+.hentry {
+	border: 4px double blue;
+}	
+.hentry > *,
+.posts-navigation {
+	border: 1px solid blue;
+}
+.hentry > * > * {
+	border: 1px dotted blue;
+}
+/**/
 
 .sticky {
 	display: block;
@@ -1919,7 +1931,11 @@ a:focus {
 .featured-area > .hentry > .entry-content,
 .featured-area > .hentry > .entry-summary {
 	display: none;
-}	
+}
+
+.site-main > *:last-child.section-divider {
+	display: none;
+} 	
 
 /*--------------------------------------------------------------
 ## Comments
@@ -1930,6 +1946,28 @@ a:focus {
 
 .bypostauthor {
 	display: block;
+	background: #ffffcc;
+	background: rgba(255,255,0,.2);
+}
+
+.comment {
+	padding: 8px;
+	padding: .5rem;
+	font-size: 14px;
+	font-size: .875rem;
+}
+
+.comment-list > .comment {
+	border: 1px solid;
+	border-color: background: #e0e0e0;
+	border-color: rgba(0,0,0,.12);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+}
+.comment-list > .comment:not(:last-child) {
+	margin: 0 0 24px;
+	margin: 0 0 1.5rem;
 }
 
 /*--------------------------------------------------------------
@@ -1965,8 +2003,6 @@ a:focus {
 	
 	.featured-area > .hentry > .entry-content,
 	.featured-area > .hentry > .entry-summary {
-		/*margin: 40px 0 0;
-		margin: 2.5rem 0 0;*/
 		padding: 8px;
 		padding: .5rem;
 		background: #fff;

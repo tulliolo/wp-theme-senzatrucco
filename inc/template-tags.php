@@ -6,32 +6,6 @@
  *
  * @package Senza Trucco
  */
- 
-if ( ! function_exists( 'senza_trucco_posts_navigation' ) ) :
-/**
- * Prints HTML for paginated posts navigation 
- */
-function senza_trucco_posts_navigation() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php __( 'Posts navigation' ) ?></h2>
-		<div class="nav-links">
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( sprintf( '<i class="fa fa-chevron-left"></i>%1$s', __( 'Older posts' ) ) ) ?></div>
-			<?php endif; ?>
-			
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( sprintf( '%1$s<i class="fa fa-chevron-right"></i>', __( 'Newer posts' ) ) ) ?></div>
-			<?php endif; ?>
-		</div>
-	</nav>
-	<?php
-}	 
-endif;
 
 if ( ! function_exists( 'senza_trucco_posted_on' ) ) :
 /**

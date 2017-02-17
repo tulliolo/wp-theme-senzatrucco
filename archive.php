@@ -20,6 +20,7 @@ get_header(); ?>
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
+				<hr class="section-divider" />
 			</header><!-- .page-header -->
 
 			<?php
@@ -35,7 +36,10 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_navigation( array(
+				'prev_text'                  => '<i class="fa fa-chevron-left"></i>' . __( 'Older posts' ),
+				'next_text'                  => __( 'Newer posts' ) . '<i class="fa fa-chevron-right"></i>',
+			) );
 
 		else :
 

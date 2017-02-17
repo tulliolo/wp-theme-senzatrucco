@@ -40,8 +40,8 @@ if ( post_password_required() ) {
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'senza-trucco' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( '<i class="fa fa-chevron-left"></i>' . esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>' ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
@@ -61,8 +61,8 @@ if ( post_password_required() ) {
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'senza-trucco' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( '<i class="fa fa-chevron-left"></i>' . esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>' ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-below -->
