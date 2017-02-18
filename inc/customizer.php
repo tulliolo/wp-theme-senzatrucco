@@ -170,7 +170,8 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.main-navigation .menu-toggle .icon-bar, .main-navigation .menu-toggle .icon-bar::before, .main-navigation .menu-toggle .icon-bar::after,
 		.main-navigation.toggled.toggled-out .menu-toggle .icon-bar, .main-navigation.toggled.toggled-out .menu-toggle .icon-bar::before, .main-navigation.toggled.toggled-out .menu-toggle .icon-bar::after,
 		.main-navigation .search-toggle:hover, .main-navigation .search-toggle[aria-expanded="true"],
-		.main-navigation.toggled li.menu-item-search {
+		.main-navigation.toggled li.menu-item-search,
+		li.bypostauthor::before {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
 		
@@ -185,6 +186,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.page-title, .page-title a,
 		.entry-title, .entry-title a,
 		.comments-title,
+		.comment.bypostauthor .comment-author > *:last-child::after,
 		.primary-button:not(.solid-button):not(:hover), .primary-button:not(.solid-button):not(:hover) i {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
@@ -193,7 +195,8 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.accent-button:hover, .accent-button:active,
 		.accent-button.solid-button, .accent-button.solid-button:focus,
 		.flex-control-paging li a.flex-active,
-		.flex-direction-nav a {
+		.flex-direction-nav a,
+		li.comment:not(.bypostauthor)::before {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		
