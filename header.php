@@ -70,7 +70,7 @@
 	
 	<div id="content" class="site-content">
 		<?php if ( ( is_front_page() || is_home() ) && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) : ?>
-			<div id="featured" class="content-area featured-area">
+			<div id="featured" class="featured-area">
 				<?php get_template_part( 'template-parts/content-featured', get_post_format() ); ?>
 			</div><!-- #featured -->
 		<?php endif; ?>

@@ -17,7 +17,7 @@
 	<div class="entry-content">
 		<?php
 			if ( has_post_thumbnail() ) { // Check if the page has a featured image assigned to it.
-				the_post_thumbnail( 'senza_trucco_slider_thumb' );
+				the_post_thumbnail( 'senza_trucco_thumb' );
 			}
 			the_content();
 
@@ -30,17 +30,7 @@
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
-			<?php
-				edit_post_link(
-					sprintf(
-						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'senza-trucco' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					),
-					'<span class="edit-link">',
-					'</span>'
-				);
-			?>
+			<?php senza_trucco_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-## -->

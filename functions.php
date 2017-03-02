@@ -49,11 +49,15 @@ function senza_trucco_setup() {
 	 */
 	// Adds image sizes for any post & page
 	// Aspect ratio is 3:2
-	senza_trucco_add_image_size( 'senza_trucco_thumb', 480, 320, array( 'center', 'center' ) );
+	senza_trucco_add_image_size( 'senza_trucco_thumb', 150, 100, array( 'center', 'center' ) );
 	
 	// Adds image sizes for slider
 	// Aspect ratio is 2:1
-	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 480, 240, array( 'center', 'center' ) );
+	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 150, 75, array( 'center', 'center' ) );
+	
+	// Adds square image sizes for list items
+	// Aspect ratio is 1:1
+	senza_trucco_add_image_size( 'senza_trucco_square_thumb', 150, 150, array( 'center', 'center' ) );
 	
 	// This theme uses wp_nav_menu() in one location.
 	// This theme also adds a social media menu.
@@ -119,7 +123,7 @@ add_action( 'widgets_init', 'senza_trucco_widgets_init' );
  */
 function senza_trucco_scripts() {
 	wp_enqueue_style( 'senza-trucco-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'font-awesome-style', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'font-awesome-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 	wp_enqueue_script( 'jquery' );
 	
@@ -244,9 +248,9 @@ function senza_trucco_get_attachment_image_attributes($attr, $attachment, $size)
     if ( $size === 'senza_trucco_slider_thumb' ) {
         $attr['sizes'] = '(max-width: 3840px) 100vw, 3840px';
 	} else if ( is_active_sidebar( 'sidebar-1' ) ) {
-		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 38vw, 480px';
+		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1440px) 38vw, 480px';
 	} else {
-		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px';
+		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1440) 50vw, 640px';
 	}
     return $attr;
 }
@@ -262,17 +266,3 @@ function senza_trucco_max_srcset_image_width($max_width) {
 }
 add_filter('max_srcset_image_width', 'senza_trucco_max_srcset_image_width');
 endif;
-
-/*if ( ! function_exists( 'senza_trucco_excerpt_more' ) ) :
-/**
- * Filter the excerpt "read more" string.
- *
- * @param string $more "Read more" excerpt string.
- * @return string (Maybe) modified "read more" excerpt string.
- */
-/*function senza_trucco_excerpt_more( $more ) {
-	global $post;
-    return '...<p><a class="tag-more" href="' . get_permalink($post->ID) . '">' . __( 'Read more', 'senza-trucco' ) . '</a></p>';
-}
-add_filter( 'excerpt_more', 'senza_trucco_excerpt_more' );
-endif;*/

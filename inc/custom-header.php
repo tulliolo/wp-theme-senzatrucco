@@ -26,7 +26,7 @@ function senza_trucco_custom_header_setup() {
 		'default-text-color'     => '000000',
 		'width'                  => 238,
 		'height'                 => 118,
-		'flex-height'            => false,
+		'flex-height'            => true,
 		'wp-head-callback'       => 'senza_trucco_header_style',
 	) ) );
 }

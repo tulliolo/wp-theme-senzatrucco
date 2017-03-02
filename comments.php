@@ -51,8 +51,9 @@ if ( post_password_required() ) {
 			<?php
 				wp_list_comments( array(
 					'avatar_size' => 48,
-					'style'      => 'ol',
-					'short_ping' => true,
+					'style'       => 'ol',
+					'callback'	  => 'senza_trucco_comment',
+					'short_ping'  => true,
 				) );
 			?>
 		</ol><!-- .comment-list -->
@@ -80,7 +81,9 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	comment_form( array(
+		'class_submit'  => 	'solid-button accent-button',
+	) );
 	?>
 
 </div><!-- #comments -->

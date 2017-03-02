@@ -7,6 +7,73 @@
  * @package Senza Trucco
  */
 
+ if ( ! function_exists( 'senza_trucco_comment' ) ) :
+/**
+ * Prints HTML for the current comment.
+ */
+function senza_trucco_comment($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment;
+	
+	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
+
+		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+			<div class="comment-body">
+				<?php _e( 'Pingback:' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( '('.__( 'Edit', 'senza-trucco' ).')', '<span class="edit-link">', '</span>' ); ?>
+			</div>
+
+	<?php else : 
+		$extra_class = 
+			( 0 == $args['avatar_size'] ) || !get_avatar( $comment, $args['avatar_size'] ) ? 'no-avatar' : ''; 
+	?>
+ 
+		<li id="comment-<?php comment_ID() ?>" <?php comment_class( $extra_class ); ?>>
+			<article id="div-comment-<?php comment_ID() ?>" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
+						<?php printf( __( '%s <span class="says">says:</span>', 'senza-trucco' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
+					</div><!-- .comment-author -->
+					
+					<div class="comment-metadata">
+						<span class="posted-on">
+							<i class="fa fa-clock-o"></i>
+							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+								<time datetime="<?php comment_time( 'c' ); ?>">
+									<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'senza-trucco' ), get_comment_date(), get_comment_time() ); ?>
+								</time>
+							</a>
+						</span>
+						<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link"><i class="fa fa-pencil-square-o"></i>', '</span>' ); ?>
+					</div><!-- .comment-metadata -->
+					
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+						<p class="comment-awaiting"><?php _e( 'Your comment is awaiting moderation.', 'senza-trucco' ); ?></p>
+					<?php endif; ?>
+				</footer><!-- .comment-meta -->
+				
+				<div class="clear"></div>
+		 
+				<div class="comment-content">	
+					<?php comment_text() ?>
+				</div><!-- .comment-content -->
+		 
+				<?php
+					comment_reply_link( array_merge( $args, array(
+						'add_below' => 'div-comment',
+						'depth'     => $depth,
+						'max_depth' => $args['max_depth'],
+						'before'    => '<div class="reply">',
+						'after'     => '</div>',
+					) ) );
+				?>
+			
+				<div class="clear"></div>
+			</article><!-- .comment-body -->
+	<?php 
+	endif; // if pingback
+}
+endif;
+
 if ( ! function_exists( 'senza_trucco_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.

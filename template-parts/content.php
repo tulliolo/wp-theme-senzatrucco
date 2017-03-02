@@ -27,5 +27,3 @@
 		senza_trucco_read_more(); ?>
 	</div><!-- .entry-summary -->
 </article><!-- #post-## -->
-
-<hr class="section-divider" />

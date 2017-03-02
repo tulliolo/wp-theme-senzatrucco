@@ -28,7 +28,7 @@
 	<div class="entry-content">
 		<?php
 			if ( has_post_thumbnail() ) { // Check if the post has a featured image assigned to it.
-				the_post_thumbnail( 'senza_trucco_large_thumb' );
+				the_post_thumbnail( 'senza_trucco_thumb' );
 			}
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

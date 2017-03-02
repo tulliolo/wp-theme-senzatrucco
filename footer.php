@@ -53,8 +53,6 @@
 				);
 			} ?>
 			
-			<hr class="section-divider" />
-			
 			<div class="site-info">
 				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'senza-trucco' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'senza-trucco' ), 'WordPress' ); ?></a>
 				<span class="sep"> | </span>

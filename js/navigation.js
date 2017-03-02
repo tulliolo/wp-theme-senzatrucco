@@ -48,7 +48,7 @@
 		searchButton.setAttribute( 'aria-expanded', 'false' );
 		search.setAttribute( 'aria-expanded', 'false' );
 	} else {
-		searchButton.disabled = false;
+		searchButton.disabled = true;
 		
 		menuButton.setAttribute( 'aria-expanded', 'false' );
 		menu.setAttribute( 'aria-expanded', 'false' );
