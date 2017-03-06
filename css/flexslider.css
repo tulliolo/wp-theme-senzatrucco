@@ -325,7 +325,8 @@ html[xmlns] .flexslider .slides {
 	color: #ddd;
 }
 
-.flex-caption .entry-content {
+.flex-caption .entry-content,
+.flex-caption .entry-summary {
 	display: block;
 	padding: 0.5em 1em;
 	margin: auto;
@@ -334,12 +335,14 @@ html[xmlns] .flexslider .slides {
     background: rgba(59, 59, 59, .8);
 	color: #fff;
 }
-.flex-caption:first-of-type .entry-content {
+.flex-caption:first-of-type .entry-content,
+.flex-caption:first-of-type .entry-summary {
 	-webkit-border-radius: 0 1em 1em 1em;	
 	   -moz-border-radius: 0 1em 1em 1em;
 	        border-radius: 0 1em 1em 1em;	
 }
-.flex-caption:last-of-type .entry-content {
+.flex-caption:last-of-type .entry-content,
+.flex-caption:last-of-type .entry-summary {
 	-webkit-border-radius: 1em 1em 0 1em;
 	   -moz-border-radius: 1em 1em 0 1em;
 	        border-radius: 1em 1em 0 1em;

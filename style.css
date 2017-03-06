@@ -1,14 +1,14 @@
 /*
 Theme Name: Senza Trucco
-Theme URI: http://underscores.me/
+Theme URI: https://github.com/tulliolo/wp-theme-senzatrucco
 Author: Tullio Loffredo
-Author URI: http://www.vinisenzatrucco.it
+Author URI: https://github.com/tulliolo
 Description: Description
-Version: 1.0.0
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: senza-trucco
-Tags:
+Tags: two-columns, right-sidebar, flexible-header, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, post-formats, theme-options, translation-ready, food-and-drink
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -186,7 +186,7 @@ samp {
 	font-size: 1em;
 }
 
-button, *[class$="button"],
+button, *[class*="button"],
 input,
 optgroup,
 select,
@@ -196,16 +196,16 @@ textarea {
 	margin: 0;
 }
 
-button, *[class$="button"] {
+button, *[class*="button"] {
 	overflow: visible;
 }
 
-button, *[class$="button"],
+button, *[class*="button"],
 select {
 	text-transform: none;
 }
 
-button, *[class$="button"],
+button, *[class*="button"],
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -214,13 +214,14 @@ input[type="submit"] {
 	   -moz-appearance: normal;
 }
 
-*[class$="toggle"] {
+*[class*="toggle"] {
 	-webkit-appearance: icon;
 	   -moz-appearance: icon;
 }
 
 button[disabled],
-html input[disabled] {
+html input[disabled],
+*[class*="button"][disabled] {
 	opacity: .38;
 	cursor: default;
 }
@@ -295,7 +296,7 @@ th {
 # Typography
 --------------------------------------------------------------*/
 body,
-button, *[class$="button"],
+button, *[class*="button"],
 input,
 select,
 textarea {
@@ -450,162 +451,149 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button, *[class$="button"],
+button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
-	border: 1px solid #ccc;
-    border-radius: 3px;
+input[type="submit"],
+*[class*="button"] {
 	background: none;
 	padding: .5em;
+	border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
 	-webkit-box-shadow: none;
 	   -moz-box-shadow: none;
 	     -o-box-shadow: none;
 			box-shadow: none;
 }
-button, *[class$="button"],
+button, *[class*="button"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-button i, *[class$="button"] i,
+button i, *[class*="button"] i,
 input[type="button"] i,
 input[type="reset"] i,
 input[type="submit"] i {
 	position: relative;
 	display: inline-block;
-	font-size: 12px;
-	font-size: .75rem;
+	font-size: .75em;
 	-webkit-transition: all .2s;
        -moz-transition: all .2s;
          -o-transition: all .2s;
             transition: all .2s;
 }
 
-button, *[class$="button"],
+button, *[class*="button"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-button i, *[class$="button"] i,
+button i, *[class*="button"] i,
 input[type="button"] i,
 input[type="reset"] i,
 input[type="submit"] i,
-button:focus, *[class$="button"]:focus,
+button:focus, *[class*="button"]:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
-button:focus i, *[class$="button"]:focus i,
+button:focus i, *[class*="button"]:focus i,
 input[type="button"]:focus i,
 input[type="reset"]:focus i,
 input[type="submit"]:focus i {
 	color: blue; /* fallback */
 }
 
-button:hover, *[class$="button"]:hover,
+button:hover, *[class*="button"]:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
-button:active, *[class$="button"]:active,
+button:active, *[class*="button"]:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	background: midnightblue; /* fallback */
+	color: #fff;
+	background: blue; /* fallback */
 }
 
-button:hover, *[class$="button"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-button:active, *[class$="button"]:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active,
-button:hover i, *[class$="button"]:hover i,
+button:hover i, *[class*="button"]:hover i,
 input[type="button"]:hover i,
 input[type="reset"]:hover i,
 input[type="submit"]:hover i,
-button:active i, *[class$="button"]:active i,
+button:active i, *[class*="button"]:active i,
 input[type="button"]:active i,
 input[type="reset"]:active i,
 input[type="submit"]:active i {
 	color: #fff;
 }
 
-button:active, *[class$="button"]:active,
+/* reset pushbutton style */
+button[class*="pushbutton"],
+input[class*="pushbutton"],
+[class*="pushbutton"],
+button[class*="pushbutton"]:hover,
+input[class*="pushbutton"]:hover,
+[class*="pushbutton"]:hover,
+button[class*="pushbutton"]:focus,
+input[class*="pushbutton"]:focus,
+[class*="pushbutton"]:focus,
+button[class*="pushbutton"]:active,
+input[class*="pushbutton"]:active,
+[class*="pushbutton"]:active {
+	background: blue; /* fallback */
+	color: #fff;
+}
+
+button[class*="pushbutton"] i,
+input[class*="pushbutton"] i,
+[class*="pushbutton"] i,
+button[class*="pushbutton"]:hover i,
+input[class*="pushbutton"]:hover i,
+[class*="pushbutton"]:hover i,
+button[class*="pushbutton"]:focus i,
+input[class*="pushbutton"]:focus i,
+[class*="pushbutton"]:focus i,
+button[class*="pushbutton"]:active i
+input[class*="pushbutton"]:active i,
+[class*="pushbutton"]:active i {
+	color: #fff;
+}
+
+button[class*="pushbutton"]:hover,
+input[class*="pushbutton"]:hover,
+[class*="pushbutton"]:hover,
+button[class*="pushbutton"]:focus,
+input[class*="pushbutton"]:focus,
+[class*="pushbutton"]:focus {
+	-webkit-box-shadow: inset 0 0 0 1px #ccc, 0 2px 5px #666;
+	   -moz-box-shadow: inset 0 0 0 1px #ccc, 0 2px 5px #666;
+	     -o-box-shadow: inset 0 0 0 1px #ccc, 0 2px 5px #666;
+	        box-shadow: inset 0 0 0 1px #ccc, 0 2px 5px #666;
+}
+
+button:active, *[class*="button"]:active, *[class*="toggle"]:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
 	-webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .5), inset 0 2px 5px rgba(0, 0, 0, .15);
 	   -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .5), inset 0 2px 5px rgba(0, 0, 0, .15);
 	     -o-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .5), inset 0 2px 5px rgba(0, 0, 0, .15);
-	        box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .5), inset 0 2px 5px rgba(0, 0, 0, .15);
-}
-
-/** reset solid button style */
-.solid-button,
-button.solid-button,
-input.solid-button {
-	border: none;
-}
-.solid-button,
-button.solid-button,
-input.solid-button,
-.solid-button:hover,
-button.solid-button:hover,
-input.solid-button:hover,
-.solid-button:focus,
-button.solid-button:focus,
-input.solid-button:focus,
-.solid-button:active,
-button.solid-button:active,
-input.solid-button:active {
-	background: blue; /* fallback */
-	color: #fff;
-}
-.solid-button i,
-button.solid-button i,
-input.solid-button i,
-.solid-button:hover i,
-button.solid-button:hover i,
-input.solid-button:hover i,
-.solid-button:focus i,
-button.solid-button:focus i,
-input.solid-button:focus i,
-.solid-button:active i,
-button.solid-button:active i
-input.solid-button:active i {
-	color: #fff;
-}
-.solid-button:hover,
-button.solid-button:hover,
-input.solid-button:hover,
-.solid-button:focus,
-button.solid-button:focus,
-input.solid-button:focus,
-.solid-button:active,
-button.solid-button:active,
-input.solid-button:active {
-	-webkit-filter: brightness(80%);
-	        filter: brightness(80%);
+	        box-shadow: inset 0 0 0 1px #ccc,inset 0 5px 30px #666;
 }
 
 /** reset toggle button style **/
-*[class$="toggle"],
-*[class$="toggle"]:hover,
-*[class$="toggle"]:focus,
-*[class$="toggle"]:active {
+*[class*="toggle"],
+*[class*="toggle"]:hover,
+*[class*="toggle"]:focus,
+*[class*="toggle"]:active {
 	background: none;
 	color: inherit;
 }
-*[class$="toggle"] i,
-*[class$="toggle"]:hover i,
-*[class$="toggle"]:focus i,
-*[class$="toggle"]:active i {
+
+*[class*="toggle"] i,
+*[class*="toggle"]:hover i,
+*[class*="toggle"]:focus i,
+*[class*="toggle"]:active i {
 	color: inherit;
-}
-*[class$="toggle"]:hover,
-*[class$="toggle"]:active {
-	-webkit-filter: brightness(80%);
-	        filter: brightness(80%);
 }	
 
 input[type="text"],
@@ -710,6 +698,7 @@ button.search-submit {
 	position: relative;
 	left: -6px;
 	padding: 4px 8px;
+	border: 0;
 	font-size: 14px;
 	font-size: .875rem;
 	line-height: 1.6;
@@ -733,8 +722,6 @@ button.search-submit:active {
 	-webkit-box-shadow: none;
 	   -moz-box-shadow: none;
 	        box-shadow: none;
-	-webkit-filter: none;
-	        filter: none;
 }
 
 /* comment form 
@@ -1552,6 +1539,12 @@ a:focus {
 /*--------------------------------------------------------------
 ## Responsive layout
 --------------------------------------------------------------*/
+@media all and (max-width: 1024px) {
+	#social-media {
+		display: none;
+		visibility: hidden;
+	}
+}
 @media all and (min-width: 1025px) {
 	.main-navigation .menu-toggle {
 		display: none;
@@ -1809,18 +1802,6 @@ a:focus {
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
-
-/** @todo: remove 
-.site > * {
-	border: 1px solid black;
-}
-.site > * > * {
-	border: 1px dotted blue;
-}
-.wrapper > * {
-	border: 1px dotted blue;
-}	
-/**/
 	
 /*--------------------------------------------------------------
 ## Header
@@ -2003,18 +1984,6 @@ a:focus {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-/** @todo: remove 
-.hentry {
-	border: 1px solid red;
-}	
-.hentry > * {
-	border: 1px dotted blue;
-}
-.hentry > * > * {
-	border: 1px dotted grey;
-}
-/**/
-
 .sticky {
 	display: block;
 }
@@ -2064,11 +2033,13 @@ a:focus {
 .entry-summary p {
 	margin: 8px 0 0;
 	margin: .5rem 0 0;
-	text-align: justify;
 }
 .entry-content p:first-of-type,
 .entry-summary p:first-of-type {
 	margin: 0;
+}
+.entry-summary p {
+	text-align: justify;
 }
 
 .entry-content .read-more,
@@ -2490,14 +2461,4 @@ object {
 }
 @keyframes spin {
 	100%	{         transform: rotate(360deg); }
-}
-
-/*--------------------------------------------------------------
-## Responsive layout
---------------------------------------------------------------*/
-@media all and (max-width: 1024px) {
-	#social-media {
-		display: none;
-		visibility: hidden;
-	}
 }

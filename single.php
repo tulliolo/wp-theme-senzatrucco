@@ -18,8 +18,8 @@ get_header(); ?>
 			get_template_part( 'template-parts/content-single', get_post_format() );
 
 			the_post_navigation( array(
-				'prev_text'                  => '<i class="fa fa-chevron-left"></i>' . __( '%title' ),
-				'next_text'                  => __( '%title' ) . '<i class="fa fa-chevron-right"></i>',
+				'prev_text'                  => '<i class="fa fa-chevron-left"></i>' . __( '%title', 'senza-trucco' ),
+				'next_text'                  => __( '%title', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>',
 			) );
 
 			// If comments are open or we have at least one comment, load up the comment template.

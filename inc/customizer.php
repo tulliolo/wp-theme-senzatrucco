@@ -162,12 +162,12 @@ function senza_trucco_customizer_css( $wp_customize ) {
 	?>
 	<style type="text/css">
 		/** background primary **/
-		.primary-button:hover, .primary-button:active,
-		button.primary-button:hover, button.primary-button:active,
-		input.primary-button:hover, input.primary-button:active,
-		.primary-button.solid-button, .primary-button.solid-button:focus,
-		button.primary-button.solid-button, button.primary-button.solid-button:focus,
-		input.primary-button.solid-button, input.primary-button.solid-button:focus,
+		button.primarybutton:hover, button.primarybutton:active,
+		input.primarybutton:hover, input.primarybutton:active,
+		.primarybutton:hover, .primarybutton:active,
+		button.primarybutton.pushbutton:hover, button.primarybutton.pushbutton:focus,
+		input.primarybutton.pushbutton:hover, input.primarybutton.pushbutton:focus,
+		.primarybutton.pushbutton:hover, .primarybutton.pushbutton:focus,
 		.flex-caption .entry-title,
 		.main-navigation li:hover, .main-navigation li:focus,
 		.main-navigation .current_page_item, .main-navigation .current-menu-item, .main-navigation .current_page_ancestor, .main-navigation .current-menu-ancestor,
@@ -194,31 +194,44 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.page-title, .page-title a,
 		.entry-title, .entry-title a,
 		.comments-title, .comment-reply-title,
-		.widget-title, .widget-title a,
-		.primary-button:not(.solid-button):not(:hover), .primary-button:not(.solid-button):not(:hover) i,
-		button.primary-button:not(.solid-button):not(:hover), button.primary-button:not(.solid-button):not(:hover) i,
-		input.primary-button:not(.solid-button):not(:hover), input.primary-button:not(.solid-button):not(:hover) i,
+		.widget-title, .widget-title a, .widgettitle, .widgettitle a,
+		button.primarybutton:not([class*="pushbutton"]):not(:hover),
+		input.primarybutton:not([class*="pushbutton"]):not(:hover),
+		.primarybutton:not([class*="pushbutton"]):not(:hover),
+		button.primarybutton:not([class*="pushbutton"]):not(:hover) i,
+		input.primarybutton:not([class*="pushbutton"]):not(:hover) i,
+		.primarybutton:not([class*="pushbutton"]):not(:hover) i,
 		.required {
 			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 		}
 		
 		/** background accent **/
-		.accent-button:hover, .accent-button:active,
-		button.accent-button:hover, button.accent-button:active,
-		input.accent-button:hover, input.accent-button:active,
-		.accent-button.solid-button, .accent-button.solid-button:focus,
-		button.accent-button.solid-button, button.accent-button.solid-button:focus,
-		input.accent-button.solid-button, input.accent-button.solid-button:focus,
+		button:not(.primarybutton):not([class*="toggle"]):hover, button:not(.primarybutton):not([class*="toggle"]):active,
+		button:not(.primarybutton)[class*="pushbutton"], button:not(.primarybutton)[class*="pushbutton"]:focus,
+		input[type="button"]:not(.primarybutton):not([class*="toggle"]):hover,	input[type="button"]:not(.primarybutton):not([class*="toggle"]):active,
+		input[type="reset"]:not(.primarybutton):not([class*="toggle"]):hover, input[type="reset"]:not(.primarybutton):not([class*="toggle"]):active,
+		input[type="submit"]:not(.primarybutton):not([class*="toggle"]):hover, input[type="submit"]:not(.primarybutton):not([class*="toggle"]):active,
+		input:not(.primarybutton)[class*="pushbutton"], input:not(.primarybutton)[class*="pushbutton"]:focus,
+		[class*="button"]:not(.primarybutton):not([class*="toggle"]):hover, [class*="button"]:not(.primarybutton):not([class*="toggle"]):active,
+		[class*="pushbutton"]:not(.primarybutton), [class*="pushbutton"]:not(.primarybutton):focus,
+		
 		.flex-control-paging li a.flex-active,
 		.flex-direction-nav a,
+		
 		li.comment:not(.bypostauthor)::before {
 			background: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
 		}
 		
-		/** color accent **/
-		.accent-button:not(.solid-button):not(:hover), .accent-button:not(.solid-button):not(:hover) i,
-		button.accent-button:not(.solid-button):not(:hover), button.accent-button:not(.solid-button):not(:hover) i,
-		input.accent-button:not(.solid-button):not(:hover), input.accent-button:not(.solid-button):not(:hover) i,
+		/** color accent **/	
+		button:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
+		input[type="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
+		input[type="reset"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
+		input[type="submit"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
+		*[class*="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
+		input[type="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
+		input[type="reset"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
+		input[type="submit"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
+		*[class*="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
 		.entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active,
 		.entry-footer a:hover, .entry-footer a:focus, .entry-footer a:active,
 		.comment-metadata a:hover, .comment-metadata a:focus, .comment-metadata a:active,

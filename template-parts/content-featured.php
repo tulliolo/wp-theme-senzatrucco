@@ -48,9 +48,9 @@ if ( ( $featquery->have_posts() ) && !( is_null( $featpost ) ) ) :
 				<div class="flex-caption">
 					<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 					
-					<div class="entry-content">
+					<div class="entry-summary">
 						<?php the_excerpt(); ?>
-					</div><!-- .entry-content -->	
+					</div><!-- .entry-summary -->	
 				</div><!-- .flex-caption -->
 					
 <?php
@@ -63,9 +63,9 @@ if ( ( $featquery->have_posts() ) && !( is_null( $featpost ) ) ) :
 				
 				<div class="flex-caption">
 					<article id="featured-post-<?php the_ID(); ?>" <?php post_class( 'featured-post post-summary' ); ?>>
-						<div class="entry-content">
+						<div class="entry-summary">
 							<?php the_excerpt(); ?>
-						</div><!-- .entry-content -->
+						</div><!-- .entry-summary -->
 						
 						<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 					</article><!-- #featured-post-## -->
@@ -86,9 +86,9 @@ if ( ( $featquery->have_posts() ) && !( is_null( $featpost ) ) ) :
 	setup_postdata( $post );
 ?>
 	
-	<div class="entry-content">
+	<div class="entry-summary">
 			<?php the_excerpt(); ?>
-	</div><!-- .entry-content -->
+	</div><!-- .entry-summary -->
 </article><!-- #featured-post-## -->
 
 <?php

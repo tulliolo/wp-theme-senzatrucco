@@ -162,6 +162,17 @@ function senza_trucco_nav_menu_items($items, $args) {
 add_filter('wp_nav_menu_items', 'senza_trucco_nav_menu_items', 10, 2);
 
 /**
+ * Apply theme's stylesheet to the visual editor.
+ *
+ * @uses add_editor_style() Links a stylesheet to visual editor
+ * @uses get_stylesheet_uri() Returns URI of theme stylesheet
+ */
+function senza_trucco_add_editor_styles() {
+    add_editor_style( get_stylesheet_uri() );
+}
+add_action( 'init', 'senza_trucco_add_editor_styles' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

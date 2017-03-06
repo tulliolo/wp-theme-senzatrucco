@@ -18,7 +18,7 @@ function senza_trucco_comment($comment, $args, $depth) {
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( '('.__( 'Edit', 'senza-trucco' ).')', '<span class="edit-link">', '</span>' ); ?>
+				<?php _e( 'Pingback:', 'senza-trucco' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( '('.__( 'Edit', 'senza-trucco' ).')', '<span class="edit-link">', '</span>' ); ?>
 			</div>
 
 	<?php else : 
@@ -43,7 +43,7 @@ function senza_trucco_comment($comment, $args, $depth) {
 								</time>
 							</a>
 						</span>
-						<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link"><i class="fa fa-pencil-square-o"></i>', '</span>' ); ?>
+						<?php edit_comment_link( __( 'Edit', 'senza-trucco' ), '<span class="edit-link"><i class="fa fa-pencil-square-o"></i>', '</span>' ); ?>
 					</div><!-- .comment-metadata -->
 					
 					<?php if ( '0' == $comment->comment_approved ) : ?>
@@ -171,7 +171,7 @@ if ( ! function_exists( 'senza_trucco_read_more' ) ) :
  * Prints HTML with meta information for the comments.
  */
 function senza_trucco_read_more() {
-	printf ( '<p class="read-more"><a class="primary-button" href="%1$s">' . esc_html__( 'Read more', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i></a></p>', get_the_permalink() );
+	printf ( '<p class="read-more"><a class="primarybutton" href="%1$s">' . esc_html__( 'Read more', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i></a></p>', get_the_permalink() );
 }
 endif;
 

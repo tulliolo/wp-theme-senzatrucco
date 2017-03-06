@@ -16,9 +16,9 @@
 function senza_trucco_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'senza_trucco_infinite_scroll_render',
-		'footer'    => 'page',
+		'container' 	 => 'main',
+		'render'    	 => 'senza_trucco_infinite_scroll_render',
+		'footer'    	 => 'page',
 	) );
 
 	// Add theme support for Responsive Videos.

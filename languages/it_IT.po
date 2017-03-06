@@ -1,264 +1,271 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Senza Trucco\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-05 13:02+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"PO-Revision-Date: 2017-03-05 13:05+0000\n"
+"Last-Translator: Tullio Loffredo <tullio.loffredo@gmail.com>\n"
+"Language-Team: Italian\n"
+"Language: it-IT\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
+#: archive.php:39 index.php:44 search.php:36
+msgid "Older posts"
+msgstr "Articoli meno recenti"
+
+#: archive.php:40 index.php:45 search.php:37
+msgid "Newer posts"
+msgstr "Articoli pi&#249; recenti"
+
+#. Name of the theme
+#: footer.php:57
+msgid "Senza Trucco"
+msgstr "Senza Trucco"
+
+#: functions.php:68
+msgid "Social"
+msgstr "Social"
+
+#: searchform.php:10
+msgctxt "label"
+msgid "Search for:"
+msgstr "Cerca"
+
+#: single.php:21 single.php:22
+msgid "%title"
+msgstr "%title"
+
+#: inc/template-tags.php:21
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#. used between list items, there is a space after the comma
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:115 inc/template-tags.php:128
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:117 inc/template-tags.php:130
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#. URI of the theme
+msgid "http://underscores.me/"
+msgstr "http://underscores.me/"
+
+#. Author of the theme
+msgid "Tullio Loffredo"
+msgstr "Tullio Loffredo"
+
+#. Author URI of the theme
+msgid "http://www.vinisenzatrucco.it"
+msgstr "http://www.vinisenzatrucco.it"
+
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Oops! La pagina non esiste."
 
 #: 404.php:21
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
+"Non c&#39;&#232; niente a questo indirizzo. Puoi provare uno del link sotto, "
+"oppure eseguire una ricerca."
 
 #: 404.php:33
 msgid "Most Used Categories"
-msgstr ""
+msgstr "Categorie pi&#249; \tutilizzate"
 
 #. %1$s: smiley
 #: 404.php:51
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
-
-#: archive.php:39 index.php:44 search.php:36
-msgid "Older posts"
-msgstr ""
-
-#: archive.php:40 index.php:45 search.php:37
-msgid "Newer posts"
-msgstr ""
+msgstr "Prova a spulciare gli archivi mensili. %1$s"
 
 #: comments.php:31
 #, php-format
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Un commento su &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s commenti su &ldquo;%2$s&rdquo;"
 
 #: comments.php:40 comments.php:63
 msgid "Comment navigation"
-msgstr ""
+msgstr "Navigazione commenti"
 
 #: comments.php:43 comments.php:66
 msgid "Older Comments"
-msgstr ""
+msgstr "Commenti meno recenti"
 
 #: comments.php:44 comments.php:67
 msgid "Newer Comments"
-msgstr ""
+msgstr "Commenti pi&#249; recenti"
 
 #: comments.php:80
 msgid "Comments are closed."
-msgstr ""
+msgstr "I commenti sono chiusi."
 
 #: footer.php:29
 msgid "About"
-msgstr ""
+msgstr "Informazioni su"
 
 #: footer.php:47
 msgid "Follow us"
-msgstr ""
-
-#. Name of the theme
-#: footer.php:57
-msgid "Senza Trucco"
-msgstr ""
+msgstr "Seguici"
 
 #: footer.php:59
 #, php-format
 msgid "Web design by %1$s"
-msgstr ""
+msgstr "WebDesign a cura di %1$s"
 
 #: functions.php:66
 msgid "Primary"
-msgstr ""
+msgstr "Principale"
 
 #: functions.php:67
 msgid "Secondary"
-msgstr ""
-
-#: functions.php:68
-msgid "Social"
-msgstr ""
+msgstr "Secondario"
 
 #: functions.php:111
 msgid "Sidebar"
-msgstr ""
+msgstr "Barra laterale"
 
 #: functions.php:113
 msgid "Add widgets here."
-msgstr ""
+msgstr "Aggiungi qui i widget."
 
 #: header.php:24
 msgid "Skip to content"
-msgstr ""
+msgstr "Vai al contenuto."
 
 #: search.php:19
 #, php-format
 msgid "Search Results for &ldquo;%s&rdquo;"
-msgstr ""
-
-#: searchform.php:10
-msgctxt "label"
-msgid "Search for:"
-msgstr ""
-
-#: single.php:21 single.php:22
-msgid "%title"
-msgstr ""
+msgstr "Risultati della ricerca per &ldquo;%s&rdquo;"
 
 #: inc/customizer.php:37
 msgid "Slider options"
-msgstr ""
+msgstr "Impostazioni dello slider"
 
 #: inc/customizer.php:47
 msgid "Check if you want to enable slider"
-msgstr ""
+msgstr "Seleziona per abilitare lo slider"
 
 #: inc/customizer.php:61
 msgid "Set slider category"
-msgstr ""
+msgstr "Scegli la categoria"
 
 #: inc/customizer.php:64
 msgid "Select a category for the featured post slider"
-msgstr ""
+msgstr "Seleziona una categoria da utilizzare nelle slide"
 
 #: inc/customizer.php:74
 msgid "Check if you want slides in random order"
-msgstr ""
+msgstr "Seleziona per mostrare le slide in ordine casuale"
 
 #: inc/customizer.php:87
 msgid "Set featured page"
-msgstr ""
+msgstr "Scegli la pagina in evidenza"
 
 #: inc/customizer.php:90
 msgid "Select a page for the featured section"
-msgstr ""
+msgstr "Seleziona la pagina da mostrare come contenuto in evidenza"
 
 #: inc/customizer.php:103
 msgid "Primary color"
-msgstr ""
+msgstr "Colore principale"
 
 #: inc/customizer.php:115
 msgid "Accent color"
-msgstr ""
-
-#: inc/template-tags.php:21
-msgid "Pingback:"
-msgstr ""
+msgstr "Colore secondario"
 
 #: inc/template-tags.php:21 inc/template-tags.php:46
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: inc/template-tags.php:34
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
-msgstr ""
+msgstr "%s ha detto:"
 
 #: inc/template-tags.php:42
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s alle %2$s"
 
 #: inc/template-tags.php:50
 msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#. used between list items, there is a space after the comma
-#. used between list items, there is a space after the comma
-#: inc/template-tags.php:115 inc/template-tags.php:128
-msgid ", "
-msgstr ""
-
-#: inc/template-tags.php:117 inc/template-tags.php:130
-#, php-format
-msgid "%1$s"
-msgstr ""
+msgstr "Il tuo commento &#232; in attesa di approvazione."
 
 #. %s: post title
 #: inc/template-tags.php:144
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
+msgstr "Lascia un commento<span class=\"screen-reader-text\"> su %s</span>"
 
 #: inc/template-tags.php:145
 msgid "1 Comment"
-msgstr ""
+msgstr "1 Commento"
 
 #: inc/template-tags.php:146
 msgid "% Comments"
-msgstr ""
+msgstr "% Commenti"
 
 #. %s: Name of current post
 #: inc/template-tags.php:160
 #, php-format
 msgid "Edit %s"
-msgstr ""
+msgstr "Modifica %s"
 
 #: inc/template-tags.php:174
 msgid "Read more"
-msgstr ""
+msgstr "Continua"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
-msgstr ""
+msgstr "Nessun risultato"
 
 #: template-parts/content-none.php:21
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Sei pronto a pubblicare il tuo primo post? <a href=\"%1$s\">Comincia da "
+"qui</a>."
 
 #: template-parts/content-none.php:25
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"La tua ricerca non ha prodotto risultati. Prova a cambiare le chiavi di "
+"ricerca."
 
 #: template-parts/content-none.php:31
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Non riusciamo a trovare ci&#242; di cui hai bisogno. Forse una ricerca "
+"pu&#242; aiutare."
 
 #: template-parts/content-page.php:25 template-parts/content-single.php:40
 msgid "Pages:"
-msgstr ""
+msgstr "Pagine"
 
 #: template-parts/content-single.php:35
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "Continua a leggere %s <span class=\"meta-nav\">&rarr;</span>"
 
 #. Description of the theme
 msgid "Description"
-msgstr ""
-
-#. URI of the theme
-msgid "http://underscores.me/"
-msgstr ""
-
-#. Author of the theme
-msgid "Tullio Loffredo"
-msgstr ""
-
-#. Author URI of the theme
-msgid "http://www.vinisenzatrucco.it"
-msgstr ""
+msgstr "Descrizione"

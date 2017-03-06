@@ -82,7 +82,7 @@ if ( post_password_required() ) {
 	endif;
 
 	comment_form( array(
-		'class_submit'  => 	'solid-button accent-button',
+		'class_submit'  => 	'pushbutton',
 	) );
 	?>
 
