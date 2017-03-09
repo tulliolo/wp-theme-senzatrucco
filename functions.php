@@ -96,7 +96,7 @@ add_action( 'after_setup_theme', 'senza_trucco_setup' );
  * @global int $content_width
  */
 function senza_trucco_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'senza_trucco_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'senza_trucco_content_width', 1280 );
 }
 add_action( 'after_setup_theme', 'senza_trucco_content_width', 0 );
 

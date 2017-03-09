@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-05 13:02+0000\n"
+"POT-Creation-Date: 2017-03-09 17:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -84,23 +84,23 @@ msgstr ""
 msgid "Web design by %1$s"
 msgstr ""
 
-#: functions.php:66
+#: functions.php:65
 msgid "Primary"
 msgstr ""
 
-#: functions.php:67
+#: functions.php:66
 msgid "Secondary"
 msgstr ""
 
-#: functions.php:68
+#: functions.php:67
 msgid "Social"
 msgstr ""
 
-#: functions.php:111
+#: functions.php:110
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:113
+#: functions.php:112
 msgid "Add widgets here."
 msgstr ""
 
@@ -252,7 +252,7 @@ msgid "Description"
 msgstr ""
 
 #. URI of the theme
-msgid "http://underscores.me/"
+msgid "https://github.com/tulliolo/wp-theme-senzatrucco"
 msgstr ""
 
 #. Author of the theme
@@ -260,5 +260,5 @@ msgid "Tullio Loffredo"
 msgstr ""
 
 #. Author URI of the theme
-msgid "http://www.vinisenzatrucco.it"
+msgid "https://github.com/tulliolo"
 msgstr ""
