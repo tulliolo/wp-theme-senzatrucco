@@ -132,7 +132,7 @@ h1 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: .67em 0;
+	margin: 1.25em 0;
 }
 
 mark {
@@ -2051,10 +2051,18 @@ a:focus {
     text-align: right;
 }
 
+.entry-meta {
+	margin: -32px 0 14px;
+	margin: -2rem 0 .875rem;
+}
+
+.entry-footer {
+	margin: 14px 0;
+	margin: .875rem 0;
+}
+
 .entry-meta,
 .entry-footer {
-	margin: 14px 0 0;
-	margin: .875rem 0 0;
 	font-size: 87.5%;
 }	
 
