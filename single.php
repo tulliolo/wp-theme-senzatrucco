@@ -7,7 +7,16 @@
  * @package Senza Trucco
  */
 
-get_header(); ?>
+get_header(); 
+
+if ( is_single() && senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) == 1 ) :
+	global $post;
+	$post_id = $post->ID;
+	?><aside id="post-<?php $post_id; ?>-slideshow" class="content-area slideshow" role="complementary"><?php
+		senza_trucco_post_slideshow( $post_id );
+	?></aside><!-- #post-##-slideshow --><?php
+endif;
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 17:59+0000\n"
+"POT-Creation-Date: 2017-03-11 17:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -84,23 +84,23 @@ msgstr ""
 msgid "Web design by %1$s"
 msgstr ""
 
-#: functions.php:65
+#: functions.php:61
 msgid "Primary"
 msgstr ""
 
-#: functions.php:66
+#: functions.php:62
 msgid "Secondary"
 msgstr ""
 
-#: functions.php:67
+#: functions.php:63
 msgid "Social"
 msgstr ""
 
-#: functions.php:110
+#: functions.php:106
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:112
+#: functions.php:108
 msgid "Add widgets here."
 msgstr ""
 
@@ -118,7 +118,7 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: single.php:21 single.php:22
+#: single.php:30 single.php:31
 msgid "%title"
 msgstr ""
 
@@ -127,34 +127,55 @@ msgid "Slider options"
 msgstr ""
 
 #: inc/customizer.php:47
-msgid "Check if you want to enable slider"
+msgid "Enable featured content"
 msgstr ""
 
-#: inc/customizer.php:61
-msgid "Set slider category"
+#: inc/customizer.php:48
+msgid ""
+"Check if you want to enable a featured posts slider in front page and in "
+"home page."
 msgstr ""
 
-#: inc/customizer.php:64
-msgid "Select a category for the featured post slider"
+#: inc/customizer.php:62
+msgid "Featured category"
 msgstr ""
 
-#: inc/customizer.php:74
-msgid "Check if you want slides in random order"
+#: inc/customizer.php:63
+msgid ""
+"Select a category for the featured posts slider in front page and in home "
+"page."
 msgstr ""
 
-#: inc/customizer.php:87
-msgid "Set featured page"
+#: inc/customizer.php:77
+msgid "Featured page"
+msgstr ""
+
+#: inc/customizer.php:78
+msgid ""
+"Select a page for the featured posts slider in front page and in home page."
 msgstr ""
 
 #: inc/customizer.php:90
-msgid "Select a page for the featured section"
+msgid "Enable in posts"
+msgstr ""
+
+#: inc/customizer.php:91
+msgid "Check if you want to enable the slider in single posts."
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "Random slide order"
 msgstr ""
 
 #: inc/customizer.php:103
+msgid "Check if you want the slides in random order."
+msgstr ""
+
+#: inc/customizer.php:117
 msgid "Primary color"
 msgstr ""
 
-#: inc/customizer.php:115
+#: inc/customizer.php:129
 msgid "Accent color"
 msgstr ""
 
@@ -238,11 +259,11 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:25 template-parts/content-single.php:40
+#: template-parts/content-page.php:25 template-parts/content-single.php:41
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-single.php:35
+#: template-parts/content-single.php:36
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""

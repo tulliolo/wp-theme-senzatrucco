@@ -7,7 +7,7 @@
  * @package Senza Trucco
  */
 
- if ( ! function_exists( 'senza_trucco_comment' ) ) :
+if ( ! function_exists( 'senza_trucco_comment' ) ) :
 /**
  * Prints HTML for the current comment.
  */

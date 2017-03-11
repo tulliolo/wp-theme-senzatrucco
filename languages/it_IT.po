@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Senza Trucco\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 18:00+0000\n"
-"PO-Revision-Date: 2017-03-09 18:00+0000\n"
+"POT-Creation-Date: 2017-03-11 17:18+0000\n"
+"PO-Revision-Date: 2017-03-11 17:24+0000\n"
 "Last-Translator: Tullio Loffredo <tullio.loffredo@gmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it-IT\n"
@@ -12,6 +12,57 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
+
+#: inc/customizer.php:47
+msgid "Enable featured content"
+msgstr "Abilita il contenuto in evidenza"
+
+#: inc/customizer.php:48
+msgid ""
+"Check if you want to enable a featured posts slider in front page and in "
+"home page."
+msgstr ""
+"Marca se vuoi abilitare lo slider dei contenuti in evidenza nella pagina "
+"principale e nel blog."
+
+#: inc/customizer.php:62
+msgid "Featured category"
+msgstr "Categoria in evidenza"
+
+#: inc/customizer.php:63
+msgid ""
+"Select a category for the featured posts slider in front page and in home "
+"page."
+msgstr ""
+"Seleziona una categoria per lo slider dei contenuti in evidenza nella pagina "
+"principale e nel blog."
+
+#: inc/customizer.php:77
+msgid "Featured page"
+msgstr "Pagina in evidenza"
+
+#: inc/customizer.php:78
+msgid ""
+"Select a page for the featured posts slider in front page and in home page."
+msgstr ""
+"Seleziona una pagina per lo slider dei contenuti in evidenza nella pagina "
+"principale e nel blog."
+
+#: inc/customizer.php:90
+msgid "Enable in posts"
+msgstr "Abilita nei post"
+
+#: inc/customizer.php:91
+msgid "Check if you want to enable the slider in single posts."
+msgstr "Marca se vuoi abilitare lo slider nei singoli post."
+
+#: inc/customizer.php:102
+msgid "Random slide order"
+msgstr "Ordine casuale"
+
+#: inc/customizer.php:103
+msgid "Check if you want the slides in random order."
+msgstr "Marca se vuoi le slide in ordine casuale."
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -85,23 +136,23 @@ msgstr "Senza Trucco"
 msgid "Web design by %1$s"
 msgstr "WebDesign a cura di %1$s"
 
-#: functions.php:65
+#: functions.php:61
 msgid "Primary"
 msgstr "Principale"
 
-#: functions.php:66
+#: functions.php:62
 msgid "Secondary"
 msgstr "Secondario"
 
-#: functions.php:67
+#: functions.php:63
 msgid "Social"
 msgstr "Social"
 
-#: functions.php:110
+#: functions.php:106
 msgid "Sidebar"
 msgstr "Barra laterale"
 
-#: functions.php:112
+#: functions.php:108
 msgid "Add widgets here."
 msgstr "Aggiungi qui i widget."
 
@@ -119,7 +170,7 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Cerca"
 
-#: single.php:21 single.php:22
+#: single.php:30 single.php:31
 msgid "%title"
 msgstr "%title"
 
@@ -127,35 +178,11 @@ msgstr "%title"
 msgid "Slider options"
 msgstr "Impostazioni dello slider"
 
-#: inc/customizer.php:47
-msgid "Check if you want to enable slider"
-msgstr "Seleziona per abilitare lo slider"
-
-#: inc/customizer.php:61
-msgid "Set slider category"
-msgstr "Scegli la categoria"
-
-#: inc/customizer.php:64
-msgid "Select a category for the featured post slider"
-msgstr "Seleziona una categoria da utilizzare nelle slide"
-
-#: inc/customizer.php:74
-msgid "Check if you want slides in random order"
-msgstr "Seleziona per mostrare le slide in ordine casuale"
-
-#: inc/customizer.php:87
-msgid "Set featured page"
-msgstr "Scegli la pagina in evidenza"
-
-#: inc/customizer.php:90
-msgid "Select a page for the featured section"
-msgstr "Seleziona la pagina da mostrare come contenuto in evidenza"
-
-#: inc/customizer.php:103
+#: inc/customizer.php:117
 msgid "Primary color"
 msgstr "Colore principale"
 
-#: inc/customizer.php:115
+#: inc/customizer.php:129
 msgid "Accent color"
 msgstr "Colore secondario"
 
@@ -245,11 +272,11 @@ msgstr ""
 "Non riusciamo a trovare ci&#242; di cui hai bisogno. Forse una ricerca "
 "pu&#242; aiutare."
 
-#: template-parts/content-page.php:25 template-parts/content-single.php:40
+#: template-parts/content-page.php:25 template-parts/content-single.php:41
 msgid "Pages:"
 msgstr "Pagine"
 
-#: template-parts/content-single.php:35
+#: template-parts/content-single.php:36
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Continua a leggere %s <span class=\"meta-nav\">&rarr;</span>"

@@ -6,6 +6,137 @@
  *
  * @package Senza Trucco
  */
+ 
+if ( ! function_exists( 'senza_trucco_featured_slideshow' ) ) :
+/**
+ * Show a slideshow of featured content.
+ * Featured content is identified by a category and a page.
+ */
+function senza_trucco_featured_slideshow() {
+	$slideord = 'date';
+	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+		$slideord = 'rand';
+	endif;
+
+	$featpage = get_post( senza_trucco_get_option( 'senza_trucco_slider_featured_page' ) );
+	$featquery = new WP_Query( array( 
+		'cat' => senza_trucco_get_option( 'senza_trucco_slider_featured_category' ), 
+		'nopaging' => true, 'orderby' => $slideord ) );
+
+	if ( ( $featquery->have_posts() ) && !( is_null( $featpage ) ) ) :
+		global $post;
+		$post = $featpage;
+		setup_postdata( $post );
+	?>
+
+	<article id="featured-post-<?php the_ID(); ?>" <?php post_class( 'featured-post post-summary' ); ?>>
+		<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+		<div class="flexslider">
+			<ul class="slides">
+		
+	<?php
+		while ( $featquery->have_posts() ) :
+			$featquery->the_post();
+			if ( has_post_thumbnail() ) :
+	?>
+		
+				<li>
+					
+	<?php
+				$post = $featpage;
+				setup_postdata( $post );
+	?>
+
+					<div class="flex-caption">
+						<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+						
+						<div class="entry-summary">
+							<?php the_excerpt(); ?>
+						</div><!-- .entry-summary -->	
+					</div><!-- .flex-caption -->
+						
+	<?php
+				$featquery->reset_postdata();
+	?>
+
+					<a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail( 'senza_trucco_slider_thumb' ); ?>
+					</a>
+					
+					<div class="flex-caption">
+						<article id="featured-post-<?php the_ID(); ?>" <?php post_class( 'featured-post post-summary' ); ?>>
+							<div class="entry-summary">
+								<?php the_excerpt(); ?>
+							</div><!-- .entry-summary -->
+							
+							<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+						</article><!-- #featured-post-## -->
+					</div><!-- .flex-caption -->
+				</li>
+				
+	<?php
+			endif;
+		endwhile;
+		wp_reset_query();
+	?>
+
+			</ul>
+		</div><!-- .flexslider -->
+
+	<?php
+		$post = $featpage;
+		setup_postdata( $post );
+	?>
+		
+		<div class="entry-summary">
+				<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
+	</article><!-- #featured-post-## -->
+
+	<?php
+		wp_reset_postdata();
+	endif;
+}
+endif;
+ 
+if ( ! function_exists( 'senza_trucco_post_slideshow' ) ) :
+/**
+ * Shows a slideshow of the images attached to the current post.
+ * 
+ * @param the post id.
+ */
+function senza_trucco_post_slideshow( $post_id ) {
+	$slideord = 'date';
+	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+		$slideord = 'rand';
+	endif;
+
+	$images = get_children( array( 'post_parent' => $post_id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => $slideord ) );
+
+	if ( $images ) :
+		
+		?>
+		<div class='flexslider'>
+			<ul class="slides">
+		<?php
+		
+		foreach ($images as $attachment_id => $image) :
+
+			if ( $image->ID ) :
+				?><li><?php
+				echo wp_get_attachment_image( $image->ID, 'senza_trucco_slider_thumb' );
+				?></li><?php
+			endif; 
+		endforeach;
+		
+		?>
+			</ul><!-- .slides -->
+		</div><!-- .flexslider -->
+	<?php
+
+	endif;
+}
+endif;
 
 /**
  * Adds custom classes to the array of body classes.

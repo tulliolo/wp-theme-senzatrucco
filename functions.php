@@ -55,10 +55,6 @@ function senza_trucco_setup() {
 	// Aspect ratio is 2:1
 	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 150, 75, array( 'center', 'center' ) );
 	
-	// Adds square image sizes for list items
-	// Aspect ratio is 1:1
-	senza_trucco_add_image_size( 'senza_trucco_square_thumb', 150, 150, array( 'center', 'center' ) );
-	
 	// This theme uses wp_nav_menu() in one location.
 	// This theme also adds a social media menu.
 	register_nav_menus( array(
@@ -137,11 +133,9 @@ function senza_trucco_scripts() {
 	}
 	
 	// include flexslider style & scripts
-	if( ( is_front_page() || is_home() ) && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) {
-		wp_enqueue_style( 'flexslider-style', get_stylesheet_directory_uri() .'/css/flexslider.css' );
-		wp_enqueue_script( 'flexslider', get_stylesheet_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'flexslider-init', get_stylesheet_directory_uri() . '/js/flexslider-init.js', array( 'jquery', 'flexslider' ) );
-	}
+	wp_enqueue_style ( 'flexslider-style', get_stylesheet_directory_uri() .'/css/flexslider.css' );
+	wp_enqueue_script( 'flexslider', get_stylesheet_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'flexslider-init', get_stylesheet_directory_uri() . '/js/flexslider-init.js', array( 'jquery', 'flexslider' ) );
 }
 add_action( 'wp_enqueue_scripts', 'senza_trucco_scripts' );
 
@@ -257,7 +251,11 @@ function senza_trucco_get_attachment_image_attributes($attr, $attachment, $size)
     //Calculate Image Sizes by type and breakpoint
     //Slider Images
     if ( $size === 'senza_trucco_slider_thumb' ) {
-        $attr['sizes'] = '(max-width: 3840px) 100vw, 3840px';
+		if ( is_front_page() || is_home() ) {
+			$attr['sizes'] = '(max-width: 3840px) 100vw, 3840px';
+		} else {
+			$attr['sizes'] = '(max-width: 1280px) 100vw, 1280px';
+		}	
 	} else if ( is_active_sidebar( 'sidebar-1' ) ) {
 		$attr['sizes'] = '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1440px) 38vw, 480px';
 	} else {

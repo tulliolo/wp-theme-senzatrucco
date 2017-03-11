@@ -10,6 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+	
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -27,7 +28,7 @@
 
 	<div class="entry-content">
 		<?php
-			if ( has_post_thumbnail() ) { // Check if the post has a featured image assigned to it.
+			if ( has_post_thumbnail() && senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) !== 1 ) { 
 				the_post_thumbnail( 'senza_trucco_thumb' );
 			}
 			the_content( sprintf(

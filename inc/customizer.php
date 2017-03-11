@@ -30,39 +30,67 @@ add_action( 'customize_preview_init', 'senza_trucco_customize_preview_js' );
  */
 function senza_trucco_customizer( $wp_customize ) {
 	
-	/**********************************
-	 * Featured content configuration *
-	 **********************************/
+	/*******************************************
+	 * Featured content & Slider configuration *
+	 *******************************************/
 	$wp_customize->add_section( 'senza_trucco_slider' , array(
 		'title'		=> __( 'Slider options', 'senza-trucco' ),
 		'priority'	=> 30,
 		'capability'     => 'edit_theme_options',
 	) );
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_enabled]', array(
+	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featured_content_enabled]', array(
 		'default' 			=> 0,
 		'type' 				=> 'option',
 		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_enabled]', array(
-		'label'		=> __( 'Check if you want to enable slider', 'senza-trucco' ),
-		'section'	=> 'senza_trucco_slider',
-		'priority'	=> 5,
-		'type'      => 'checkbox',
+	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_content_enabled]', array(
+		'label'			=> __( 'Enable featured content', 'senza-trucco' ),
+		'description'	=> __( 'Check if you want to enable a featured posts slider in front page and in home page.', 'senza-trucco' ),
+		'section'		=> 'senza_trucco_slider',
+		'priority'		=> 5,
+		'type'      	=> 'checkbox',
 	) );
 	
 	// Pull all the categories into an array
 	global $options_categories;
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_category]', array(
+	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featured_category]', array(
 		'default' 			=> '',
 		'type' 				=> 'option',
 		'sanitize_callback' => 'senza_trucco_sanitize_slidecat',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_category]', array(
-		'label' 		=> __('Set slider category', 'senza-trucco'),
+	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_category]', array(
+		'label' 		=> __('Featured category', 'senza-trucco'),
+		'description'	=> __('Select a category for the featured posts slider in front page and in home page.', 'senza-trucco'),
 		'section' 		=> 'senza_trucco_slider',
 		'type'    		=> 'select',
-		'description'	=> __('Select a category for the featured post slider', 'senza-trucco'),
 		'choices'    	=> $options_categories,
+	) );
+	
+	// Pull all the pages into an array
+	global $options_pages;
+	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featured_page]', array(
+		'default' 			=> '',
+		'type' 				=> 'option',
+		'sanitize_callback' => 'senza_trucco_sanitize_featpage',
+	) );
+	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_page]', array(
+		'label' 		=> __('Featured page', 'senza-trucco'),
+		'description'	=> __('Select a page for the featured posts slider in front page and in home page.', 'senza-trucco'),
+		'section' 		=> 'senza_trucco_slider',
+		'type'    		=> 'select',
+		'choices'    	=> $options_pages,
+	) );
+	
+	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_post_enabled]', array(
+		'default' 			=> 0,
+		'type' 				=> 'option',
+		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_post_enabled]', array(
+		'label'			=> __( 'Enable in posts', 'senza-trucco' ),
+		'description'	=> __( 'Check if you want to enable the slider in single posts.', 'senza-trucco' ),
+		'section'		=> 'senza_trucco_slider',
+		'type'      	=> 'checkbox',
 	) );
 	
 	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_randord]', array(
@@ -71,24 +99,10 @@ function senza_trucco_customizer( $wp_customize ) {
 		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_randord]', array(
-		'label'		=> __( 'Check if you want slides in random order', 'senza-trucco' ),
-		'section'	=> 'senza_trucco_slider',
-		'type'      => 'checkbox',
-	) );
-	
-	// Pull all the pages into an array
-	global $options_pages;
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featpage]', array(
-		'default' 			=> '',
-		'type' 				=> 'option',
-		'sanitize_callback' => 'senza_trucco_sanitize_featpage',
-	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featpage]', array(
-		'label' 		=> __('Set featured page', 'senza-trucco'),
-		'section' 		=> 'senza_trucco_slider',
-		'type'    		=> 'select',
-		'description'	=> __('Select a page for the featured section', 'senza-trucco'),
-		'choices'    	=> $options_pages,
+		'label'			=> __( 'Random slide order', 'senza-trucco' ),
+		'description'	=> __( 'Check if you want the slides in random order.', 'senza-trucco' ),
+		'section'		=> 'senza_trucco_slider',
+		'type'      	=> 'checkbox',
 	) );
 	
 	/******************************
@@ -184,7 +198,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		}
 		
 		@media screen and (max-width: 1024px) {
-			.featured-area {
+			.featured-content-area {
 				background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
 			}
 		}

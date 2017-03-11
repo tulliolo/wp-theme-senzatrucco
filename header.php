@@ -69,9 +69,9 @@
 	</header><!-- #masthead -->
 	
 	<div id="content" class="site-content">
-		<?php if ( ( is_front_page() || is_home() ) && senza_trucco_get_option('senza_trucco_slider_enabled') == 1 ) : ?>
-			<div id="featured" class="featured-area">
-				<?php get_template_part( 'template-parts/content-featured', get_post_format() ); ?>
+		<?php if ( ( is_front_page() || is_home() ) && senza_trucco_get_option( 'senza_trucco_slider_featured_content_enabled' ) == 1 ) : ?>
+			<div id="featured" class="featured-content-area slideshow">
+				<?php senza_trucco_featured_slideshow(); /*get_template_part( 'template-parts/content-slider', 'featured' );*/ ?>
 			</div><!-- #featured -->
 		<?php endif; ?>
 		
