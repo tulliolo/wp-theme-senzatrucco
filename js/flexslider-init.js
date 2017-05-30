@@ -1,5 +1,5 @@
 (function($) {
-    $(window).load(function() {
+    $(window).on('load', function() {
 		$('.flexslider').removeData("flexslider");
         $('.flexslider').flexslider({
 	        animation: 'fade',

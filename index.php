@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The main template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -9,10 +9,17 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
-get_header(); ?>
+get_header();
+ 
+if ( is_home() && senza_trucco_get_option( 'senza_trucco_slider_featured_content_enabled' ) ) : 
+	?><aside id="featured" class="content-area slideshow featured"><?php
+		senza_trucco_featured_slideshow();
+	?></aside><!-- #featured --><?php
+endif;
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -40,10 +47,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation( array(
-				'prev_text'                  => '<i class="fa fa-chevron-left"></i>' . __( 'Older posts', 'senza-trucco' ),
-				'next_text'                  => __( 'Newer posts', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>',
-			) );
+			the_posts_navigation();
 
 		else :
 

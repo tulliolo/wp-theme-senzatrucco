@@ -5,161 +5,50 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, 
-		menuButton, menu, subMenus,	// main menu elements
-		searchButton, search,		// search menu elements
-		links,
-		i, len, 
-		maxSize = 1024,	
-		pfx = ["webkit", "moz", "ms", "o", ""];
+	var container, button, menu, links, i, len;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
 		return;
 	}
-	
-	menuButton = container.getElementsByClassName( 'menu-toggle' )[0];
-	if ( 'undefined' === typeof menuButton ) {
+
+	button = container.getElementsByTagName( 'button' )[0];
+	if ( 'undefined' === typeof button ) {
 		return;
 	}
 
 	menu = container.getElementsByTagName( 'ul' )[0];
 
-	// Hide menu toggle menuButton if menu is empty and return early.
+	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
-		menuButton.style.display = 'none';
+		button.style.display = 'none';
 		return;
 	}
 
+	menu.setAttribute( 'aria-expanded', 'false' );
 	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 		menu.className += ' nav-menu';
 	}
-	 
-	searchButton = container.getElementsByClassName( 'search-toggle' )[0];
-	search = container.getElementsByClassName( 'search-form' )[0];
-	if ( 'undefined' !== typeof search ) {
-		search.id = 'primary-search';
-	}
-	
-	// set initial state based on window size
-	if ( window.innerWidth > maxSize ) {
-		menuButton.disabled = true;
-		
-		searchButton.setAttribute( 'aria-expanded', 'false' );
-		search.setAttribute( 'aria-expanded', 'false' );
-	} else {
-		searchButton.disabled = true;
-		
-		menuButton.setAttribute( 'aria-expanded', 'false' );
-		menu.setAttribute( 'aria-expanded', 'false' );
-	}	
-	
-	/**
-	 * Register event listeners
-	 */
-	 
-	// Register window listeners
-	window.addEventListener( 'resize', windowResizeListener, false );
-	// Register prefixed menu event listeners
-	registerPrefixedEvent( menu, 'AnimationEnd', menuAnimationListener );
-	// Register menuButton event listeners
-	menuButton.addEventListener( 'click', menuButtonClickListener, false );
-	// Register search event listeners
-	searchButton.addEventListener( 'click', searchButtonClickListener, false );
-	search.addEventListener( 'submit', searchButtonClickListener, false );
-	
-	/**
-	 * Handle events
-	 */
-	 
-	// Handle window events
-	function windowResizeListener( e ) {
-		if ( window.innerWidth > maxSize ) {
-			if ( ! menuButton.disabled ) {
-				container.className = container.className.replace( ' toggled', '' );	
-				
-				menuButton.removeAttribute( 'aria-expanded' );
-				menu.removeAttribute( 'aria-expanded' );
-				
-				menuButton.disabled = true;
-			}
-			if ( searchButton.disabled ) {
-				searchButton.setAttribute( 'aria-expanded', 'false' );
-				search.setAttribute( 'aria-expanded', 'false' );
-				
-				searchButton.disabled = false;
-			}
-		} else {
-			if ( menuButton.disabled ) {
-				menuButton.setAttribute( 'aria-expanded', 'false' );
-				menu.setAttribute( 'aria-expanded', 'false' );
-				
-				menuButton.disabled = false;
-			}
-			if ( ! searchButton.disabled ) {
-				searchButton.removeAttribute( 'aria-expanded' );
-				search.removeAttribute( 'aria-expanded' );
-				
-				searchButton.disabled = true;
-			}	
-		}
-	}	
-	
-	// Handle menu events
-	function menuAnimationListener( e ) {
-		if ( -1 !== container.className.indexOf( ' toggled-in' ) ) {
-			container.className = container.className.replace( ' toggled-in', '' );	
-		} else if ( -1 !== container.className.indexOf( ' toggled-out' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			container.className = container.className.replace( ' toggled-out', '' );
-		}
-	}
-	function menuButtonClickListener( e ) {
+
+	button.onclick = function() {
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', ' toggled toggled-out' );
-			menuButton.setAttribute( 'aria-expanded', 'false' );
+			container.className = container.className.replace( ' toggled', '' );
+			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
-			container.className += ' toggled toggled-in';
-			menuButton.setAttribute( 'aria-expanded', 'true' );
+			container.className += ' toggled';
+			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
-	}	
-	
-	// Handle search events
-	function searchButtonClickListener( e ) {
-		if ( 'true' === searchButton.getAttribute( 'aria-expanded' ) ) {
-			searchButton.setAttribute( 'aria-expanded', 'false' );
-			search.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			searchButton.setAttribute( 'aria-expanded', 'true' );
-			search.setAttribute( 'aria-expanded', 'true' );
-		}
-	}	
+	};
 
 	// Get all the link elements within the menu.
 	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
-
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-	}
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {
 		links[i].addEventListener( 'focus', toggleFocus, true );
 		links[i].addEventListener( 'blur', toggleFocus, true );
-	}
-	
-	/**
-	 * Register prefixed event handlers
-	 */
-	function registerPrefixedEvent( element, type, callback ) {
-		for (var i = 0; i < pfx.length; i++) {
-			if ( ! pfx[i] ) type = type.toLowerCase();
-			element.addEventListener( pfx[i] + type, callback, false );
-		}
 	}
 
 	/**

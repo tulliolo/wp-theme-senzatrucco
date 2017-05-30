@@ -1,8 +1,8 @@
 <?php
 /**
- * Senza Trucco Theme Customizer.
+ * Senza Trucco Theme Customizer
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
 /**
@@ -121,7 +121,7 @@ function senza_trucco_customizer( $wp_customize ) {
 			)
 	) );
 	$wp_customize->add_setting( 'senza_trucco_color_accent', array(
-		'default' 			=> '#1FA67A',
+		'default' 			=> '#0060A0',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 	$wp_customize->add_control(
@@ -171,98 +171,3 @@ function senza_trucco_sanitize_slidecat( $input ) {
         return '';
     }
 }
-
-function senza_trucco_customizer_css( $wp_customize ) {
-	?>
-	<style type="text/css">
-		/** background primary **/
-		button.primarybutton:hover, button.primarybutton:active,
-		input.primarybutton:hover, input.primarybutton:active,
-		.primarybutton:hover, .primarybutton:active,
-		button.primarybutton.pushbutton:hover, button.primarybutton.pushbutton:focus,
-		input.primarybutton.pushbutton:hover, input.primarybutton.pushbutton:focus,
-		.primarybutton.pushbutton:hover, .primarybutton.pushbutton:focus,
-		.flex-caption .entry-title,
-		.main-navigation li:hover, .main-navigation li:focus,
-		.main-navigation .current_page_item, .main-navigation .current-menu-item, .main-navigation .current_page_ancestor, .main-navigation .current-menu-ancestor,
-		.main-navigation .menu-toggle .icon-bar, .main-navigation .menu-toggle .icon-bar::before, .main-navigation .menu-toggle .icon-bar::after,
-		.main-navigation.toggled.toggled-out .menu-toggle .icon-bar, .main-navigation.toggled.toggled-out .menu-toggle .icon-bar::before, .main-navigation.toggled.toggled-out .menu-toggle .icon-bar::after,
-		.main-navigation .search-toggle:hover, .main-navigation .search-toggle[aria-expanded="true"],
-		.main-navigation.toggled li.menu-item-search,
-		li.bypostauthor::before {
-			background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
-		}
-		
-		.bypostauthor .comment-body  {
-			background: <?php echo hex2rgba( get_theme_mod( 'senza_trucco_color_primary', '#980747' ), .12 ); ?>;
-		}
-		
-		@media screen and (max-width: 1024px) {
-			.featured-content-area {
-				background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
-			}
-		}
-		
-		/** color primary **/
-		h1, h2, h3, h4, h5, h6,
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
-		.site-title, .site-title a,
-		.page-title, .page-title a,
-		.entry-title, .entry-title a,
-		.comments-title, .comment-reply-title,
-		.widget-title, .widget-title a, .widgettitle, .widgettitle a,
-		button.primarybutton:not([class*="pushbutton"]):not(:hover),
-		input.primarybutton:not([class*="pushbutton"]):not(:hover),
-		.primarybutton:not([class*="pushbutton"]):not(:hover),
-		button.primarybutton:not([class*="pushbutton"]):not(:hover) i,
-		input.primarybutton:not([class*="pushbutton"]):not(:hover) i,
-		.primarybutton:not([class*="pushbutton"]):not(:hover) i,
-		.required {
-			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
-		}
-		
-		/** background accent **/
-		button:not(.primarybutton):not([class*="toggle"]):hover, button:not(.primarybutton):not([class*="toggle"]):active,
-		button:not(.primarybutton)[class*="pushbutton"], button:not(.primarybutton)[class*="pushbutton"]:focus,
-		input[type="button"]:not(.primarybutton):not([class*="toggle"]):hover,	input[type="button"]:not(.primarybutton):not([class*="toggle"]):active,
-		input[type="reset"]:not(.primarybutton):not([class*="toggle"]):hover, input[type="reset"]:not(.primarybutton):not([class*="toggle"]):active,
-		input[type="submit"]:not(.primarybutton):not([class*="toggle"]):hover, input[type="submit"]:not(.primarybutton):not([class*="toggle"]):active,
-		input:not(.primarybutton)[class*="pushbutton"], input:not(.primarybutton)[class*="pushbutton"]:focus,
-		[class*="button"]:not(.primarybutton):not([class*="toggle"]):hover, [class*="button"]:not(.primarybutton):not([class*="toggle"]):active,
-		[class*="pushbutton"]:not(.primarybutton), [class*="pushbutton"]:not(.primarybutton):focus,
-		
-		.flex-control-paging li a.flex-active,
-		.flex-direction-nav a,
-		
-		li.comment:not(.bypostauthor)::before {
-			background: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
-		}
-		
-		/** color accent **/	
-		button:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
-		input[type="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
-		input[type="reset"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
-		input[type="submit"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
-		*[class*="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover),
-		input[type="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
-		input[type="reset"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
-		input[type="submit"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
-		*[class*="button"]:not(.primarybutton):not([class*="pushbutton"]):not(:hover) i,
-		.entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active,
-		.entry-footer a:hover, .entry-footer a:focus, .entry-footer a:active,
-		.comment-metadata a:hover, .comment-metadata a:focus, .comment-metadata a:active,
-		.logged-in-as a:hover, .logged-in-as a:focus, .logged-in-as a:active,
-		.logged-in-as a::before,
-		#wp-calendar caption,
-		a, i {
-			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?>;
-		}
-		
-		/** border-color accent **/
-		button.search-submit::before {
-			border-color: transparent <?php echo get_theme_mod( 'senza_trucco_color_accent', '#1FA67A' ); ?> transparent;
-		}	
-	</style>
-	<?php
-}
-add_action( 'wp_head', 'senza_trucco_customizer_css' );

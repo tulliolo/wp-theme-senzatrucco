@@ -15,10 +15,8 @@
  * ====================================================================================================================*/
 @font-face {
   font-family: 'flexslider-icon';
-  src:	url('../fonts/flexslider-icon.eot');
-  src:	url('../fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/flexslider-icon.woff') format('woff'), url('../fonts/flexslider-icon.ttf') format('truetype'),
-		url('../fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+  src: url('../fonts/flexslider-icon.eot');
+  src: url('../fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'), url('../fonts/flexslider-icon.woff') format('woff'), url('../fonts/flexslider-icon.ttf') format('truetype'), url('../fonts/flexslider-icon.svg#flexslider-icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -74,7 +72,7 @@ html[xmlns] .flexslider .slides {
 }
 /* ====================================================================================================================
  * DEFAULT THEME
- * ==================================================================================================================== */
+ * ====================================================================================================================*/
 .flexslider {
   margin: 0 0 60px;
   background: #fff;
@@ -267,44 +265,43 @@ html[xmlns] .flexslider .slides {
 /* ====================================================================================================================
  * THEME CUSTOMIZATION
  * Author: Tullio Loffredo (@tulliolo)
- * ====================================================================================================================*/	 
+ * ====================================================================================================================*/
 .flexslider {
+	font-size: 81.3%;
 	width: auto;
 	margin: 0;
 	border: none;
 	background: none;
 }
+
 .flex-caption {
-	display: block;
+	display: none;
 	position: absolute;
 	top: auto;
 	right: auto;
 	bottom: auto;
 	left: auto;
 	z-index: 1000;
-	max-width: 512px;
+	max-width: 50%;
 	overflow: hidden;
-}	
+}
 .flex-caption:first-of-type {
 	top: -1.5em;
-	right: auto;
-	bottom: auto;
-	left: -1.5em;	
+	left: -1.5em;
+	left: -1.5rem;
 }
 .flex-caption:last-of-type {
-	top: auto;
 	right: -1.5em;
+	right: -1.5rem;
 	bottom: -1.5em;
-	left: auto;
 	text-align: right;
-}		
+}
+
 .flex-caption .entry-title {
 	display: inline-block;
+	background: #980747; /* fallback */
 	padding: .5em 1em;
 	margin: auto;
-	font-size: 1.1em;
-	font-weight: bold;
-	text-transform: uppercase;
 }
 .flex-caption:first-of-type .entry-title {
 	-webkit-border-radius: 2em 1em 0 0;
@@ -320,17 +317,12 @@ html[xmlns] .flexslider .slides {
 .flex-caption .entry-title a {
 	color: #fff;
 }
-.flex-caption .entry-title a:hover,
-.flex-caption .entry-title a:focus {
-	color: #ddd;
-}
 
 .flex-caption .entry-content,
 .flex-caption .entry-summary {
 	display: block;
-	padding: 0.5em 1em;
+	padding: .5em 1em;
 	margin: auto;
-	font-size: .9em;
 	background: #626262;
     background: rgba(59, 59, 59, .8);
 	color: #fff;
@@ -347,12 +339,7 @@ html[xmlns] .flexslider .slides {
 	   -moz-border-radius: 1em 1em 0 1em;
 	        border-radius: 1em 1em 0 1em;
 }
-.flex-control-nav {
-	position: absolute;
-	display: inline-block;
-	bottom: -2.5em;
-	z-index: 1000;
-}
+
 .flex-direction-nav a {
     top: 50%;
     text-shadow: none;
@@ -370,39 +357,27 @@ html[xmlns] .flexslider .slides {
 }
 .flex-direction-nav .flex-prev {
     text-align: center;
-	left: -2.5em;
+	left: -1.5em;
 }
 .flex-direction-nav .flex-next {
     text-align: center;
-	right: -2.5em;
+	right: -1.5em;
 }
 .flexslider:hover .flex-direction-nav .flex-prev {
 	opacity: .7;
-	left: 2.5em;
+	left: 1.5em;
 }
 .flexslider:hover .flex-direction-nav .flex-next {
 	opacity: .7;
-	right: 2.5em;
+	right: 1.5em;
 }
+ 
 
 /* ====================================================================================================================
- * RESPONSIVENESS
+ * RESPONSIVE
  * ====================================================================================================================*/
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 55em) {
 	.flex-caption {
-		display: none;
-		visibility: hidden;
-	}
-	.flex-direction-nav .flex-prev {
-		left: -1em;
-	}
-	.flex-direction-nav .flex-next {
-		right: -1em;
-	}
-	.flexslider:hover .flex-direction-nav .flex-prev {
-		left: 1em;
-	}
-	.flexslider:hover .flex-direction-nav .flex-next {
-		right: 1em;
+		display: block;
 	}
 }

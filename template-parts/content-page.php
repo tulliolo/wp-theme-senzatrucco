@@ -1,24 +1,26 @@
 <?php
 /**
- * Template part for displaying page content in page.php.
+ * Template part for displaying page content in page.php
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php 
+		the_title( '<h1 class="entry-title">', '</h1>' ); 
+		if ( has_post_thumbnail() ) :
+				the_post_thumbnail( 'senza-trucco-thumb' );
+		endif;
+		?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
-			if ( has_post_thumbnail() ) { // Check if the page has a featured image assigned to it.
-				the_post_thumbnail( 'senza_trucco_thumb' );
-			}
 			the_content();
 
 			wp_link_pages( array(
@@ -30,7 +32,17 @@
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
-			<?php senza_trucco_entry_footer(); ?>
+			<?php
+				edit_post_link(
+					sprintf(
+						/* translators: %s: Name of current post */
+						esc_html__( 'Edit %s', 'senza-trucco' ),
+						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+					),
+					'<span class="edit-link">',
+					'</span>'
+				);
+			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-## -->

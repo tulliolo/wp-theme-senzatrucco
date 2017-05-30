@@ -1,18 +1,14 @@
 <?php
 /**
- * Sample implementation of the Custom Header feature.
+ * Sample implementation of the Custom Header feature
  *
  * You can add an optional custom header image to header.php like so ...
  *
-	<?php if ( get_header_image() ) : ?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-	</a>
-	<?php endif; // End header image check. ?>
+	<?php the_header_image_tag(); ?>
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
 /**
@@ -24,8 +20,8 @@ function senza_trucco_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'senza_trucco_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
-		'width'                  => 238,
-		'height'                 => 118,
+		'width'                  => 1000,
+		'height'                 => 500,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'senza_trucco_header_style',
 	) ) );
@@ -43,9 +39,9 @@ function senza_trucco_header_style() {
 
 	/*
 	 * If no custom options for text are set, let's bail.
-	 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: HEADER_TEXTCOLOR.
+	 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
 	 */
-	if ( HEADER_TEXTCOLOR === $header_text_color ) {
+	if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
 		return;
 	}
 

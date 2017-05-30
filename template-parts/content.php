@@ -1,29 +1,34 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying posts
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php 
-		the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); 
-		?>
-		<div class="entry-meta"> 
-			<?php senza_trucco_entry_meta(); ?>
-		</div><!-- .entry-meta -->
+		<?php
+		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		if ( has_post_thumbnail() ) :
+			the_post_thumbnail( 'senza_trucco_thumb' );
+		endif;
+
+		if ( 'post' === get_post_type() ) : ?>
+			<div class="entry-meta">
+				<?php senza_trucco_entry_meta(); ?>
+			</div><!-- .entry-meta -->
+		<?php
+		endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
-		<?php 
-		if ( has_post_thumbnail() ) : 
-			the_post_thumbnail( 'senza_trucco_thumb' );
-		endif;
-		the_excerpt();
-		senza_trucco_read_more(); ?>
-	</div><!-- .entry-summary -->
+		<?php
+			the_excerpt();
+			senza_trucco_read_more();
+		?>
+	</div><!-- .entry-content -->
 </article><!-- #post-## -->

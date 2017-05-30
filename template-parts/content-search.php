@@ -1,10 +1,10 @@
 <?php
 /**
- * Template part for displaying results in search pages.
+ * Template part for displaying results in search pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
 ?>
@@ -21,9 +21,10 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
-		<?php 
-		the_excerpt();
-		senza_trucco_read_more();
-		?>
+		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
+
+	<footer class="entry-footer">
+		<?php senza_trucco_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

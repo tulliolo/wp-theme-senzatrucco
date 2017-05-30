@@ -1,26 +1,29 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying posts
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-	
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
+			if ( senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) != 1 && has_post_thumbnail() ) :
+				the_post_thumbnail( 'senza-trucco-thumb' );
+			endif;
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php senza_trucco_posted_on(); ?>
+			<?php senza_trucco_entry_meta(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -28,9 +31,6 @@
 
 	<div class="entry-content">
 		<?php
-			if ( has_post_thumbnail() && senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) !== 1 ) { 
-				the_post_thumbnail( 'senza_trucco_thumb' );
-			}
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'senza-trucco' ), array( 'span' => array( 'class' => array() ) ) ),

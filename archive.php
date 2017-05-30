@@ -1,10 +1,10 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying archive pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
 get_header(); ?>
@@ -35,10 +35,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation( array(
-				'prev_text'                  => '<i class="fa fa-chevron-left"></i>' . __( 'Older posts', 'senza-trucco' ),
-				'next_text'                  => __( 'Newer posts', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>',
-			) );
+			the_posts_navigation();
 
 		else :
 

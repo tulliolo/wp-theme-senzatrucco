@@ -1,13 +1,13 @@
 <?php
 /**
- * The template for displaying comments.
+ * The template for displaying comments
  *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
 
 /*
@@ -33,19 +33,7 @@ if ( post_password_required() ) {
 					'<span>' . get_the_title() . '</span>'
 				);
 			?>
-		</h2>
-
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'senza-trucco' ); ?></h2>
-			<div class="nav-links">
-
-				<div class="nav-previous"><?php previous_comments_link( '<i class="fa fa-chevron-left"></i>' . esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>' ); ?></div>
-
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-above -->
-		<?php endif; // Check for comment navigation. ?>
+		</h2><!-- .comments-title -->
 
 		<ol class="comment-list">
 			<?php
@@ -59,15 +47,15 @@ if ( post_password_required() ) {
 		</ol><!-- .comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+		<nav id="comment-navigation" class="navigation comment-navigation" role="navigation">
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'senza-trucco' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( '<i class="fa fa-chevron-left"></i>' . esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i>' ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'senza-trucco' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'senza-trucco' ) ); ?></div>
 
 			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-below -->
+		</nav><!-- #comment-navigation -->
 		<?php
 		endif; // Check for comment navigation.
 
@@ -81,9 +69,7 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form( array(
-		'class_submit'  => 	'pushbutton',
-	) );
+	comment_form();
 	?>
 
 </div><!-- #comments -->

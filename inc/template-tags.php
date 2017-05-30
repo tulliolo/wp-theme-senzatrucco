@@ -1,12 +1,12 @@
 <?php
 /**
- * Custom template tags for this theme.
+ * Custom template tags for this theme
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Senza Trucco
+ * @package Senza_Trucco
  */
-
+ 
 if ( ! function_exists( 'senza_trucco_comment' ) ) :
 /**
  * Prints HTML for the current comment.
@@ -28,10 +28,20 @@ function senza_trucco_comment($comment, $args, $depth) {
  
 		<li id="comment-<?php comment_ID() ?>" <?php comment_class( $extra_class ); ?>>
 			<article id="div-comment-<?php comment_ID() ?>" class="comment-body">
-				<footer class="comment-meta">
+				<header class="comment-meta">
 					<div class="comment-author vcard">
-						<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
-						<?php printf( __( '%s <span class="says">says:</span>', 'senza-trucco' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
+						<?php 
+						if ( 0 != $args['avatar_size'] ) {
+							echo get_avatar( $comment, $args['avatar_size'] ); 
+						}
+						
+						global $post;					
+						if ( $comment->user_id === $post->post_author ) {
+							printf( __('%s <span class="postauthor">post author</span>', 'senza-trucco'), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) );
+						} else {
+							printf( '<span class="fn">%s</span>', get_comment_author_link() );
+						}
+						?>
 					</div><!-- .comment-author -->
 					
 					<div class="comment-metadata">
@@ -49,9 +59,7 @@ function senza_trucco_comment($comment, $args, $depth) {
 					<?php if ( '0' == $comment->comment_approved ) : ?>
 						<p class="comment-awaiting"><?php _e( 'Your comment is awaiting moderation.', 'senza-trucco' ); ?></p>
 					<?php endif; ?>
-				</footer><!-- .comment-meta -->
-				
-				<div class="clear"></div>
+				</header><!-- .comment-meta -->
 		 
 				<div class="comment-content">	
 					<?php comment_text() ?>
@@ -62,12 +70,10 @@ function senza_trucco_comment($comment, $args, $depth) {
 						'add_below' => 'div-comment',
 						'depth'     => $depth,
 						'max_depth' => $args['max_depth'],
-						'before'    => '<div class="reply">',
+						'before'    => '<div class="comment-reply">',
 						'after'     => '</div>',
 					) ) );
 				?>
-			
-				<div class="clear"></div>
 			</article><!-- .comment-body -->
 	<?php 
 	endif; // if pingback
@@ -79,7 +85,6 @@ if ( ! function_exists( 'senza_trucco_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function senza_trucco_posted_on() {
-	// Show only on posts.
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -96,13 +101,13 @@ function senza_trucco_posted_on() {
 		'<i class="fa fa-calendar"></i>%1$s',
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
-	
+
 	$byline = sprintf(
 		'<i class="fa fa-user"></i>%1$s',
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline">' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 }
 endif;
 
@@ -166,15 +171,6 @@ function senza_trucco_edit_link() {
 }
 endif;
 
-if ( ! function_exists( 'senza_trucco_read_more' ) ) :
-/**
- * Prints HTML with meta information for the comments.
- */
-function senza_trucco_read_more() {
-	printf ( '<p class="read-more"><a class="primarybutton" href="%1$s">' . esc_html__( 'Read more', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i></a></p>', get_the_permalink() );
-}
-endif;
-
 if ( ! function_exists( 'senza_trucco_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -194,7 +190,6 @@ function senza_trucco_entry_meta() {
 }
 endif;
 
-
 if ( ! function_exists( 'senza_trucco_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -207,6 +202,15 @@ function senza_trucco_entry_footer() {
 	}
 	senza_trucco_comments_link();
 	senza_trucco_edit_link();
+}
+endif;
+
+if ( ! function_exists( 'senza_trucco_read_more' ) ) :
+/**
+ * Prints HTML for the read-more button.
+ */
+function senza_trucco_read_more() {
+	printf ( '<p class="read-more"><a class="button primary raised ripple" href="%1$s">' . esc_html__( 'Read more', 'senza-trucco' ) . '<i class="fa fa-chevron-right"></i></a></p>', get_the_permalink() );
 }
 endif;
 
@@ -252,3 +256,40 @@ function senza_trucco_category_transient_flusher() {
 }
 add_action( 'edit_category', 'senza_trucco_category_transient_flusher' );
 add_action( 'save_post',     'senza_trucco_category_transient_flusher' );
+
+/**
+ * Adds button class to links generated by next_posts_link and previous_posts_link
+ */
+function senza_trucco_posts_link_attributes() {
+    return 'class="button flat ripple"';
+}
+add_filter('next_posts_link_attributes', 'senza_trucco_posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'senza_trucco_posts_link_attributes');
+
+/**
+ * Adds button class to links generated by next_post_link and previous_post_link
+ */
+function senza_trucco_post_link_attributes($output) {
+    $code = 'class="button flat ripple"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+add_filter('next_post_link', 'senza_trucco_post_link_attributes');
+add_filter('previous_post_link', 'senza_trucco_post_link_attributes');
+
+/**
+ * Adds button class to links generated by next_comments_link and previous_comments_link
+ */
+function senza_trucco_comments_link_attributes() {
+    return 'class="button flat ripple"';
+}
+add_filter('next_comments_link_attributes', 'senza_trucco_comments_link_attributes');
+add_filter('previous_comments_link_attributes', 'senza_trucco_comments_link_attributes');
+
+/**
+ * Adds button class to comment reply link
+ */
+function senza_trucco_comment_reply_link($output){
+    $code = 'comment-reply-link button raised ripple';
+	return str_replace('comment-reply-link', $code , $output);
+}
+add_filter('comment_reply_link', 'senza_trucco_comment_reply_link');
