@@ -2031,6 +2031,22 @@ html, body {
 	display: block;
 }
 
+.bypostauthor .postauthor {
+	margin-right: .5em;
+}
+
+.bypostauthor .comment-meta i,
+.bypostauthor .vcard a,
+.bypostauthor .comment-metadata a:hover,
+.bypostauthor .comment-metadata a:focus,
+.bypostauthor .comment-metadata a:active {
+	color: #980747; /* fallback */
+}
+
+.bypostauthor .comment-reply-link {
+	background: #980747; /* fallback */
+}
+
 .comment-body {
 	padding-top: 1.5em;
 	border-top: .5em solid;
@@ -2080,7 +2096,6 @@ html, body {
 }
 
 .comment-metadata i {
-	color: #0060A0; /* fallback */
 	margin-right: .25em;
 }
 
@@ -2088,6 +2103,7 @@ html, body {
 	color: inherit;
 }
 
+.comment-metadata i,
 .comment-metadata a:hover,
 .comment-metadata a:focus,
 .comment-metadata a:active {
@@ -2101,6 +2117,24 @@ html, body {
 .comment-content a {
 	word-wrap: break-word;
 }
+
+@media screen and ( min-width: 37em ) {
+	.comment-list .children {
+		margin: 0;
+	}
+	
+	.comment {
+		position: relative;
+		margin-left: 4em;
+	}
+	
+	.comment-author .avatar {
+		display: block;
+		position: absolute;
+		left: -4em;
+		border-radius: 50%;
+	}
+}	
 
 /*--------------------------------------------------------------
 # Infinite scroll

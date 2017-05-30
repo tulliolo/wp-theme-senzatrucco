@@ -38,7 +38,7 @@ function senza_trucco_comment($comment, $args, $depth) {
 						
 						global $post;					
 						if ( $comment->user_id === $post->post_author ) {
-							printf( __('%s <span class="postauthor">post author</span>', 'senza-trucco'), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) );
+							printf( '<span class="postauthor"><i class="fa fa-star"></i></span><span class="fn">%s</span>', get_comment_author_link() );
 						} else {
 							printf( '<span class="fn">%s</span>', get_comment_author_link() );
 						}
