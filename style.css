@@ -2066,14 +2066,32 @@ html, body {
 	font-size: 81.3%;
 }
 
-.parent-comment-author .fn,
-.comment-metadata span:not(:first-of-type)  {
+.parent-comment-author .fn  {
 	margin-left: .5em;
 }
+.parent-comment-author .fn i {
+	margin-right: .25em;
+}
 
-.parent-comment-author .fn i
+.comment-metadata span:not(:first-of-type) {
+	margin-left: .5em;
+	padding-left: .5em;
+	border-left: 1px solid #ccc;
+}
+
 .comment-metadata i {
-	margin-right: .5em;
+	color: #0060A0; /* fallback */
+	margin-right: .25em;
+}
+
+.comment-metadata a {
+	color: inherit;
+}
+
+.comment-metadata a:hover,
+.comment-metadata a:focus,
+.comment-metadata a:active {
+	color: #0060A0; /* fallback */
 }
 
 .comment-reply {
