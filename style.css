@@ -2018,6 +2018,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	font-size: 81.3%;
 }
 
 .comment-list .children {
@@ -2046,17 +2047,33 @@ html, body {
 	margin-bottom: 1.5em;
 }
 
-.comment-meta .fn {
+.comment-author,
+.parent-comment-author {
+	display: inline-block;
+}
+
+.comment-author .fn {
 	font-size: 125%;
 }
 
-.comment-meta .avatar {
+.comment-author .avatar {
 	display: none;
 }
 
 .comment-metadata,
-.comment-reply  {
+.comment-reply,
+.parent-comment-author .fn  {
 	font-size: 81.3%;
+}
+
+.parent-comment-author .fn,
+.comment-metadata span:not(:first-of-type)  {
+	margin-left: .5em;
+}
+
+.parent-comment-author .fn i
+.comment-metadata i {
+	margin-right: .5em;
 }
 
 .comment-reply {

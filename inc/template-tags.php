@@ -21,7 +21,8 @@ function senza_trucco_comment($comment, $args, $depth) {
 				<?php _e( 'Pingback:', 'senza-trucco' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( '('.__( 'Edit', 'senza-trucco' ).')', '<span class="edit-link">', '</span>' ); ?>
 			</div>
 
-	<?php else : 
+	<?php 
+	else : 
 		$extra_class = 
 			( 0 == $args['avatar_size'] ) || !get_avatar( $comment, $args['avatar_size'] ) ? 'no-avatar' : ''; 
 	?>
@@ -43,6 +44,18 @@ function senza_trucco_comment($comment, $args, $depth) {
 						}
 						?>
 					</div><!-- .comment-author -->
+					
+					<?php
+					if ( $comment->comment_parent ) {
+					?>
+						<div class="parent-comment-author vcard">
+							<?php
+							printf( '<span class="fn"><i class="fa fa-share"></i>%s</span>', get_comment_author_link($comment->comment_parent) );
+							?>
+						</div><!-- .parent-comment-author -->
+					<?php 
+					}
+					?>
 					
 					<div class="comment-metadata">
 						<span class="posted-on">
