@@ -171,6 +171,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		/** foreground primary **/
 		.entry-title, .entry-title a,
 		.widget-title, .widget-title a,
+		.comments-title, .comment-reply-title,
 		
 		.bypostauthor .comment-meta i,
 		.bypostauthor .vcard a,
