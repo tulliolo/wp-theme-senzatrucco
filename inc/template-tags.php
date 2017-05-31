@@ -192,11 +192,11 @@ function senza_trucco_entry_meta() {
 	// Hide category text for pages.
 	if ( 'post' === get_post_type() ) {
 		senza_trucco_posted_on();
-		if ( ! is_single() ) {
+		if ( ! is_single() && ! is_search() ) {
 			senza_trucco_cat_links();
 		}
 	}
-	if ( ! is_single() ) {
+	if ( ! is_single() && ! is_search() ) {
 		senza_trucco_comments_link();
 		senza_trucco_edit_link();
 	}

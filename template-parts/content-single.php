@@ -13,10 +13,10 @@
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
 			if ( senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) != 1 && has_post_thumbnail() ) :
 				the_post_thumbnail( 'senza-trucco-thumb' );
 			endif;
+			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;

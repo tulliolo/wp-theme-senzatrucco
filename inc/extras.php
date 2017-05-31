@@ -57,6 +57,51 @@ add_action( 'wp_enqueue_scripts', 'senza_trucco_slider_scripts' );
 /*************************
  * Add UI Functions here *
  *************************/
+if ( ! function_exists( 'senza_trucco_fullscreen_slideshow' ) ) :
+/**
+ * Show a slideshow of featured content.
+ * Featured content is identified by a category and a page.
+ */
+function senza_trucco_fullscreen_slideshow() {
+	$slideord = 'date';
+	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+		$slideord = 'rand';
+	endif;
+
+	$featpage = get_post( senza_trucco_get_option( 'senza_trucco_slider_featured_page' ) );
+	$featquery = new WP_Query( array( 
+		'cat' => senza_trucco_get_option( 'senza_trucco_slider_featured_category' ), 
+		'nopaging' => true, 'orderby' => $slideord ) );
+
+	if ( ( $featquery->have_posts() ) && !( is_null( $featpage ) ) ) :
+		global $post;
+		$post = $featpage;
+		setup_postdata( $post );
+	?>
+
+	<article id="featured-post-<?php the_ID(); ?>" <?php post_class( 'featured-post post-summary' ); ?>>
+		<div class="flexslider">
+			<ul class="slides">
+				<?php
+				while ( $featquery->have_posts() ) :
+					$featquery->the_post();
+					if ( has_post_thumbnail() ) :
+						?>
+						<li style="background-image: url( <?php the_post_thumbnail_url('full') ?> );"></li>
+						<?php
+					endif;
+				endwhile;
+				?>
+			</ul>
+		</div><!-- .flexslider -->
+	</article><!-- #featured-post-## -->
+
+	<?php
+		wp_reset_postdata();
+	endif;
+}
+endif;
+ 
 if ( ! function_exists( 'senza_trucco_featured_slideshow' ) ) :
 /**
  * Show a slideshow of featured content.
