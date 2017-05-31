@@ -131,7 +131,7 @@ add_action( 'widgets_init', 'senza_trucco_widgets_init' );
 function senza_trucco_scripts() {
 	wp_enqueue_style( 'senza-trucco-style', get_stylesheet_uri() );
 	
-	wp_enqueue_style( 'senza-trucco-font-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
+	wp_enqueue_style( 'senza-trucco-font-style', 'https://fonts.googleapis.com/css?family=Istok+Web' );
 	
 	wp_enqueue_style( 'senza-trucco-font-awesome-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 

@@ -279,7 +279,7 @@ select,
 textarea {
 	color: #212121;
 	color: rgba(0,0,0,.87);
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Istok Web', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -375,6 +375,123 @@ ins {
 
 big {
 	font-size: 125%;
+}
+
+/*******************
+ * fallback colors *
+ *******************/
+ 
+/* background primary */
+.main-navigation li:hover,
+.main-navigation li.focus,
+.main-navigation li.menu-item-search:hover  .search-toggle,
+.main-navigation li.menu-item-search.focus  .search-toggle,
+.main-navigation li.menu-item-search .search-toggle[aria-expanded="true"],
+.main-navigation .current_page_item, 
+.main-navigation .current-menu-item, 
+.main-navigation .current_page_ancestor, 
+.main-navigation .current-menu-ancestor,
+
+.menu-toggle .icon-bar,
+.menu-toggle .icon-bar::before,
+.menu-toggle .icon-bar::after,
+
+.content-area.featured > .hentry,
+
+.bypostauthor .comment-reply-link,
+
+.button.primary,
+.button.primary.flat.enclosed:hover,
+.button.primary.flat.enclosed:active {
+	background: #980747; /* fallback */
+}
+
+/* foreground primary */
+.widget-title,
+.widget-title a,
+.entry-title,
+.entry-title a,
+
+.bypostauthor .comment-meta i,
+.bypostauthor .vcard a,
+.bypostauthor .comment-metadata a:hover,
+.bypostauthor .comment-metadata a:focus,
+.bypostauthor .comment-metadata a:active,
+
+.button.primary.flat {
+	 color: #980747; /* fallback */
+}
+
+/* background accent */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+
+.button,
+.button.flat.enclosed:hover,
+.button.flat.enclosed:active {
+	background: #0060A0; /* fallback */
+}
+
+/* foreground accent */
+.button.flat,
+
+a,
+a.inverted:hover,
+a.inverted:focus,
+a.inverted:active,
+
+.widget ul a:hover,
+.widget ul a:focus,
+.widget ul a:active,
+.widget li::before,
+.widget_pages li::before,
+.widget_archive li::before,
+.widget_categories li::before,
+.widget_recent_entries li::before,
+.widget_recent_comments li::before,
+
+.entry-meta i,
+.entry-footer i,
+.entry-meta a:hover,
+.entry-meta a:focus,
+.entry-meta a:active,
+.entry-footer a:hover,
+.entry-footer a:focus,
+.entry-footer a:active,
+
+.comment-metadata i,
+.comment-metadata a:hover,
+.comment-metadata a:focus,
+.comment-metadata a:active {
+	color: #0060A0; /* fallback */
+}
+
+/* misc accent */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus,
+
+button.search-submit {
+	border-color: #0060A0; /* fallback */
+}
+
+button.search-submit::before {
+	border-color: transparent #0060A0 transparent; /* fallback */
 }
 
 /*****************
@@ -500,7 +617,6 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	background: #0060A0; /* fallback */
 	color: #fff;
 	padding: .5em 1em;
 	border: none;
@@ -562,7 +678,6 @@ input[type="color"]:focus,
 textarea:focus {
 	color: #212121;
 	color: rgba(0,0,0,.87);
-	border-color: #0060A0; /* fallback */
 	-webkit-box-shadow: 0 .188em .375em #d6d6d6 inset;
 	   -moz-box-shadow: 0 .188em .375em #d6d6d6 inset;
 	        box-shadow: 0 .188em .375em #d6d6d6 inset;
@@ -576,7 +691,6 @@ textarea {
 }
 
 .button {
-	background: #0060A0; /* fallback */
 	color: #fff;
 	padding: .5em 1em;
 	border: none;
@@ -599,12 +713,12 @@ textarea {
 
 .button.flat {
 	background: none;
-	color: #0060A0; /* fallback */
 }
+
 .button.flat:hover,
 .button.flat:focus,
 .button.flat:active {
-	background: ##eaeaea;
+	background: #eaeaea;
 	background: rgba(0,0,0,.08);
 }
 
@@ -636,7 +750,6 @@ textarea {
 .button.raised,
 .button.flat.enclosed:hover,
 .button.flat.enclosed:active {
-	background: #0060A0; /* fallback */
 	color: #fff;
 }
 
@@ -657,11 +770,11 @@ button.search-submit {
 	left:         calc(-.25em - 1px);
 	padding: .25em .5em;
 	border: 1px solid;
-	border-color: #0060A0; /* fallback */
 	-webkit-border-radius: 0 .25em .25em 0;
 	   -moz-border-radius: 0 .25em .25em 0;
 	        border-radius: 0 .25em .25em 0;
 }
+
 button.search-submit::before {
 	position: absolute;
 	top: .5em;
@@ -669,7 +782,6 @@ button.search-submit::before {
 	content: '';
 	border-width: .5em .5em .5em 0;
 	border-style: solid solid solid none;
-	border-color: transparent #0060A0 transparent; /* fallback */
 }
 
 button.search-submit:hover {
@@ -684,7 +796,6 @@ button.search-submit:hover {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: #0060A0; /* fallback */
 	text-decoration: none;
 	-webkit-transition: all .2s ease;
 	   -moz-transition: all .2s ease;
@@ -708,13 +819,7 @@ a:active {
 
 a.inverted  {
 	color: inherit;
-}
-
-a.inverted:hover,
-a.inverted:focus,
-a.inverted:active  {
-	color: #0060A0; /* fallback */
-}		
+}	
 
 /*--------------------------------------------------------------
 ## Menus
@@ -855,18 +960,6 @@ a.inverted:active  {
 	display: none;
 }
 
-.main-navigation li:hover,
-.main-navigation li.focus,
-.main-navigation li.menu-item-search:hover  .search-toggle,
-.main-navigation li.menu-item-search.focus  .search-toggle,
-.main-navigation li.menu-item-search .search-toggle[aria-expanded="true"],
-.main-navigation .current_page_item, 
-.main-navigation .current-menu-item, 
-.main-navigation .current_page_ancestor, 
-.main-navigation .current-menu-ancestor {
-	background: #980747; /* fallback */
-}
-
 .main-navigation a {
 	display: block;
 	padding: 1em;
@@ -922,12 +1015,6 @@ a.inverted:active  {
 	height: 3.5em;
 	background: none;
 	border: 1px solid #ccc;
-}
-
-.menu-toggle .icon-bar,
-.menu-toggle .icon-bar::before,
-.menu-toggle .icon-bar::after {
-	background: #980747; /* fallback */
 }
 
 .menu-toggle .icon-bar {
@@ -1729,12 +1816,6 @@ html, body {
 	color: inherit;
 }
 
-.widget ul a:hover,
-.widget ul a:focus,
-.widget ul a:active {
-	color: #0060A0; /* fallback */
-}
-
 /* Social widget */
 .widget ul#menu-social {
 	margin: 0;
@@ -1761,7 +1842,6 @@ html, body {
 .widget_recent_entries li::before,
 .widget_recent_comments li::before {
 	content: '\f054';
-	color: #0060A0; /* fallback */
 	font-family: fontawesome;
 	margin-right: .5em;
 }
@@ -1872,7 +1952,6 @@ html, body {
 
 .content-area.featured > .hentry {
 	padding: .5em 1.5em 1.5em;
-	background: #980747; /* fallback */
 	-webkit-border-radius: .25em;
 	   -moz-border-radius: .25em;
 			border-radius: .25em;
@@ -1972,22 +2051,12 @@ html, body {
 
 .entry-meta i,
 .entry-footer i {
-	color: #0060A0; /* fallback */
 	margin-right: .25em;
 }
 
 .entry-meta a,
 .entry-footer a {
 	color: inherit;
-}
-
-.entry-meta a:hover,
-.entry-meta a:focus,
-.entry-meta a:active,
-.entry-footer a:hover,
-.entry-footer a:focus,
-.entry-footer a:active {
-	color: #0060A0; /* fallback */
 }
 
 .page-links {
@@ -2033,18 +2102,6 @@ html, body {
 
 .bypostauthor .postauthor {
 	margin-right: .5em;
-}
-
-.bypostauthor .comment-meta i,
-.bypostauthor .vcard a,
-.bypostauthor .comment-metadata a:hover,
-.bypostauthor .comment-metadata a:focus,
-.bypostauthor .comment-metadata a:active {
-	color: #980747; /* fallback */
-}
-
-.bypostauthor .comment-reply-link {
-	background: #980747; /* fallback */
 }
 
 .comment-body {
@@ -2101,13 +2158,6 @@ html, body {
 
 .comment-metadata a {
 	color: inherit;
-}
-
-.comment-metadata i,
-.comment-metadata a:hover,
-.comment-metadata a:focus,
-.comment-metadata a:active {
-	color: #0060A0; /* fallback */
 }
 
 .comment-reply {
