@@ -50,8 +50,5 @@ Senza Trucco theme uses:
 
 #Changelog#
 
-* 1.1.0 - 05.06.2017
-** Landing page support
-** Typographic fixes
-* 1.0.0 - 03.03.2017
-** Initial release
+* 1.1.0 - 05.06.2017 ## Landing page support
+* 1.0.0 - 03.03.2017 ## Initial release
