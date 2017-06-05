@@ -1,45 +1,57 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+[![Build Status](https://github.com/tulliolo/wp-theme-senzatrucco]
 
-_s
-===
+#About Senza Trucco WordPress Theme#
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Senza Trucco is a clean, modern and fully responsive theme designed for static websites and well suited for blogs too. It can be used for any creative and minimalistic style website. Senza Trucco theme is highly customizable with many color options, slider and landing pages, several widget areas and much more that can be adjusted via Theme Options. It features jetpack infinite scroll, SEO friendly structure, logo upload, full-screen slider and landing page, social media icons and translation ready setup. Senza Trucco is also available in Italian. It is Multilingual ready and compatible with WPML plugin.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+For questions, comments or bug reports, contact the author (tulliolo@yahoo.com).
 
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A helpful 404 template.
-* A custom header implementation in `inc/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+#Installation#
 
-Getting Started
----------------
+1. In your admin panel, go to Appearance > Themes and click the Add New button.
+2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
+3. Click Activate to use your new theme right away.
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+#Theme Features#
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a five-step find and replace on the name in all the templates.
+* Responsive design
+* Unlimited color variations
+* SEO friendly
+* Theme Options
+* Image centric approach
+* Internationalized & localization
+* Drop-down Menu
+* Cross-browser compatibility
+* Threaded Comments
+* Gravatar ready
+* Featured slider
+* Landing Page
+* Font Awesome icons
+* Infinite Scroll through Jetpack
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
+#Copyright notice#
 
-OR
+* Author: Tullio Loffredo [@tulliolo]
+* Author URI: https://github.com/tulliolo
+* License: GPLv2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Senza Trucco WordPress theme, Copyright 2015-2017 www.vinisenzatrucco.it
+* Senza Trucco WordPress theme is distributed under the terms of the GNU GPL
+* Senza Trucco WordPress theme is based on Underscores, (C) 2012-2017 Automattic, Inc.
 
-* Search for: `'_s'` and replace with: `'megatherium-is-awesome'`
-* Search for: `_s_` and replace with: `megatherium_is_awesome_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium-is-awesome` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium_is_Awesome</code>
-* Search for: `_s-` and replace with: `megatherium-is-awesome-`
+#Credits#
 
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
+Senza Trucco theme uses:
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+* [Underscores] http://underscores.me/, (C) 2012-2017 Automattic, Inc., GPLv2 or later
+* [Normalize] http://necolas.github.io/normalize.css/, (C) 2012-2017 Nicolas Gallagher and Jonathan Neal, MIT
+* FontAwesome licensed under the SIL OFL 1.1 (http://scripts.sil.org/OFL)
+* FlexSlider by WooThemes licensed under the GPLv2 license
 
-Good luck!
+#Changelog#
+
+* 1.1.0 - 05.06.2017
+** Landing page support
+** Typographic fixes
+* 1.0.0 - 03.03.2017
+** Initial release
