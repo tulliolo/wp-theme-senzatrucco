@@ -148,6 +148,15 @@ function senza_trucco_scripts() {
 add_action( 'wp_enqueue_scripts', 'senza_trucco_scripts' );
 
 /**
+ * Enqueue scripts and styles.
+ */
+function senza_trucco_add_editor_styles() {
+    add_editor_style( 'style.css' );
+	add_editor_style( 'css/flexslider.css' );
+}
+add_action( 'after_setup_theme', 'senza_trucco_add_editor_styles' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
