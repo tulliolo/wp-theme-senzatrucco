@@ -21,13 +21,16 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>	
-	<div id="page" class="site content-area slideshow featured fullscreen">
+<body <?php body_class('fullscreen'); ?>>
+	<div id="page" class="site">
 		<?php
 		if ( is_front_page() && senza_trucco_get_option( 'senza_trucco_slider_featured_content_enabled' ) ) : 
 			senza_trucco_fullscreen_slideshow();
 		endif;
 		?>
 	</div><!-- #page -->
+	
+	<?php wp_footer(); ?>
+	
 </body>
 </html>

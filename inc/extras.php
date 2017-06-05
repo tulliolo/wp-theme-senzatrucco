@@ -59,10 +59,13 @@ add_action( 'wp_enqueue_scripts', 'senza_trucco_slider_scripts' );
  *************************/
 if ( ! function_exists( 'senza_trucco_fullscreen_slideshow' ) ) :
 /**
- * Show a slideshow of featured content.
+ * Show a fullscreen slideshow of featured content.
  * Featured content is identified by a category and a page.
+ * Featured content must be configured in slider options.
  */
 function senza_trucco_fullscreen_slideshow() {
+	global $post;
+		
 	$slideord = 'date';
 	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
 		$slideord = 'rand';
@@ -74,29 +77,68 @@ function senza_trucco_fullscreen_slideshow() {
 		'nopaging' => true, 'orderby' => $slideord ) );
 
 	if ( ( $featquery->have_posts() ) && !( is_null( $featpage ) ) ) :
-		global $post;
 		$post = $featpage;
 		setup_postdata( $post );
-	?>
-
-	<article id="featured-post-<?php the_ID(); ?>" <?php post_class( 'featured-post post-summary' ); ?>>
-		<div class="flexslider">
-			<ul class="slides">
-				<?php
-				while ( $featquery->have_posts() ) :
-					$featquery->the_post();
-					if ( has_post_thumbnail() ) :
-						?>
-						<li style="background-image: url( <?php the_post_thumbnail_url('full') ?> );"></li>
-						<?php
-					endif;
-				endwhile;
-				?>
-			</ul>
-		</div><!-- .flexslider -->
-	</article><!-- #featured-post-## -->
-
-	<?php
+		?>
+		
+		<a href="<?php the_permalink() ?>">
+			<div class="flexslider">
+				<ul class=slides>
+					<?php
+					while ( $featquery->have_posts() ) :
+						$featquery->the_post();
+						if ( has_post_thumbnail() ) :
+							?>
+							<li style="background-image: url( <?php the_post_thumbnail_url('full') ?> );">
+								<?php
+								$post = $featpage;
+								setup_postdata( $post );
+								?>
+								
+								<div class="flex-caption">
+									<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-summary' ); ?>>
+										<div class="entry-title"><?php the_title() ?></div>
+										<div class="entry-summary">
+											<?php the_excerpt(); ?>
+										</div><!-- .entry-summary -->	
+									</article><!-- #post-## -->
+								</div><!-- .flex-caption -->
+								
+								<?php 
+								$description = get_bloginfo( 'description', 'display' );
+								if ( $description || is_customize_preview() ) : 
+									?>
+									<div class="site-branding">
+										<div class="site-title"><?php bloginfo( 'name' ); ?></div>
+										<div class="site-description"><?php echo $description; ?></div>
+									</div><!-- .site-branding -->
+									<?php 
+								endif;
+								?>
+								
+								<?php
+								$featquery->reset_postdata();
+								?>
+								
+								<div class="flex-caption">
+									<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-summary' ); ?>>
+										<div class="entry-summary">
+											<?php the_excerpt(); ?>
+										</div><!-- .entry-summary -->
+										
+										<?php the_title( '<div class="entry-title">', '</div>' );?>
+									</article><!-- #post-## -->
+								</div><!-- .flex-caption -->
+							</li>
+							<?php
+						endif;
+					endwhile;
+					?>
+				</ul><!-- .slides -->
+			</div><!-- .flexslider -->
+		</a>
+		
+		<?php
 		wp_reset_postdata();
 	endif;
 }
@@ -106,6 +148,7 @@ if ( ! function_exists( 'senza_trucco_featured_slideshow' ) ) :
 /**
  * Show a slideshow of featured content.
  * Featured content is identified by a category and a page.
+ * Featured content must be configured in slider options.
  */
 function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) {
 	$slideord = 'date';
@@ -125,7 +168,7 @@ function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) 
 	?>
 
 	<article id="featured-post-<?php the_ID(); ?>" <?php post_class( 'featured-post post-summary' ); ?>>
-		<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+		<?php the_title( sprintf( '<div class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></div>' ); ?>
 		<div class="flexslider">
 			<ul class="slides">
 		
@@ -143,7 +186,7 @@ function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) 
 	?>
 
 					<div class="flex-caption">
-						<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+						<?php the_title( sprintf( '<div class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></div>' ); ?>
 						
 						<div class="entry-summary">
 							<?php the_excerpt(); ?>
@@ -164,7 +207,7 @@ function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) 
 								<?php the_excerpt(); ?>
 							</div><!-- .entry-summary -->
 							
-							<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+							<?php the_title( sprintf( '<div class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></div>' ); ?>
 						</article><!-- #featured-post-## -->
 					</div><!-- .flex-caption -->
 				</li>
@@ -184,6 +227,7 @@ function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) 
 	?>
 		
 		<div class="entry-summary">
+				<!--a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_excerpt(); ?></a-->
 				<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 	</article><!-- #featured-post-## -->

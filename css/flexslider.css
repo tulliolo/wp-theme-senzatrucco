@@ -266,6 +266,9 @@ html[xmlns] .flexslider .slides {
  * THEME CUSTOMIZATION
  * Author: Tullio Loffredo (@tulliolo)
  * ====================================================================================================================*/
+/********************
+ ** default slider **
+ ********************/
 .flexslider {
 	font-size: 81.3%;
 	width: auto;
@@ -274,54 +277,62 @@ html[xmlns] .flexslider .slides {
 	background: none;
 }
 
+.flexslider .hentry {
+	margin: 0;
+	padding: 0;
+}
+
 .flex-caption {
 	display: none;
 	position: absolute;
-	top: auto;
-	right: auto;
+	top:    auto;
+	right:  auto;
 	bottom: auto;
-	left: auto;
+	left:   auto;
 	z-index: 1000;
-	max-width: 50%;
+	width: 100%;
+	width: 36em;
+	max-width: 60%;
 	overflow: hidden;
 }
 .flex-caption:first-of-type {
-	top: -1.5em;
+	top:  -1.75em;
 	left: -1.5em;
 	left: -1.5rem;
 }
 .flex-caption:last-of-type {
-	right: -1.5em;
-	right: -1.5rem;
-	bottom: -1.5em;
+	right:  -1.5em;
+	right:  -1.5rem;
+	bottom: -1.75em;
 	text-align: right;
 }
 
 .flex-caption .entry-title {
 	display: inline-block;
 	background: #980747; /* fallback */
-	padding: .5em 1em;
+	color: #fff;
+	padding: 0 1em;
 	margin: auto;
+	font-size: 150%;
+	font-weight: 900;
+	line-height: 2.2em;
+	text-align: center;
 }
 .flex-caption:first-of-type .entry-title {
 	-webkit-border-radius: 2em 1em 0 0;
 	   -moz-border-radius: 2em 1em 0 0;
-	        border-radius: 2em 1em 0 0;		
+			border-radius: 2em 1em 0 0;		
 }
 .flex-caption:last-of-type .entry-title {
 	-webkit-border-radius: 0 0 2em 1em;
 	   -moz-border-radius: 0 0 2em 1em;
-	        border-radius: 0 0 2em 1em;
-}
-
-.flex-caption .entry-title a {
-	color: #fff;
+			border-radius: 0 0 2em 1em;
 }
 
 .flex-caption .entry-content,
 .flex-caption .entry-summary {
 	display: block;
-	padding: .5em 1em;
+	padding: 1em;
 	margin: auto;
 	background: #626262;
     background: rgba(59, 59, 59, .8);
@@ -331,13 +342,18 @@ html[xmlns] .flexslider .slides {
 .flex-caption:first-of-type .entry-summary {
 	-webkit-border-radius: 0 1em 1em 1em;	
 	   -moz-border-radius: 0 1em 1em 1em;
-	        border-radius: 0 1em 1em 1em;	
+			border-radius: 0 1em 1em 1em;	
 }
 .flex-caption:last-of-type .entry-content,
 .flex-caption:last-of-type .entry-summary {
 	-webkit-border-radius: 1em 1em 0 1em;
 	   -moz-border-radius: 1em 1em 0 1em;
-	        border-radius: 1em 1em 0 1em;
+			border-radius: 1em 1em 0 1em;
+}
+
+.flexslider .entry-content p:last-of-type,
+.flexslider .entry-summary p:last-of-type {
+	margin: 0;
 }
 
 .flex-direction-nav a {
@@ -371,7 +387,97 @@ html[xmlns] .flexslider .slides {
 	opacity: .7;
 	right: 1.5em;
 }
+
+/***********************
+ ** fullscreen slider **
+ ***********************/
+.fullscreen .flexslider {
+	font-size: -webkit-calc(.75em + (.875 - .75) * ((100vw - 20em) / (120 - 20)));
+	font-size:    -moz-calc(.75em + (.875 - .75) * ((100vw - 20em) / (120 - 20)));
+	font-size:         calc(.75em + (.875 - .75) * ((100vw - 20em) / (120 - 20)));
+}
  
+.fullscreen .flexslider .slides > li {
+	width: 100vw;
+	height: 100vh;
+	margin: 0 auto;
+	background-position: center;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+}
+
+.fullscreen .flex-caption {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+.fullscreen .flex-caption:first-of-type {
+	top:  0;
+	left: auto;
+}
+.fullscreen .flex-caption:last-of-type {
+	right:  auto;
+	bottom: 0;
+	left:   0;
+}
+
+.fullscreen .flex-caption .entry-title {
+	display: block;
+}
+.fullscreen .flex-caption:first-of-type .entry-title {
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+			border-radius: 0;		
+}
+.fullscreen .flex-caption:last-of-type .entry-title {
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+			border-radius: 0;
+}
+
+.fullscreen .flex-caption .entry-content,
+.fullscreen .flex-caption .entry-summary {
+	display: none;
+}
+.fullscreen .flex-caption:first-of-type .entry-content,
+.fullscreen .flex-caption:first-of-type .entry-summary {
+	-webkit-border-radius: 0 0 1em 1em;	
+	   -moz-border-radius: 0 0 1em 1em;
+	        border-radius: 0 0 1em 1em;	
+}
+.fullscreen .flex-caption:last-of-type .entry-content,
+.fullscreen .flex-caption:last-of-type .entry-summary {
+	-webkit-border-radius: 1em 1em 0 0;
+	   -moz-border-radius: 1em 1em 0 0;
+	        border-radius: 1em 1em 0 0;
+}
+
+.fullscreen .flexslider .site-branding {
+	float: none;
+	max-width: 100%;
+	margin-top: -webkit-calc(50vh - ((6vw * 1.45) / 2));
+	margin-top:    -moz-calc(50vh - ((6vw * 1.45) / 2));
+	margin-top:         calc(50vh - ((6vw * 1.45) / 2));
+	color: #fff;
+	line-height: 1.45;
+	font-size: 2vw;
+	font-weight: 900;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	text-shadow: .15vw .15vh .30vw #000;
+	text-align: center;
+}
+
+.fullscreen .flexslider .site-branding .site-title {
+	font-size: 4vw;
+}
+
+.fullscreen .flexslider .flex-direction-nav {
+	display: none;
+}
 
 /* ====================================================================================================================
  * RESPONSIVE
@@ -379,5 +485,55 @@ html[xmlns] .flexslider .slides {
 @media screen and (min-width: 55em) {
 	.flex-caption {
 		display: block;
+	}
+}
+
+@media screen and (min-height: 30em) {
+	.fullscreen .flex-caption .entry-content,
+	.fullscreen .flex-caption .entry-summary {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 37.5em) and (min-height: 30em) {
+	.fullscreen .flex-caption {
+		width: 36em;
+		max-width: 60%;
+	}
+	.fullscreen .flex-caption:first-of-type {
+		top:  1.5vh;
+		left: 1.5vw;
+	}
+	.fullscreen .flex-caption:last-of-type {
+		right:  1.5vw;
+		bottom: 1.5vh;
+		left:   auto;
+	}
+	
+	.fullscreen .flex-caption .entry-title {
+		display: inline-block;
+	}
+	.fullscreen .flex-caption:first-of-type .entry-title {
+		-webkit-border-radius: 2em 1em 0 0;
+		   -moz-border-radius: 2em 1em 0 0;
+				border-radius: 2em 1em 0 0;		
+	}
+	.fullscreen .flex-caption:last-of-type .entry-title {
+		-webkit-border-radius: 0 0 2em 1em;
+		   -moz-border-radius: 0 0 2em 1em;
+				border-radius: 0 0 2em 1em;
+	}
+	
+	.fullscreen .flex-caption:first-of-type .entry-content,
+	.fullscreen .flex-caption:first-of-type .entry-summary {
+		-webkit-border-radius: 0 1em 1em 1em;	
+		   -moz-border-radius: 0 1em 1em 1em;
+				border-radius: 0 1em 1em 1em;	
+	}
+	.fullscreen .flex-caption:last-of-type .entry-content,
+	.fullscreen .flex-caption:last-of-type .entry-summary {
+		-webkit-border-radius: 1em 1em 0 1em;
+		   -moz-border-radius: 1em 1em 0 1em;
+				border-radius: 1em 1em 0 1em;
 	}
 }
