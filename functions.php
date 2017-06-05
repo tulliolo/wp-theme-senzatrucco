@@ -196,7 +196,7 @@ if ( ! function_exists( 'senza_trucco_get_attachment_image_attributes' ) ) :
 function senza_trucco_get_attachment_image_attributes($attr, $attachment, $size) {
     //Calculate Image Sizes by type and breakpoint
     //Slider Images
-    if ( $size === 'senza_trucco_slider_thumb' ) {
+	if ( $size === 'senza_trucco_slider_thumb' ) {
 		$attr['sizes'] = '(max-width: 22.625em) 20em,
 						  (max-width: 32.875em) 30em,
 						  (max-width: 53em)     40em,
@@ -252,6 +252,6 @@ foreach ($options_categories_obj as $category) {
 global $options_pages;
 $options_pages = array();
 $options_pages_obj = get_pages();
-foreach ($options_pages_obj as $page) {
-        $options_pages[$page->ID] = $page->post_title;
+foreach ($options_pages_obj as $post) {
+     $options_pages[$post->ID] = $post->post_title;
 }

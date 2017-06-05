@@ -44,7 +44,7 @@ function senza_trucco_customizer( $wp_customize ) {
 		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_content_enabled]', array(
-		'label'			=> __( 'Enable featured content', 'senza-trucco' ),
+		'label'			=> __( 'Featured content', 'senza-trucco' ),
 		'description'	=> __( 'Check if you want to enable a featured posts slider in front page and in home page.', 'senza-trucco' ),
 		'section'		=> 'senza_trucco_slider',
 		'priority'		=> 5,

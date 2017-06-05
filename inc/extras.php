@@ -85,6 +85,7 @@ function senza_trucco_fullscreen_slideshow() {
 			<div class="flexslider">
 				<ul class=slides>
 					<?php
+					wp_reset_postdata();
 					while ( $featquery->have_posts() ) :
 						$featquery->the_post();
 						if ( has_post_thumbnail() ) :
