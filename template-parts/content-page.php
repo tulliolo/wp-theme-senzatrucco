@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 ?>
@@ -13,7 +13,7 @@
 	<header class="entry-header">
 		<?php 
 		if ( has_post_thumbnail() ) :
-				the_post_thumbnail( 'senza-trucco-thumb' );
+				the_post_thumbnail( 'senzatrucco-thumb' );
 		endif;
 		the_title( '<h1 class="entry-title">', '</h1>' ); 
 		?>
@@ -24,7 +24,7 @@
 			the_content();
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'senza-trucco' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'senzatrucco' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -36,7 +36,7 @@
 				edit_post_link(
 					sprintf(
 						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'senza-trucco' ),
+						esc_html__( 'Edit %s', 'senzatrucco' ),
 						the_title( '<span class="screen-reader-text">"', '"</span>', false )
 					),
 					'<span class="edit-link">',

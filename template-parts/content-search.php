@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 ?>
@@ -15,7 +15,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php senza_trucco_entry_meta(); ?>
+			<?php senzatrucco_entry_meta(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -25,6 +25,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php senza_trucco_entry_footer(); ?>
+		<?php senzatrucco_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

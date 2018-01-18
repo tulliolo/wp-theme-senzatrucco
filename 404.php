@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 get_header(); ?>
@@ -13,11 +13,11 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'senza-trucco' ); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'senzatrucco' ); ?></h1>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links aside or a search?', 'senza-trucco' ); ?></p>
+					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links aside or a search?', 'senzatrucco' ); ?></p>
 					<p><?php get_search_form(); ?></p>
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
@@ -30,11 +30,11 @@ get_header(); ?>
 			the_widget( 'WP_Widget_Recent_Posts' );
 
 			// Only show the widget if site has multiple categories.
-			if ( senza_trucco_categorized_blog() ) :
+			if ( senzatrucco_categorized_blog() ) :
 		?>
 
 		<div class="widget widget_categories">
-			<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'senza-trucco' ); ?></h2>
+			<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'senzatrucco' ); ?></h2>
 			<ul>
 			<?php
 				wp_list_categories( array(
@@ -52,7 +52,7 @@ get_header(); ?>
 			endif;
 
 			/* translators: %1$s: smiley */
-			$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'senza-trucco' ), convert_smilies( ':)' ) ) . '</p>';
+			$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'senzatrucco' ), convert_smilies( ':)' ) ) . '</p>';
 			the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 
 			the_widget( 'WP_Widget_Tag_Cloud' );

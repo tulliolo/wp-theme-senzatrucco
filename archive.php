@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 get_header(); ?>

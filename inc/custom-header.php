@@ -8,33 +8,33 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses senza_trucco_header_style()
+ * @uses senzatrucco_header_style()
  */
-function senza_trucco_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'senza_trucco_custom_header_args', array(
+function senzatrucco_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'senzatrucco_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 500,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'senza_trucco_header_style',
+		'wp-head-callback'       => 'senzatrucco_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'senza_trucco_custom_header_setup' );
+add_action( 'after_setup_theme', 'senzatrucco_custom_header_setup' );
 
-if ( ! function_exists( 'senza_trucco_header_style' ) ) :
+if ( ! function_exists( 'senzatrucco_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog.
  *
- * @see senza_trucco_custom_header_setup().
+ * @see senzatrucco_custom_header_setup().
  */
-function senza_trucco_header_style() {
+function senzatrucco_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	/*

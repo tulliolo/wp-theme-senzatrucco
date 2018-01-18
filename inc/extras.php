@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 /**
@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function senza_trucco_body_classes( $classes ) {
+function senzatrucco_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -26,54 +26,54 @@ function senza_trucco_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'senza_trucco_body_classes' );
+add_filter( 'body_class', 'senzatrucco_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function senza_trucco_pingback_header() {
+function senzatrucco_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'senza_trucco_pingback_header' );
+add_action( 'wp_head', 'senzatrucco_pingback_header' );
 
-if ( ! function_exists( 'senza_trucco_featured_slideshow' ) ) :
+if ( ! function_exists( 'senzatrucco_featured_slideshow' ) ) :
 /**
  * Include slider style & scripts.
  */
-function senza_trucco_slider_scripts() {
-	if( ( ( is_front_page() || is_home() ) && senza_trucco_get_option( 'senza_trucco_slider_featured_content_enabled' ) ) ||
-		( ( is_single() || is_page() ) && senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) ) ) {
-		wp_enqueue_style( 'senza-trucco-flexslider-style', get_template_directory_uri() . '/css/flexslider.css' );
+function senzatrucco_slider_scripts() {
+	if( ( ( is_front_page() || is_home() ) && senzatrucco_get_option( 'senzatrucco_slider_featured_content_enabled' ) ) ||
+		( ( is_single() || is_page() ) && senzatrucco_get_option( 'senzatrucco_slider_post_enabled' ) ) ) {
+		wp_enqueue_style( 'senzatrucco-flexslider-style', get_template_directory_uri() . '/css/flexslider.css' );
 		
-		wp_enqueue_script( 'senza-trucco-flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array( 'senza-trucco-jquery' ), '20151215', true );
-		wp_enqueue_script( 'senza-trucco-flexslider-init', get_template_directory_uri() . '/js/flexslider-init.js', array( 'senza-trucco-jquery', 'senza-trucco-flexslider' ), '20151215', true );
+		wp_enqueue_script( 'senzatrucco-flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array( 'senzatrucco-jquery' ), '20151215', true );
+		wp_enqueue_script( 'senzatrucco-flexslider-init', get_template_directory_uri() . '/js/flexslider-init.js', array( 'senzatrucco-jquery', 'senzatrucco-flexslider' ), '20151215', true );
 	}
 }	
 endif;
-add_action( 'wp_enqueue_scripts', 'senza_trucco_slider_scripts' );
+add_action( 'wp_enqueue_scripts', 'senzatrucco_slider_scripts' );
 
 /*************************
  * Add UI Functions here *
  *************************/
-if ( ! function_exists( 'senza_trucco_fullscreen_slideshow' ) ) :
+if ( ! function_exists( 'senzatrucco_fullscreen_slideshow' ) ) :
 /**
  * Show a fullscreen slideshow of featured content.
  * Featured content is identified by a category and a page.
  * Featured content must be configured in slider options.
  */
-function senza_trucco_fullscreen_slideshow() {
+function senzatrucco_fullscreen_slideshow() {
 	global $post;
 		
 	$slideord = 'date';
-	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+	if ( senzatrucco_get_option( 'senzatrucco_slider_randord' ) == 1 ) :
 		$slideord = 'rand';
 	endif;
 
-	$featpage = get_post( senza_trucco_get_option( 'senza_trucco_slider_featured_page' ) );
+	$featpage = get_post( senzatrucco_get_option( 'senzatrucco_slider_featured_page' ) );
 	$featquery = new WP_Query( array( 
-		'cat' => senza_trucco_get_option( 'senza_trucco_slider_featured_category' ), 
+		'cat' => senzatrucco_get_option( 'senzatrucco_slider_featured_category' ), 
 		'nopaging' => true, 'orderby' => $slideord ) );
 
 	if ( ( $featquery->have_posts() ) && !( is_null( $featpage ) ) ) :
@@ -132,21 +132,21 @@ function senza_trucco_fullscreen_slideshow() {
 }
 endif;
  
-if ( ! function_exists( 'senza_trucco_featured_slideshow' ) ) :
+if ( ! function_exists( 'senzatrucco_featured_slideshow' ) ) :
 /**
  * Show a slideshow of featured content.
  * Featured content is identified by a category and a page.
  * Featured content must be configured in slider options.
  */
-function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) {
+function senzatrucco_featured_slideshow( $size = 'senzatrucco_slider_thumb' ) {
 	$slideord = 'date';
-	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+	if ( senzatrucco_get_option( 'senzatrucco_slider_randord' ) == 1 ) :
 		$slideord = 'rand';
 	endif;
 
-	$featpage = get_post( senza_trucco_get_option( 'senza_trucco_slider_featured_page' ) );
+	$featpage = get_post( senzatrucco_get_option( 'senzatrucco_slider_featured_page' ) );
 	$featquery = new WP_Query( array( 
-		'cat' => senza_trucco_get_option( 'senza_trucco_slider_featured_category' ), 
+		'cat' => senzatrucco_get_option( 'senzatrucco_slider_featured_category' ), 
 		'nopaging' => true, 'orderby' => $slideord ) );
 
 	if ( ( $featquery->have_posts() ) && !( is_null( $featpage ) ) ) :
@@ -226,15 +226,15 @@ function senza_trucco_featured_slideshow( $size = 'senza_trucco_slider_thumb' ) 
 }
 endif;
 
-if ( ! function_exists( 'senza_trucco_post_slideshow' ) ) :
+if ( ! function_exists( 'senzatrucco_post_slideshow' ) ) :
 /**
  * Shows a slideshow of the images attached to the current post.
  * 
  * @param the post id.
  */
-function senza_trucco_post_slideshow( $post_id, $size = 'senza_trucco_slider_thumb' ) {
+function senzatrucco_post_slideshow( $post_id, $size = 'senzatrucco_slider_thumb' ) {
 	$slideord = 'date';
-	if ( senza_trucco_get_option( 'senza_trucco_slider_randord' ) == 1 ) :
+	if ( senzatrucco_get_option( 'senzatrucco_slider_randord' ) == 1 ) :
 		$slideord = 'rand';
 	endif;
 
@@ -269,7 +269,7 @@ endif;
  * Add Helper Functions here *
  *****************************/
  
-if ( ! function_exists( 'senza_trucco_get_option' ) ) :
+if ( ! function_exists( 'senzatrucco_get_option' ) ) :
 /**
  * Helper function to return the theme option value.
  * If no value has been saved, it returns $default.
@@ -279,10 +279,10 @@ if ( ! function_exists( 'senza_trucco_get_option' ) ) :
  *
  * @package Senza Trucco
  */
-function senza_trucco_get_option( $name, $default = false ) {
+function senzatrucco_get_option( $name, $default = false ) {
 	$option_name = '';
 	// Get option settings from database
-	$options = get_option( 'senza-trucco' );
+	$options = get_option( 'senzatrucco' );
 
 	// Return specific option
 	if ( isset( $options[$name] ) ) {

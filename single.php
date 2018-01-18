@@ -4,16 +4,16 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 get_header(); 
 
-if ( is_single() && senza_trucco_get_option( 'senza_trucco_slider_post_enabled' ) == 1 ) :
+if ( is_single() && senzatrucco_get_option( 'senzatrucco_slider_post_enabled' ) == 1 ) :
 	global $post;
 	$post_id = $post->ID;
 	?><aside id="post-<?php $post_id; ?>-slideshow" class="content-area slideshow" role="complementary"><?php
-		senza_trucco_post_slideshow( $post_id );
+		senzatrucco_post_slideshow( $post_id );
 	?></aside><!-- #post-##-slideshow --><?php
 endif;
 ?>

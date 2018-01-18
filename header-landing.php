@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 ?><!DOCTYPE html>
@@ -21,7 +21,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site fullscreen">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'senza-trucco' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'senzatrucco' ); ?></a>
 	
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-content">

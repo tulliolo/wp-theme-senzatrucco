@@ -9,14 +9,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 get_header();
  
-if ( is_home() && senza_trucco_get_option( 'senza_trucco_slider_featured_content_enabled' ) ) : 
+if ( is_home() && senzatrucco_get_option( 'senzatrucco_slider_featured_content_enabled' ) ) : 
 	?><aside id="featured" class="content-area slideshow featured"><?php
-		senza_trucco_featured_slideshow();
+		senzatrucco_featured_slideshow();
 	?></aside><!-- #featured --><?php
 endif;
 ?>

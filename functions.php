@@ -4,10 +4,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
-if ( ! function_exists( 'senza_trucco_setup' ) ) :
+if ( ! function_exists( 'senzatrucco_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'senza_trucco_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function senza_trucco_setup() {
+function senzatrucco_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Senza Trucco, use a find and replace
-	 * to change 'senza-trucco' to the name of your theme in all the template files.
+	 * to change 'senzatrucco' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'senza-trucco', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'senzatrucco', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,8 +44,8 @@ function senza_trucco_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary'  => esc_html__( 'Primary',  'senza-trucco' ),
-		'social'   => esc_html__( 'Social',   'senza-trucco' )
+		'primary'  => esc_html__( 'Primary',  'senzatrucco' ),
+		'social'   => esc_html__( 'Social',   'senzatrucco' )
 	) );
 
 	/*
@@ -61,7 +61,7 @@ function senza_trucco_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'senza_trucco_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'senzatrucco_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -76,14 +76,14 @@ function senza_trucco_setup() {
 	 */
 	// Adds image sizes for any post & page
 	// Aspect ratio is 2:1
-	senza_trucco_add_image_size( 'senza_trucco_thumb', 800, 400, array( 'center', 'center' ) );
+	senzatrucco_add_image_size( 'senzatrucco_thumb', 800, 400, array( 'center', 'center' ) );
 	
 	// Adds image sizes for slider
 	// Aspect ratio is 2:1
-	senza_trucco_add_image_size( 'senza_trucco_slider_thumb', 1120, 560, array( 'center', 'center' ) );
+	senzatrucco_add_image_size( 'senzatrucco_slider_thumb', 1120, 560, array( 'center', 'center' ) );
 }
 endif;
-add_action( 'after_setup_theme', 'senza_trucco_setup' );
+add_action( 'after_setup_theme', 'senzatrucco_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -92,21 +92,21 @@ add_action( 'after_setup_theme', 'senza_trucco_setup' );
  *
  * @global int $content_width
  */
-function senza_trucco_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'senza_trucco_content_width', 640 );
+function senzatrucco_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'senzatrucco_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'senza_trucco_content_width', 0 );
+add_action( 'after_setup_theme', 'senzatrucco_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function senza_trucco_widgets_init() {
+function senzatrucco_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'senza-trucco' ),
+		'name'          => esc_html__( 'Sidebar', 'senzatrucco' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'senza-trucco' ),
+		'description'   => esc_html__( 'Add widgets here.', 'senzatrucco' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -114,32 +114,32 @@ function senza_trucco_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Sidebar', 'senza-trucco' ),
+		'name'          => esc_html__( 'Footer Sidebar', 'senzatrucco' ),
 		'id'            => 'footer-sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'senza-trucco' ),
+		'description'   => esc_html__( 'Add widgets here.', 'senzatrucco' ),
 		'before_widget' => '<section id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'senza_trucco_widgets_init' );
+add_action( 'widgets_init', 'senzatrucco_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function senza_trucco_scripts() {
-	wp_enqueue_style( 'senza-trucco-style', get_stylesheet_uri() );
+function senzatrucco_scripts() {
+	wp_enqueue_style( 'senzatrucco-style', get_stylesheet_uri() );
 	
-	wp_enqueue_style( 'senza-trucco-font-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
+	wp_enqueue_style( 'senzatrucco-font-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
 	
-	wp_enqueue_style( 'senza-trucco-font-awesome-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'senzatrucco-font-awesome-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 
-	wp_enqueue_script( 'senza-trucco-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' );
+	wp_enqueue_script( 'senzatrucco-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' );
 	
-	wp_enqueue_script( 'senza-trucco-script', get_template_directory_uri() . '/js/jquery.senza-trucco.js' );
+	wp_enqueue_script( 'senzatrucco-script', get_template_directory_uri() . '/js/jquery.senzatrucco.js' );
 	
-	wp_enqueue_script( 'senza-trucco-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'senzatrucco-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -147,21 +147,21 @@ function senza_trucco_scripts() {
 	
 	// extra styles for custom templates
 	if ( is_page('landing') ) {
-		wp_enqueue_style( 'senza-trucco-style-landing', get_template_directory_uri() . '/css/style-landing.css' );
+		wp_enqueue_style( 'senzatrucco-style-landing', get_template_directory_uri() . '/css/style-landing.css' );
 	} else {
 		// Runs this code when another page template is being used
 	}
 }
-add_action( 'wp_enqueue_scripts', 'senza_trucco_scripts' );
+add_action( 'wp_enqueue_scripts', 'senzatrucco_scripts' );
 
 /**
  * Enqueue scripts and styles.
  */
-function senza_trucco_add_editor_styles() {
+function senzatrucco_add_editor_styles() {
     add_editor_style( 'style.css' );
 	add_editor_style( 'css/flexslider.css' );
 }
-add_action( 'after_setup_theme', 'senza_trucco_add_editor_styles' );
+add_action( 'after_setup_theme', 'senzatrucco_add_editor_styles' );
 
 /**
  * Implement the Custom Header feature.
@@ -188,7 +188,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-if ( ! function_exists( 'senza_trucco_get_attachment_image_attributes' ) ) :
+if ( ! function_exists( 'senzatrucco_get_attachment_image_attributes' ) ) :
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails
@@ -200,17 +200,17 @@ if ( ! function_exists( 'senza_trucco_get_attachment_image_attributes' ) ) :
  * @param array $size Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function senza_trucco_get_attachment_image_attributes($attr, $attachment, $size) {
+function senzatrucco_get_attachment_image_attributes($attr, $attachment, $size) {
     //Calculate Image Sizes by type and breakpoint
     //Slider Images
-	if ( $size === 'senza_trucco_slider_thumb' ) {
+	if ( $size === 'senzatrucco_slider_thumb' ) {
 		$attr['sizes'] = '(max-width: 22.625em) 20em,
 						  (max-width: 32.875em) 30em,
 						  (max-width: 53em)     40em,
 						  (max-width: 56em)     50em,
 						  (max-width: 78.625em) 60em,
 						  70em';
-	} else if ( $size === 'senza_trucco_thumb' ) {
+	} else if ( $size === 'senzatrucco_thumb' ) {
 		$attr['sizes'] = '(max-width: 22.625em) 20em,
 						  (max-width: 32.875em) 30em,
 						  (max-width: 53em)     40em,
@@ -223,10 +223,10 @@ function senza_trucco_get_attachment_image_attributes($attr, $attachment, $size)
 	}	
     return $attr;
 }
-add_filter('wp_get_attachment_image_attributes', 'senza_trucco_get_attachment_image_attributes', 10 , 3);
+add_filter('wp_get_attachment_image_attributes', 'senzatrucco_get_attachment_image_attributes', 10 , 3);
 endif;
 
-if ( ! function_exists( 'senza_trucco_add_image_size' ) ) :
+if ( ! function_exists( 'senzatrucco_add_image_size' ) ) :
 /*
  * Registers new responsive image sizes for post thumbnails.
  * You may upload full resolution images for thumbnails.
@@ -234,7 +234,7 @@ if ( ! function_exists( 'senza_trucco_add_image_size' ) ) :
  *
  * @package Senza Trucco
  */
-function senza_trucco_add_image_size( $name, $width, $height, $crop ) {
+function senzatrucco_add_image_size( $name, $width, $height, $crop ) {
 	$aspect_ratio = $width / $height;
 	add_image_size( $name, $width, $height, $crop );
 	add_image_size( $name . '_320' ,  320, absint(  320 / $aspect_ratio ), $crop );

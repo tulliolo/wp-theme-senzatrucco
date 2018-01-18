@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 get_header();
@@ -17,8 +17,8 @@ get_header();
 
 <div id="primary" class="content-area slideshow featured">
 	<?php
-	if ( is_front_page() && senza_trucco_get_option( 'senza_trucco_slider_featured_content_enabled' ) ) : 
-		senza_trucco_featured_slideshow();
+	if ( is_front_page() && senzatrucco_get_option( 'senzatrucco_slider_featured_content_enabled' ) ) : 
+		senzatrucco_featured_slideshow();
 	endif;
 	?>
 </div><!-- #primary -->

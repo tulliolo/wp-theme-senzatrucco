@@ -2,7 +2,7 @@
 /**
  * Senza Trucco Theme Customizer
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 /**
@@ -10,135 +10,135 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function senza_trucco_customize_register( $wp_customize ) {
+function senzatrucco_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'senza_trucco_customize_register' );
+add_action( 'customize_register', 'senzatrucco_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function senza_trucco_customize_preview_js() {
-	wp_enqueue_script( 'senza_trucco_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function senzatrucco_customize_preview_js() {
+	wp_enqueue_script( 'senzatrucco_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'senza_trucco_customize_preview_js' );
+add_action( 'customize_preview_init', 'senzatrucco_customize_preview_js' );
 
 /**
  * Options for Senza Trucco Theme Customizer.
  */
-function senza_trucco_customizer( $wp_customize ) {
+function senzatrucco_customizer( $wp_customize ) {
 	
 	/*******************************************
 	 * Featured content & Slider configuration *
 	 *******************************************/
-	$wp_customize->add_section( 'senza_trucco_slider' , array(
-		'title'		=> __( 'Slider options', 'senza-trucco' ),
+	$wp_customize->add_section( 'senzatrucco_slider' , array(
+		'title'		=> __( 'Slider options', 'senzatrucco' ),
 		'priority'	=> 30,
 		'capability'     => 'edit_theme_options',
 	) );
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featured_content_enabled]', array(
+	$wp_customize->add_setting( 'senzatrucco[senzatrucco_slider_featured_content_enabled]', array(
 		'default' 			=> 0,
 		'type' 				=> 'option',
-		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
+		'sanitize_callback' => 'senzatrucco_sanitize_checkbox',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_content_enabled]', array(
-		'label'			=> __( 'Featured content', 'senza-trucco' ),
-		'description'	=> __( 'Check if you want to enable a featured posts slider in front page and in home page.', 'senza-trucco' ),
-		'section'		=> 'senza_trucco_slider',
+	$wp_customize->add_control( 'senzatrucco[senzatrucco_slider_featured_content_enabled]', array(
+		'label'			=> __( 'Featured content', 'senzatrucco' ),
+		'description'	=> __( 'Check if you want to enable a featured posts slider in front page and in home page.', 'senzatrucco' ),
+		'section'		=> 'senzatrucco_slider',
 		'priority'		=> 5,
 		'type'      	=> 'checkbox',
 	) );
 	
 	// Pull all the categories into an array
 	global $options_categories;
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featured_category]', array(
+	$wp_customize->add_setting( 'senzatrucco[senzatrucco_slider_featured_category]', array(
 		'default' 			=> '',
 		'type' 				=> 'option',
-		'sanitize_callback' => 'senza_trucco_sanitize_slidecat',
+		'sanitize_callback' => 'senzatrucco_sanitize_slidecat',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_category]', array(
-		'label' 		=> __('Featured category', 'senza-trucco'),
-		'description'	=> __('Select a category for the featured posts slider in front page and in home page.', 'senza-trucco'),
-		'section' 		=> 'senza_trucco_slider',
+	$wp_customize->add_control( 'senzatrucco[senzatrucco_slider_featured_category]', array(
+		'label' 		=> __('Featured category', 'senzatrucco'),
+		'description'	=> __('Select a category for the featured posts slider in front page and in home page.', 'senzatrucco'),
+		'section' 		=> 'senzatrucco_slider',
 		'type'    		=> 'select',
 		'choices'    	=> $options_categories,
 	) );
 	
 	// Pull all the pages into an array
 	global $options_pages;
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_featured_page]', array(
+	$wp_customize->add_setting( 'senzatrucco[senzatrucco_slider_featured_page]', array(
 		'default' 			=> '',
 		'type' 				=> 'option',
-		'sanitize_callback' => 'senza_trucco_sanitize_featpage',
+		'sanitize_callback' => 'senzatrucco_sanitize_featpage',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_featured_page]', array(
-		'label' 		=> __('Featured page', 'senza-trucco'),
-		'description'	=> __('Select a page for the featured posts slider in front page and in home page.', 'senza-trucco'),
-		'section' 		=> 'senza_trucco_slider',
+	$wp_customize->add_control( 'senzatrucco[senzatrucco_slider_featured_page]', array(
+		'label' 		=> __('Featured page', 'senzatrucco'),
+		'description'	=> __('Select a page for the featured posts slider in front page and in home page.', 'senzatrucco'),
+		'section' 		=> 'senzatrucco_slider',
 		'type'    		=> 'select',
 		'choices'    	=> $options_pages,
 	) );
 	
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_post_enabled]', array(
+	$wp_customize->add_setting( 'senzatrucco[senzatrucco_slider_post_enabled]', array(
 		'default' 			=> 0,
 		'type' 				=> 'option',
-		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
+		'sanitize_callback' => 'senzatrucco_sanitize_checkbox',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_post_enabled]', array(
-		'label'			=> __( 'Enable in posts', 'senza-trucco' ),
-		'description'	=> __( 'Check if you want to enable the slider in single posts.', 'senza-trucco' ),
-		'section'		=> 'senza_trucco_slider',
+	$wp_customize->add_control( 'senzatrucco[senzatrucco_slider_post_enabled]', array(
+		'label'			=> __( 'Enable in posts', 'senzatrucco' ),
+		'description'	=> __( 'Check if you want to enable the slider in single posts.', 'senzatrucco' ),
+		'section'		=> 'senzatrucco_slider',
 		'type'      	=> 'checkbox',
 	) );
 	
-	$wp_customize->add_setting( 'senza-trucco[senza_trucco_slider_randord]', array(
+	$wp_customize->add_setting( 'senzatrucco[senzatrucco_slider_randord]', array(
 		'default' 			=> 0,
 		'type' 				=> 'option',
-		'sanitize_callback' => 'senza_trucco_sanitize_checkbox',
+		'sanitize_callback' => 'senzatrucco_sanitize_checkbox',
 	) );
-	$wp_customize->add_control( 'senza-trucco[senza_trucco_slider_randord]', array(
-		'label'			=> __( 'Random slide order', 'senza-trucco' ),
-		'description'	=> __( 'Check if you want the slides in random order.', 'senza-trucco' ),
-		'section'		=> 'senza_trucco_slider',
+	$wp_customize->add_control( 'senzatrucco[senzatrucco_slider_randord]', array(
+		'label'			=> __( 'Random slide order', 'senzatrucco' ),
+		'description'	=> __( 'Check if you want the slides in random order.', 'senzatrucco' ),
+		'section'		=> 'senzatrucco_slider',
 		'type'      	=> 'checkbox',
 	) );
 	
 	/******************************
 	 * Color scheme configuration *
 	 ******************************/
-	$wp_customize->add_setting( 'senza_trucco_color_primary', array(
+	$wp_customize->add_setting( 'senzatrucco_color_primary', array(
 		'default' 			=> '#980747',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control( $wp_customize, 'senza_trucco_color_primary', array(
-				'label'		=> __('Primary color', 'senza-trucco'),
+		new WP_Customize_Color_Control( $wp_customize, 'senzatrucco_color_primary', array(
+				'label'		=> __('Primary color', 'senzatrucco'),
 				'section' 	=> 'colors',
-				'settings'	=> 'senza_trucco_color_primary',
+				'settings'	=> 'senzatrucco_color_primary',
 				'priority'	=> 1
 			)
 	) );
-	$wp_customize->add_setting( 'senza_trucco_color_accent', array(
+	$wp_customize->add_setting( 'senzatrucco_color_accent', array(
 		'default' 			=> '#0060A0',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control( $wp_customize, 'senza_trucco_color_accent', array(
-				'label'		=> __('Accent color', 'senza-trucco'),
+		new WP_Customize_Color_Control( $wp_customize, 'senzatrucco_color_accent', array(
+				'label'		=> __('Accent color', 'senzatrucco'),
 				'section' 	=> 'colors',
-				'settings'	=> 'senza_trucco_color_accent',
+				'settings'	=> 'senzatrucco_color_accent',
 				'priority'	=> 2
 			)
 	) );
 }
-add_action( 'customize_register', 'senza_trucco_customizer' );
+add_action( 'customize_register', 'senzatrucco_customizer' );
 
 /**
  * Applies color customizations
  */
-function senza_trucco_customizer_css( $wp_customize ) {
+function senzatrucco_customizer_css( $wp_customize ) {
 	?>
 	<style type="text/css">
 		/** background primary **/
@@ -165,7 +165,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.button.primary,
 		.button.primary.flat.enclosed:hover,
 		.button.primary.flat.enclosed:active {
-			background: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
+			background: <?php echo get_theme_mod( 'senzatrucco_color_primary', '#980747' ); ?>;
 		}
 		
 		/** foreground primary **/
@@ -178,7 +178,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.bypostauthor .comment-metadata a:active,
 
 		.button.primary.flat {
-			color: <?php echo get_theme_mod( 'senza_trucco_color_primary', '#980747' ); ?>;
+			color: <?php echo get_theme_mod( 'senzatrucco_color_primary', '#980747' ); ?>;
 		}
 		
 		/* background accent */
@@ -190,7 +190,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.button,
 		.button.flat.enclosed:hover,
 		.button.flat.enclosed:active {
-			background: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#0060A0' ); ?>;
+			background: <?php echo get_theme_mod( 'senzatrucco_color_accent', '#0060A0' ); ?>;
 		}
 
 		/* foreground accent */
@@ -224,7 +224,7 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		.comment-metadata a:hover,
 		.comment-metadata a:focus,
 		.comment-metadata a:active {
-			color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#0060A0' ); ?>;
+			color: <?php echo get_theme_mod( 'senzatrucco_color_accent', '#0060A0' ); ?>;
 		}
 		
 		/* misc accent */
@@ -246,11 +246,11 @@ function senza_trucco_customizer_css( $wp_customize ) {
 		textarea:focus,
 
 		button.search-submit {
-			border-color: <?php echo get_theme_mod( 'senza_trucco_color_accent', '#0060A0' ); ?>;
+			border-color: <?php echo get_theme_mod( 'senzatrucco_color_accent', '#0060A0' ); ?>;
 		}
 
 		button.search-submit::before {
-			border-color: transparent <?php echo get_theme_mod( 'senza_trucco_color_accent', '#0060A0' ); ?> transparent;
+			border-color: transparent <?php echo get_theme_mod( 'senzatrucco_color_accent', '#0060A0' ); ?> transparent;
 		}
 		
 		/* reset */
@@ -266,12 +266,12 @@ function senza_trucco_customizer_css( $wp_customize ) {
 	</style>
 	<?php
 }
-add_action( 'wp_head', 'senza_trucco_customizer_css' );
+add_action( 'wp_head', 'senzatrucco_customizer_css' );
 
 /**
  * Sanitize checkbox for WordPress customizer
  */
-function senza_trucco_sanitize_checkbox( $input ) {
+function senzatrucco_sanitize_checkbox( $input ) {
     if ( $input == 1 ) {
         return 1;
     } else {
@@ -283,7 +283,7 @@ function senza_trucco_sanitize_checkbox( $input ) {
  * Adds sanitization callback function: Featured Page
  * @package Senza Trucco
  */
-function senza_trucco_sanitize_featpage( $input ) {
+function senzatrucco_sanitize_featpage( $input ) {
     global $options_pages;
     if ( array_key_exists( $input, $options_pages ) ) {
         return $input;
@@ -296,7 +296,7 @@ function senza_trucco_sanitize_featpage( $input ) {
  * Adds sanitization callback function: Slider Category
  * @package Senza Trucco
  */
-function senza_trucco_sanitize_slidecat( $input ) {
+function senzatrucco_sanitize_slidecat( $input ) {
     global $options_categories;
     if ( array_key_exists( $input, $options_categories ) ) {
         return $input;

@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Senza_Trucco
+ * @package senzatrucco
  */
 
 ?>
@@ -21,9 +21,9 @@
 		<?php } ?>
 	
 		<div class="site-info">
-			&#169; 2015&#45;<?php echo date('Y'); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Senza Trucco', 'senza-trucco' ); ?></a>
+			&#169; 2015&#45;<?php echo date('Y'); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html__( 'Senza Trucco', 'senzatrucco' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Web design by %1$s', 'senza-trucco' ), '<a href="mailto:tulliolo@yahoo.com" rel="designer">Tullio Loffredo</a>' ); ?>
+			<?php printf( esc_html__( 'Web design by %1$s', 'senzatrucco' ), '<a href="mailto:tulliolo@yahoo.com" rel="designer">Tullio Loffredo</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
