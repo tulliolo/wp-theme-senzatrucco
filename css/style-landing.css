@@ -1,0 +1,65 @@
+/*
+ * Copyright 2015 Senza Trucco
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tullio Loffredo (@tulliolo)
+ *
+ */
+ 
+a:hover {
+	text-decoration: none;
+}
+
+.site {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} 
+
+.site-header, .site-content, .content-area {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.site-header {
+	background: transparent;
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
+	z-index: 9999;
+}
+
+.site-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.site-branding {
+	max-width: 100%;
+	padding: 1.5vh 1.5vw;
+}
+
+.site-logo {
+	max-width: 25vw;
+}
+
+.site-title, .site-description {
+	color: #fff;
+	line-height: 1.45;
+	font-size: 2vw;
+	font-weight: 900;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	text-shadow: .15vw .15vh .30vw #000;
+	text-align: center;
+}
+
+.site-title {
+	font-size: 3vw;
+}

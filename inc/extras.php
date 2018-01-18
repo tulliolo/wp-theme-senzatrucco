@@ -81,7 +81,6 @@ function senza_trucco_fullscreen_slideshow() {
 		setup_postdata( $post );
 		?>
 		
-		<a href="<?php the_permalink() ?>">
 			<div class="flexslider">
 				<ul class=slides>
 					<?php
@@ -96,32 +95,22 @@ function senza_trucco_fullscreen_slideshow() {
 								setup_postdata( $post );
 								?>
 								
-								<div class="flex-caption">
+								<div class="flex-caption"><a href="<?php the_permalink() ?>">	
 									<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-summary' ); ?>>
-										<div class="entry-title"><?php the_title() ?></div>
+										<div class="entry-title">
+											<?php the_title() ?>
+										</div>
 										<div class="entry-summary">
 											<?php the_excerpt(); ?>
 										</div><!-- .entry-summary -->	
-									</article><!-- #post-## -->
-								</div><!-- .flex-caption -->
-								
-								<?php 
-								$description = get_bloginfo( 'description', 'display' );
-								if ( $description || is_customize_preview() ) : 
-									?>
-									<div class="site-branding">
-										<div class="site-title"><?php bloginfo( 'name' ); ?></div>
-										<div class="site-description"><?php echo $description; ?></div>
-									</div><!-- .site-branding -->
-									<?php 
-								endif;
-								?>
+									</article><!-- #post-## -->	
+								</a></div><!-- .flex-caption -->								
 								
 								<?php
 								$featquery->reset_postdata();
 								?>
 								
-								<div class="flex-caption">
+								<div class="flex-caption"><a href="<?php the_permalink() ?>">
 									<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-summary' ); ?>>
 										<div class="entry-summary">
 											<?php the_excerpt(); ?>
@@ -129,7 +118,7 @@ function senza_trucco_fullscreen_slideshow() {
 										
 										<?php the_title( '<div class="entry-title">', '</div>' );?>
 									</article><!-- #post-## -->
-								</div><!-- .flex-caption -->
+								</a></div><!-- .flex-caption -->
 							</li>
 							<?php
 						endif;
@@ -137,8 +126,6 @@ function senza_trucco_fullscreen_slideshow() {
 					?>
 				</ul><!-- .slides -->
 			</div><!-- .flexslider -->
-		</a>
-		
 		<?php
 		wp_reset_postdata();
 	endif;

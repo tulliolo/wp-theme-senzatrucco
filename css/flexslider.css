@@ -410,6 +410,7 @@ html[xmlns] .flexslider .slides {
 	display: block;
 	width: 100%;
 	max-width: 100%;
+	z-index: 99999;
 }
 .fullscreen .flex-caption:first-of-type {
 	top:  0;

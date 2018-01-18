@@ -144,6 +144,13 @@ function senza_trucco_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	// extra styles for custom templates
+	if ( is_page('landing') ) {
+		wp_enqueue_style( 'senza-trucco-style-landing', get_template_directory_uri() . '/css/style-landing.css' );
+	} else {
+		// Runs this code when another page template is being used
+	}
 }
 add_action( 'wp_enqueue_scripts', 'senza_trucco_scripts' );
 
