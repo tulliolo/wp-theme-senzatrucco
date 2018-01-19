@@ -18,7 +18,7 @@ a:hover {
 	align-items: center;
 } 
 
-.site-header, .site-content, .content-area {
+.site-header, .header-content, .site-content, .content-area {
 	max-width: 100%;
 	margin: 0 auto;
 	padding: 0;
@@ -40,6 +40,7 @@ a:hover {
 }
 
 .site-branding {
+	float: none;
 	max-width: 100%;
 	padding: 1.5vh 1.5vw;
 }
